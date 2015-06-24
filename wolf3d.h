@@ -22,6 +22,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
+# include <X11/X.h>
 
 # define WIDTH 1280
 # define RESOLUTION 0.625
@@ -69,6 +70,9 @@ typedef struct		s_map
 	double			ypos;
 	double			zpos;
 	double			zrot;
+	int				mspd;
+	int				sspd;
+	int				jspd;
 	int				xtab;
 	int				ytab;
 	t_block			***tab;
@@ -116,6 +120,9 @@ t_obj				*ft_make_obj(t_block *block);
 int					ft_make_tab(t_map *map, int x, int y);
 int					ft_load_map(t_env *env, size_t l, int *x, int *y);
 int					ft_key_hook(int keycode, t_env *env);
+int					ft_check_key(int key);
+int					ft_keypress_hook(int keycode, t_env *env);
+int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_expose_hook(t_env *env);
 
 #endif

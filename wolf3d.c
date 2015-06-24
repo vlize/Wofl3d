@@ -27,6 +27,9 @@ static int	ft_check_pos0(t_map *map, char *line, size_t l)
 	l++;
 	if (ft_put_data(map, line, &l, &(map->zrot0)) != 1)
 		return (0);
+	map->mspd = 0;
+	map->sspd = 0;
+	map->jspd = 0;
 	return (1);
 }
 
@@ -131,8 +134,7 @@ int			main(int ac, char **av)
 		return (ft_perror("mlx_new_image()", env));
 	mlx_expose_hook(env->win, ft_expose_hook, env);
 	mlx_key_hook(env->win, ft_key_hook, env);
-//	mlx_mouse_hook(env->win, ft_mouse_hook, env);
-//	mlx_hook(env->win, MotionNotify, PointerMotionHintMask, ft_mlx_hook, env);
-	mlx_loop(env->mlx);
-	return (ft_free_env(env));
+	mlx_hook(env->win, KeyPress, KeyPressMask, ft_keypress_hook, env);
+	mlx_hook(env->win, KeyRelease, KeyReleaseMask, ft_keyrelease_hook, env);
+	return (mlx_loop(env->mlx));
 }
