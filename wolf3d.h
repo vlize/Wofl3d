@@ -72,11 +72,25 @@ typedef struct		s_map
 	double			zrot;
 	int				mspd;
 	int				sspd;
-	int				jspd;
+	int				jump;
+	int				fall;
 	int				xtab;
 	int				ytab;
 	t_block			***tab;
 }					t_map;
+
+typedef struct		s_key
+{
+	int				forward;
+	int				backward;
+	int				strafe_l;
+	int				strafe_r;
+	int				turn_l;
+	int				turn_r;
+	int				crouch;
+	int				jump;
+	int				use;
+}					t_key;
 
 typedef struct		s_env
 {
@@ -96,7 +110,9 @@ typedef struct		s_env
 	int				gnl;
 	char			*line;
 	char			*addr;
+	t_key			*key;
 	t_map			*map;
+	uint			color;
 }					t_env;
 
 void				ft_init_loading(char **s, int *i, int height);
@@ -110,6 +126,7 @@ int					ft_is_op(int c);
 int					ft_is_val(int c);
 int					ft_is_pln(int c);
 int					ft_is_obj(int c);
+int					ft_init_key(t_env *env);
 int					ft_check_gnl(t_env *env, int y);
 int					ft_put_data(t_map *map, char *s, size_t *l, double *data);
 double				ft_put_operand(t_map *map, char *line, size_t *l);
@@ -119,10 +136,9 @@ t_pln				*ft_make_pln(t_block *block);
 t_obj				*ft_make_obj(t_block *block);
 int					ft_make_tab(t_map *map, int x, int y);
 int					ft_load_map(t_env *env, size_t l, int *x, int *y);
-int					ft_key_hook(int keycode, t_env *env);
-int					ft_check_key(int key);
+int					ft_expose_hook(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
-int					ft_expose_hook(t_env *env);
+void				ft_key_event(t_env *env);
 
 #endif

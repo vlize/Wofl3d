@@ -13,6 +13,22 @@
 #include "libft.h"
 #include "wolf3d.h"
 
+int		ft_init_key(t_env *env)
+{
+	if (!(env->key = (t_key *)malloc(sizeof(t_key))))
+		return (0);
+	env->key->forward = 0;
+	env->key->backward = 0;
+	env->key->strafe_l = 0;
+	env->key->strafe_r = 0;
+	env->key->turn_l = 0;
+	env->key->turn_r = 0;
+	env->key->crouch = 0;
+	env->key->jump = 0;
+	env->key->use = 0;
+	return (1);
+}
+
 void	ft_init_loading(char **s, int *i, int height)
 {
 	*s = "loading.xpm";

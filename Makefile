@@ -24,14 +24,14 @@ LIB =	-L ./libft/ -lft \
 INC =	-I . -I libft/includes/ -I minilibx_macos/ \
 		-I /System/Library/Frameworks/Tk.framework/Headers/
 
-FLAG = -Wall -Wextra -Werror
+CMP = gcc -Wall -Wextra -Werror
 
 all : $(NAME)
 
 $(NAME) :
 		@ make -C libft/
-		@ gcc $(FLAG) $(INC) -c $(SRC)
-		@ gcc $(FLAG) -o $(NAME) $(OBJ) $(LIB)
+		@ $(CMP) $(INC) -c $(SRC)
+		@ $(CMP) -o $(NAME) $(OBJ) $(LIB)
 		@ echo "\x1b[32m>make all : \tOK\x1b[0m"
 
 clean :

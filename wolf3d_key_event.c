@@ -10,69 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "libft.h"
 #include "wolf3d.h"
 
-int			ft_keyrelease_hook(int keycode, t_env *env)
+static void	ft_key_event3(t_env *env)
 {
-	if (ft_check_key(keycode) != 1)
-		return (0);
-	if (((keycode == 126) || (keycode == 13)) && ((env->map)->mspd > 0))
-		(env->map)->mspd = 0;
-	if (((keycode == 125) || (keycode == 1)) && ((env->map)->mspd < 0))
-		(env->map)->mspd = 0;
-	if ((keycode == 0) && ((env->map)->sspd > 0))
-		(env->map)->sspd = 0;
-	if ((keycode == 2) && ((env->map)->sspd < 0))
-		(env->map)->sspd = 0;
-	return (mlx_loop_hook(env->mlx, ft_expose_hook, env));
+	if ((env->map->jump < 20) && env->key->jump)
+		env->map->jump += 5;
+	else
+		env->map->jump = 0;
+	if (!(env->key->forward) && (env->map->mspd < 0))
+		env->map->mspd = 0;
+	if (!(env->key->backward) && (env->map->mspd > 0))
+		env->map->mspd = 0;
+	if (!(env->key->strafe_l) && (env->map->sspd < 0))
+		env->map->sspd = 0;
+	if (!(env->key->strafe_r) && (env->map->sspd > 0))
+		env->map->sspd = 0;
 }
 
-static int	ft_keypress_hook2(int keycode, t_env *env)
+static void	ft_key_event2(t_env *env)
 {
-	if (keycode == 0)
+	if (env->key->strafe_l && (!env->key->strafe_r || (env->map->sspd < 0)))
 	{
-		if ((env->map)->sspd < 0)
-			(env->map)->sspd = 5;
-		if ((env->map)->sspd < 20)
-			(env->map)->sspd += 5;
+		if (env->map->sspd > 0)
+			env->map->sspd = -5;
+		if (env->map->sspd > -20)
+			env->map->sspd -= 5;
 	}
-	else if (keycode == 2)
+	if (env->key->strafe_r && (!env->key->strafe_l || (env->map->sspd > 0)))
 	{
-		if ((env->map)->sspd > 0)
-			(env->map)->sspd = -5;
-		if ((env->map)->sspd > -20)
-			(env->map)->sspd -= 5;
+		if (env->map->sspd < 0)
+			env->map->sspd = 5;
+		if (env->map->sspd < 20)
+			env->map->sspd += 5;
 	}
-	return (ft_key_hook(keycode, env));
+	if (env->key->use)
+	{
+		env->color += 5;
+		if (env->color > 0xFF)
+			env->color += 0x500;
+		if (env->color > 0xFFFF)
+			env->color += 0x50000;
+		if (env->color > 0xFFFFFF)
+			env->color = 0;
+	}
+	return (ft_key_event3(env));
 }
 
-int			ft_keypress_hook(int keycode, t_env *env)
+void		ft_key_event(t_env *env)
 {
-	if (ft_check_key(keycode) == 0)
-		return (ft_key_hook(keycode, env));
-	if ((keycode == 126) || (keycode == 13))
+	if (env->key->forward && (!env->key->backward || (env->map->mspd < 0)))
 	{
-		if ((env->map)->mspd < 0)
-			(env->map)->mspd = 5;
-		if ((env->map)->mspd < 20)
-			(env->map)->mspd += 5;
+		if (env->map->mspd > 0)
+			env->map->mspd = -5;
+		if (env->map->mspd > -20)
+			env->map->mspd -= 5;
 	}
-	else if ((keycode == 125) || (keycode == 1))
+	if (env->key->backward && (!env->key->forward || (env->map->mspd > 0)))
 	{
-		if ((env->map)->mspd > 0)
-			(env->map)->mspd = -5;
-		if ((env->map)->mspd > -20)
-			(env->map)->mspd -= 5;
+		if (env->map->mspd < 0)
+			env->map->mspd = 5;
+		if (env->map->mspd < 20)
+			env->map->mspd += 5;
 	}
-	if ((keycode == 123) || (keycode == 12))
-		(env->map)->zrot += 5;
-	else if ((keycode == 124) || (keycode == 14))
-		(env->map)->zrot -= 5;
-	while ((env->map)->zrot >= 360)
-		(env->map)->zrot -= 360;
-	while ((env->map)->zrot < 0)
-		(env->map)->zrot += 360;
-	return (ft_keypress_hook2(keycode, env));
+	if (env->key->turn_l)
+		env->map->zrot += 5;
+	if (env->key->turn_r)
+		env->map->zrot -= 5;
+	while (env->map->zrot >= 360)
+		env->map->zrot -= 360;
+	while (env->map->zrot < 0)
+		env->map->zrot += 360;
+	return (ft_key_event2(env));
 }

@@ -74,6 +74,8 @@ int		ft_free_env(t_env *env)
 		mlx_destroy_window(env->mlx, env->win);
 	if (env->name)
 		ft_free(env->name);
+	if (env->key)
+		ft_free(env->key);
 	if (env->map)
 	{
 		if (env->map->tab)
