@@ -63,7 +63,9 @@ static int	ft_init_env(t_env *env)
 {
 	env->wid = WIDTH;
 	env->hei = WIDTH * RESOLUTION;
-	env->depth = (WIDTH / 2) / tan(VIEW_ANGLE / 2);
+	env->x = WIDTH / 2;
+	env->y = env->hei / 2;
+	env->depth = env->x / tan(SEMI_ANGLE);
 	env->b = 4 * CHAR_BIT;
 	env->l = 4 * WIDTH;
 	env->en = ft_endian();
@@ -91,10 +93,12 @@ static int	ft_check_arg(int ac, char **av, t_env *env)
 	size_t	l;
 
 	env->fd = 0;
+	env->spd = SPD_MAX;
 	env->mlx = NULL;
 	env->win = NULL;
 	env->img = NULL;
 	env->key = NULL;
+	env->key0 = NULL;
 	env->map = NULL;
 	env->name = NULL;
 	env->load = NULL;
@@ -134,7 +138,7 @@ int			main(int ac, char **av)
 		return (0);
 	if (!(env->img = mlx_new_image(env->mlx, WIDTH, env->hei)))
 		return (ft_perror("mlx_new_image()", env));
-	env->color = 0xFF;
+	env->color = 0xFF00;
 	mlx_expose_hook(env->win, ft_expose_hook, env);
 	mlx_hook(env->win, KeyPress, KeyPressMask, ft_keypress_hook, env);
 	mlx_hook(env->win, KeyRelease, KeyReleaseMask, ft_keyrelease_hook, env);

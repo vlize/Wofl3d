@@ -27,7 +27,9 @@
 # define WIDTH 1280
 # define RESOLUTION 0.625
 # define VIEW_ANGLE 60
+# define SEMI_ANGLE 30
 # define BLOCK_SIZE 64
+# define SPD_MAX 30
 
 typedef struct		s_obj
 {
@@ -81,12 +83,12 @@ typedef struct		s_map
 
 typedef struct		s_key
 {
-	int				forward;
-	int				backward;
+	int				forth[2];
+	int				back[2];
 	int				strafe_l;
 	int				strafe_r;
-	int				turn_l;
-	int				turn_r;
+	int				turn_l[2];
+	int				turn_r[2];
 	int				crouch;
 	int				jump;
 	int				use;
@@ -100,6 +102,8 @@ typedef struct		s_env
 	void			*load;
 	int				wid;
 	int				hei;
+	int				x;
+	int				y;
 	int				b;
 	int				l;
 	int				en;
@@ -111,7 +115,9 @@ typedef struct		s_env
 	char			*line;
 	char			*addr;
 	t_key			*key;
+	t_key			*key0;
 	t_map			*map;
+	int				spd;
 	uint			color;
 }					t_env;
 
@@ -137,8 +143,8 @@ t_obj				*ft_make_obj(t_block *block);
 int					ft_make_tab(t_map *map, int x, int y);
 int					ft_load_map(t_env *env, size_t l, int *x, int *y);
 int					ft_expose_hook(t_env *env);
+int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
-void				ft_key_event(t_env *env);
 
 #endif

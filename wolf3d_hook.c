@@ -18,54 +18,83 @@ int			ft_expose_hook(t_env *env)
 {
 	int	i[2];
 
-	i[0] = (WIDTH / 2) + ((env->map)->sspd * 10);
-	i[1] = (env->hei / 2) + ((env->map)->mspd * 10);
+	i[0] = env->x + (env->map->sspd * 10);
+	i[1] = env->y + (env->map->mspd * 10);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	mlx_string_put(env->mlx, env->win, i[0], i[1], env->color, ft_itoa());
+	mlx_string_put(env->mlx, env->win, i[0], i[1], env->color, ft_itoa(env->map->zrot));
+	mlx_string_put(env->mlx, env->win, i[0], i[1] - 10 + (env->key->crouch * 10), env->color, ft_itoa(env->map->zrot));
 	mlx_do_sync(env->mlx);
 	return (0);
 }
 
+static int	ft_keyrelease_hook0(int keycode, t_env *env)
+{
+	if (keycode == 126)
+		env->key->forth[1] = 0;
+	if (keycode == 125)
+		env->key->back[1] = 0;
+	if (keycode == 123)
+		env->key->turn_l[1] = 0;
+	if (keycode == 124)
+		env->key->turn_r[1] = 0;
+	return (ft_key_event(env));
+}
+
 int			ft_keyrelease_hook(int keycode, t_env *env)
 {
-	if ((keycode == 126) || (keycode == 13))
-		env->key->forward = 0;
-	if ((keycode == 125) || (keycode == 1))
-		env->key->backward = 0;
-	if ((keycode == 123) || (keycode == 12))
-		env->key->turn_l = 0;
-	if ((keycode == 124) || (keycode == 14))
-		env->key->turn_r = 0;
+	if (keycode == 13)
+		env->key->forth[0] = 0;
+	if (keycode == 1)
+		env->key->back[0] = 0;
+	if (keycode == 12)
+		env->key->turn_l[0] = 0;
+	if (keycode == 14)
+		env->key->turn_r[0] = 0;
 	if (keycode == 0)
 		env->key->strafe_l = 0;
 	if (keycode == 2)
 		env->key->strafe_r = 0;
-	if ((keycode == 36) || (keycode == 76))
+	if (keycode == 36)
 		env->key->use = 0;
-	ft_key_event(env);
-	return (ft_expose_hook(env));
+	if (keycode == 257)
+		env->key->crouch = 0;
+	return (ft_keyrelease_hook0(keycode, env));
+}
+
+static int	ft_keypress_hook0(int keycode, t_env *env)
+{
+	if (keycode == 126)
+		env->key->forth[1] = 1;
+	if (keycode == 125)
+		env->key->back[1] = 1;
+	if (keycode == 123)
+		env->key->turn_l[1] = 1;
+	if (keycode == 124)
+		env->key->turn_r[1] = 1;
+	return (ft_key_event(env));
 }
 
 int			ft_keypress_hook(int keycode, t_env *env)
 {
 	if (keycode == 53)
 		exit(ft_free_env(env));
-	if ((keycode == 126) || (keycode == 13))
-		env->key->forward = 1;
-	if ((keycode == 125) || (keycode == 1))
-		env->key->backward = 1;
-	if ((keycode == 123) || (keycode == 12))
-		env->key->turn_l = 1;
-	if ((keycode == 124) || (keycode == 14))
-		env->key->turn_r = 1;
+	if (keycode == 13)
+		env->key->forth[0] = 1;
+	if (keycode == 1)
+		env->key->back[0] = 1;
+	if (keycode == 12)
+		env->key->turn_l[0] = 1;
+	if (keycode == 14)
+		env->key->turn_r[0] = 1;
 	if (keycode == 0)
 		env->key->strafe_l = 1;
 	if (keycode == 2)
 		env->key->strafe_r = 1;
-	if ((keycode == 36) || (keycode == 76))
+	if (keycode == 36)
 		env->key->use = 1;
-	if ((keycode == 49) && !env->map->fall && (env->map->jump < 20))
+	if (keycode == 257)
+		env->key->crouch = 1;
+	if ((keycode == 49) && !env->map->fall && (env->map->jump < SPD_MAX))
 		env->key->jump = 1;
-	ft_key_event(env);
-	return (ft_expose_hook(env));
+	return (ft_keypress_hook0(keycode, env));
 }
