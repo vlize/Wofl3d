@@ -15,6 +15,7 @@
 
 # include <sys/types.h>
 # include <sys/uio.h>
+# include <pthread.h>
 # include <limits.h>
 # include <unistd.h>
 # include <string.h>
@@ -118,10 +119,13 @@ typedef struct		s_env
 	t_key			*key0;
 	t_map			*map;
 	int				spd;
+	int				thread;
 	uint			color;
 }					t_env;
 
-void				ft_init_loading(char **s, int *i, int height);
+int					ft_init_loading(char **s, int *i, int height);
+void				ft_init_key(t_key *key);
+void				ft_init_env(t_env *env);
 void				ft_free_obj(t_obj *obj);
 void				ft_free_pln(t_pln *pln);
 void				ft_free_tab(t_block ***tab, size_t x, size_t y);
@@ -132,7 +136,6 @@ int					ft_is_op(int c);
 int					ft_is_val(int c);
 int					ft_is_pln(int c);
 int					ft_is_obj(int c);
-int					ft_init_key(t_env *env);
 int					ft_check_gnl(t_env *env, int y);
 int					ft_put_data(t_map *map, char *s, size_t *l, double *data);
 double				ft_put_operand(t_map *map, char *line, size_t *l);
@@ -141,6 +144,7 @@ void				ft_put_obj(t_env *env, size_t *l, t_obj *obj);
 t_pln				*ft_make_pln(t_block *block);
 t_obj				*ft_make_obj(t_block *block);
 int					ft_make_tab(t_map *map, int x, int y);
+int					ft_make_key(t_env *env);
 int					ft_load_map(t_env *env, size_t l, int *x, int *y);
 int					ft_expose_hook(t_env *env);
 int					ft_key_event(t_env *env);

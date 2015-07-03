@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-static void	ft_init_key2(t_key *key)
+void	ft_init_key(t_key *key)
 {
 	key->forth[0] = 0;
 	key->forth[1] = 0;
@@ -30,22 +30,30 @@ static void	ft_init_key2(t_key *key)
 	key->use = 0;
 }
 
-int			ft_init_key(t_env *env)
+void	ft_init_env(t_env *env)
 {
-	if (!(env->key = (t_key *)malloc(sizeof(t_key))))
-		return (0);
-	if (!(env->key0 = (t_key *)malloc(sizeof(t_key))))
-		return (0);
-	ft_init_key2(env->key);
-	ft_init_key2(env->key0);
-	return (1);
+	env->mlx = NULL;
+	env->win = NULL;
+	env->img = NULL;
+	env->map = NULL;
+	env->key = NULL;
+	env->key0 = NULL;
+	env->name = NULL;
+	env->load = NULL;
+	env->line = NULL;
+	env->fd = 0;
+	env->thread = 0;
+	env->wid = WIDTH;
+	env->spd = SPD_MAX;
+	env->color = 0xFF00;
 }
 
-void		ft_init_loading(char **s, int *i, int height)
+int		ft_init_loading(char **s, int *i, int height)
 {
 	*s = "loading.xpm";
 	i[0] = 240;
 	i[1] = 24;
 	i[2] = (WIDTH - i[0]) / 2;
 	i[3] = (height - i[1]) / 2;
+	return (1);
 }

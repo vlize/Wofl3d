@@ -14,30 +14,31 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-int			ft_expose_hook(t_env *env)
+static void	ft_position(int *pos, int lim, int spd)
 {
-	int	i[2];
-
-	i[0] = env->x + (env->map->sspd * 10);
-	i[1] = env->y + (env->map->mspd * 10);
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	mlx_string_put(env->mlx, env->win, i[0], i[1], env->color, ft_itoa(env->map->zrot));
-	mlx_string_put(env->mlx, env->win, i[0], i[1] - 10 + (env->key->crouch * 10), env->color, ft_itoa(env->map->zrot));
-	mlx_do_sync(env->mlx);
-	return (0);
+	(*pos) += spd;
+	if ((*pos) < 0)
+		(*pos) += lim;
+	else if ((*pos) >= lim)
+		(*pos) -= lim;
 }
 
-static int	ft_keyrelease_hook0(int keycode, t_env *env)
+int			ft_expose_hook(t_env *env)
 {
-	if (keycode == 126)
-		env->key->forth[1] = 0;
-	if (keycode == 125)
-		env->key->back[1] = 0;
-	if (keycode == 123)
-		env->key->turn_l[1] = 0;
-	if (keycode == 124)
-		env->key->turn_r[1] = 0;
-	return (ft_key_event(env));
+	int		i;
+	char	*s;
+
+	ft_position(&(env->x), WIDTH, env->map->sspd);
+	ft_position(&(env->y), env->hei, env->map->mspd);
+	i = env->y - 10 + (env->key->crouch * 10);
+	s = ft_itoa(env->map->zrot);
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+	mlx_string_put(env->mlx, env->win, env->x, env->y, env->color, s);
+	mlx_string_put(env->mlx, env->win, env->x, i, env->color, s);
+	mlx_string_put(env->mlx, env->win, env->x, env->y, 0xFFFFFF, "_");
+	mlx_do_sync(env->mlx);
+	usleep(5);
+	return (0);
 }
 
 int			ft_keyrelease_hook(int keycode, t_env *env)
@@ -56,9 +57,17 @@ int			ft_keyrelease_hook(int keycode, t_env *env)
 		env->key->strafe_r = 0;
 	if (keycode == 36)
 		env->key->use = 0;
-	if (keycode == 257)
+	if (keycode == 8)
 		env->key->crouch = 0;
-	return (ft_keyrelease_hook0(keycode, env));
+	if (keycode == 126)
+		env->key->forth[1] = 0;
+	if (keycode == 125)
+		env->key->back[1] = 0;
+	if (keycode == 123)
+		env->key->turn_l[1] = 0;
+	if (keycode == 124)
+		env->key->turn_r[1] = 0;
+	return (ft_key_event(env));
 }
 
 static int	ft_keypress_hook0(int keycode, t_env *env)
@@ -92,7 +101,7 @@ int			ft_keypress_hook(int keycode, t_env *env)
 		env->key->strafe_r = 1;
 	if (keycode == 36)
 		env->key->use = 1;
-	if (keycode == 257)
+	if (keycode == 8)
 		env->key->crouch = 1;
 	if ((keycode == 49) && !env->map->fall && (env->map->jump < SPD_MAX))
 		env->key->jump = 1;

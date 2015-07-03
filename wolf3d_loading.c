@@ -43,3 +43,29 @@ void	ft_loading(t_env *env)
 	s = "LOADING";
 	env->addr = mlx_get_data_addr(env->img, &(env->b), &(env->l), &(env->en));
 }
+
+void	*ft_expose_hook(void *ptr)
+{
+	int		i;
+	char	*s;
+	t_env	*env;
+
+	env = (t_env *)ptr;
+	while (env->thread == 1)
+		return (ft_expose_hook(ptr));
+	env->thread = 2;
+	ft_position(&(env->x), WIDTH, env->map->sspd);
+	ft_position(&(env->y), env->hei, env->map->mspd);
+	i = env->y - 10 + (env->key->crouch * 10);
+	s = ft_itoa(env->map->zrot);
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+	mlx_string_put(env->mlx, env->win, env->x, env->y, env->color, s);
+	mlx_string_put(env->mlx, env->win, env->x, i, env->color, s);
+	mlx_string_put(env->mlx, env->win, env->x, env->y, 0xFFFFFF, "_");
+	ft_putendl("sync_start");
+	mlx_do_sync(env->mlx);
+	ft_putendl("sync_end");
+	env->thread = 0;
+	usleep(10);
+	return (ft_expose_hook(ptr));
+}

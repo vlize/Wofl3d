@@ -18,12 +18,15 @@ SRC =	wolf3d.c wolf3d_exit.c wolf3d_error.c wolf3d_data.c wolf3d_hook.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIB =	-L ./libft/ -lft \
-		-L ./minilibx_macos -lmlx \
-		-lm -framework OpenGL -framework AppKit
+LIB =	-L ./libft/ -lft -lm -lpthread \
+		-framework OpenGL -framework AppKit \
+		-lmlx \
+#		-L ./minilibx_macos -lmlx \
 
-INC =	-I . -I libft/includes/ -I minilibx_macos/ \
-		-I /System/Library/Frameworks/Tk.framework/Headers/
+INC =	-I . -I libft/includes/ \
+		-I /System/Library/Frameworks/Tk.framework/Headers/ \
+		-I /usr/local/include/ \
+#		-I ./minilibx_macos/ \
 
 CMP = gcc -Wall -Wextra -Werror
 
