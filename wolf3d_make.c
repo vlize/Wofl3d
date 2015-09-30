@@ -17,10 +17,7 @@ int		ft_make_key(t_env *env)
 {
 	if (!(env->key = (t_key *)malloc(sizeof(t_key))))
 		return (0);
-	if (!(env->key0 = (t_key *)malloc(sizeof(t_key))))
-		return (0);
 	ft_init_key(env->key);
-	ft_init_key(env->key0);
 	return (1);
 }
 

@@ -15,7 +15,6 @@
 
 # include <sys/types.h>
 # include <sys/uio.h>
-# include <pthread.h>
 # include <limits.h>
 # include <unistd.h>
 # include <string.h>
@@ -31,6 +30,17 @@
 # define SEMI_ANGLE 30
 # define BLOCK_SIZE 64
 # define SPD_MAX 30
+# define SPD_MIN 10
+# define ROT_SPD 10
+# define JMP_SPD 2
+# define JMP_MAX 18
+# define FALL_SPD 3
+# define TALL_MAX 32
+# define TALL_MIN 16
+# define RAD (M_PI / 180)
+# define PIX2 (M_PI * 2)
+# define PI_2 (M_PI / 2)
+# define PI_4 (M_PI / 4)
 
 typedef struct		s_obj
 {
@@ -73,10 +83,12 @@ typedef struct		s_map
 	double			ypos;
 	double			zpos;
 	double			zrot;
+	int				spd;
 	int				mspd;
 	int				sspd;
 	int				jump;
 	int				fall;
+	int				crch;
 	int				xtab;
 	int				ytab;
 	t_block			***tab;
@@ -116,10 +128,11 @@ typedef struct		s_env
 	char			*line;
 	char			*addr;
 	t_key			*key;
-	t_key			*key0;
 	t_map			*map;
+	double			rad_spd;
+	double			rot;
+	int				tall;
 	int				spd;
-	int				thread;
 	uint			color;
 }					t_env;
 
@@ -150,5 +163,6 @@ int					ft_expose_hook(t_env *env);
 int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
+void				ft_position(t_env *env);
 
 #endif

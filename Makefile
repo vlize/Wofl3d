@@ -14,19 +14,17 @@ NAME = wolf3d
 
 SRC =	wolf3d.c wolf3d_exit.c wolf3d_error.c wolf3d_data.c wolf3d_hook.c \
 		wolf3d_check.c wolf3d_init.c wolf3d_load_map.c wolf3d_key_event.c \
-		wolf3d_make.c
+		wolf3d_make.c wolf3d_draw.c
 
 OBJ = $(SRC:.c=.o)
 
-LIB =	-L ./libft/ -lft -lm -lpthread \
+LIB =	-L ./libft/ -lft \
 		-framework OpenGL -framework AppKit \
-		-lmlx \
-#		-L ./minilibx_macos -lmlx \
+		-lmlx -lm
 
 INC =	-I . -I libft/includes/ \
 		-I /System/Library/Frameworks/Tk.framework/Headers/ \
-		-I /usr/local/include/ \
-#		-I ./minilibx_macos/ \
+		-I /usr/local/include/
 
 CMP = gcc -Wall -Wextra -Werror
 

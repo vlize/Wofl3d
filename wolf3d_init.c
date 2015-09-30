@@ -37,14 +37,11 @@ void	ft_init_env(t_env *env)
 	env->img = NULL;
 	env->map = NULL;
 	env->key = NULL;
-	env->key0 = NULL;
 	env->name = NULL;
 	env->load = NULL;
 	env->line = NULL;
 	env->fd = 0;
-	env->thread = 0;
 	env->wid = WIDTH;
-	env->spd = SPD_MAX;
 	env->color = 0xFF00;
 }
 

@@ -27,10 +27,17 @@ static int	ft_check_pos0(t_map *map, char *line, size_t l)
 	l++;
 	if (ft_put_data(map, line, &l, &(map->zrot0)) != 1)
 		return (0);
+	map->zrot0 *= M_PI / 180;
+	map->xpos = map->xpos0;
+	map->ypos = map->ypos0;
+	map->zpos = map->zpos0;
+	map->zrot = map->zrot0;
+	map->spd = SPD_MAX;
 	map->mspd = 0;
 	map->sspd = 0;
 	map->jump = 0;
 	map->fall = 0;
+	map->crch = 0;
 	return (1);
 }
 
@@ -61,6 +68,7 @@ static int	ft_check_map(t_map *map, char *line, double data, size_t l)
 
 static int	ft_make_env(t_env *env)
 {
+	env->rad_spd = ROT_SPD * RAD;
 	env->hei = WIDTH * RESOLUTION;
 	env->x = WIDTH / 2;
 	env->y = env->hei / 2;
@@ -106,7 +114,6 @@ static int	ft_check_arg(int ac, char **av, t_env *env)
 
 int			main(int ac, char **av)
 {
-//	pthread_t	th;
 	t_env		*env;
 	char		*s;
 	int			i[4];
@@ -125,9 +132,8 @@ int			main(int ac, char **av)
 		return (0);
 	if (!(env->img = mlx_new_image(env->mlx, WIDTH, env->hei)))
 		return (ft_perror("mlx_new_image()", env));
+	mlx_expose_hook(env->win, ft_expose_hook, env);
 	mlx_hook(env->win, KeyPress, KeyPressMask, ft_keypress_hook, env);
 	mlx_hook(env->win, KeyRelease, KeyReleaseMask, ft_keyrelease_hook, env);
-	mlx_expose_hook(env->win, ft_expose_hook, env);
-//	pthread_create(&th, NULL, ft_expose_hook, env);
 	return (mlx_loop(env->mlx));
 }

@@ -22,10 +22,13 @@ static int	k_c(int *key)
 
 static int	ft_key_event3(t_env *env)
 {
-	if ((env->map->jump < env->spd) && env->key->jump)
-		env->map->jump += 5;
+	if (env->key->jump && !env->map->fall && (env->map->jump < JMP_MAX))
+		env->map->jump += JMP_SPD;
 	else
+	{
 		env->map->jump = 0;
+		env->map->fall = 1;
+	}
 	if (!k_c(env->key->forth) && !k_c(env->key->back) && (env->map->mspd < 0))
 		env->map->mspd = 0;
 	if (!k_c(env->key->back) && !k_c(env->key->forth) && (env->map->mspd > 0))
@@ -39,14 +42,14 @@ static int	ft_key_event3(t_env *env)
 
 static int	ft_key_event2(t_env *env)
 {
-	while (env->map->zrot >= 360)
-		env->map->zrot -= 360;
+	while (env->map->zrot >= PIX2)
+		env->map->zrot -= PIX2;
 	while (env->map->zrot < 0)
-		env->map->zrot += 360;
+		env->map->zrot += PIX2;
 	if (env->key->strafe_l && (!env->key->strafe_r || (env->map->sspd < 0)))
-		env->map->sspd = -env->spd;
+		env->map->sspd = -1;
 	if (env->key->strafe_r && (!env->key->strafe_l || (env->map->sspd > 0)))
-		env->map->sspd = env->spd;
+		env->map->sspd = 1;
 	if (env->key->use)
 		env->color = 0xFF0000;
 	else
@@ -57,16 +60,22 @@ static int	ft_key_event2(t_env *env)
 int			ft_key_event(t_env *env)
 {
 	if (!env->key->crouch)
+	{
+		env->tall = TALL_MAX;
 		env->spd = SPD_MAX;
+	}
 	else
-		env->spd = SPD_MAX / 3;
+	{
+		env->tall = TALL_MIN;
+		env->spd = SPD_MIN;
+	}
 	if (k_c(env->key->forth) && (!k_c(env->key->back) || (env->map->mspd < 0)))
-		env->map->mspd = -env->spd;
+		env->map->mspd = 1;
 	if (k_c(env->key->back) && (!k_c(env->key->forth) || (env->map->mspd > 0)))
-		env->map->mspd = env->spd;
+		env->map->mspd = -1;
 	if (env->key->turn_l[0] || env->key->turn_l[1])
-		env->map->zrot += 5;
+		env->map->zrot += env->rad_spd;
 	if (env->key->turn_r[0] || env->key->turn_r[1])
-		env->map->zrot -= 5;
+		env->map->zrot -= env->rad_spd;
 	return (ft_key_event2(env));
 }
