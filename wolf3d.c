@@ -16,21 +16,18 @@
 
 static int	ft_check_pos0(t_map *map, char *line, size_t l)
 {
-	if (ft_put_data(map, line, &l, &(map->xpos0)) != 1)
+	if (ft_put_data(map, line, &l, &(map->p0[0])) != 1)
 		return (0);
 	l++;
-	if (ft_put_data(map, line, &l, &(map->ypos0)) != 1)
+	if (ft_put_data(map, line, &l, &(map->p0[1])) != 1)
 		return (0);
 	l++;
-	if (ft_put_data(map, line, &l, &(map->zpos0)) != 1)
+	if (ft_put_data(map, line, &l, &(map->p0[3])) != 1)
 		return (0);
 	l++;
 	if (ft_put_data(map, line, &l, &(map->zrot0)) != 1)
 		return (0);
 	map->zrot0 *= M_PI / 180;
-	map->xpos = map->xpos0;
-	map->ypos = map->ypos0;
-	map->zpos = map->zpos0;
 	map->zrot = map->zrot0;
 	map->spd = SPD_MAX;
 	map->mspd = 0;
@@ -59,23 +56,15 @@ static int	ft_check_map(t_map *map, char *line, double data, size_t l)
 	if (ft_put_data(map, line, &l, &(map->zmax)) != 1)
 		return (0);
 	l++;
-	map->xmin = 0 - ((BLOCK_SIZE * map->xblock) / 2);
-	map->xmax = (BLOCK_SIZE * map->xblock) / 2;
-	map->ymin = 0 - ((BLOCK_SIZE * map->yblock) / 2);
-	map->ymax = (BLOCK_SIZE * map->xblock) / 2;
+	map->xmax = BLOCK_SIZE * map->xblock;
+	map->ymax = BLOCK_SIZE * map->yblock;
 	return (ft_check_pos0(map, line, l));
 }
 
 static int	ft_make_env(t_env *env)
 {
-	env->rad_spd = ROT_SPD * RAD;
-	env->hei = WIDTH * RESOLUTION;
-	env->x = WIDTH / 2;
-	env->y = env->hei / 2;
-	env->depth = env->x / tan(SEMI_ANGLE);
-	env->b = 4 * CHAR_BIT;
-	env->l = 4 * WIDTH;
-	env->en = ft_endian();
+	pthread_mutex_init(&env->mutex[0], NULL);
+	pthread_mutex_init(&env->mutex[1], NULL);
 	env->gnl = get_next_line(env->fd, &(env->line));
 	if (env->gnl == -1)
 		return (ft_perror("get_next_line()", env));
@@ -88,8 +77,11 @@ static int	ft_make_env(t_env *env)
 		return (ft_put_error("ft_make_env(): invalid map file.", env));
 	if (!(env->mlx = mlx_init()))
 		return (ft_perror("mlx_init()", env));
-	if (!(env->win = mlx_new_window(env->mlx, WIDTH, env->hei, env->name)))
+	if (!(env->win = mlx_new_window(env->mlx, WIDTH, env->height, env->name)))
 		return (ft_perror("mlx_new_window()", env));
+	env->p[0] = env->map->p0[0];
+	env->p[1] = env->map->p0[1];
+	env->p[2] = env->map->p0[2];
 	return (1);
 }
 
@@ -122,16 +114,18 @@ int			main(int ac, char **av)
 		return (ft_perror("malloc()", NULL));
 	if (!ft_check_arg(ac, av, env) || !ft_make_env(env))
 		return (0);
-	if (!ft_make_tab(env->map, -1, -1) || !ft_init_loading(&s, i, env->hei))
+	if (!ft_make_tab(env->map, -1, -1) || !ft_init_loading(&s, i, env->height))
 		return (ft_perror("malloc()", env));
 	if (!(env->load = mlx_xpm_file_to_image(env->mlx, s, &i[0], &i[1])))
 		return (ft_perror("mlx_xpm_file_to_image()", env));
 	mlx_put_image_to_window(env->mlx, env->win, env->load, i[2], i[3]);
-	mlx_do_sync(env->mlx);
 	if (ft_load_map(env, 0, &(env->map)->xtab, &(env->map)->ytab) == 0)
 		return (0);
-	if (!(env->img = mlx_new_image(env->mlx, WIDTH, env->hei)))
+	if (!(env->img = mlx_new_image(env->mlx, WIDTH, env->height)))
 		return (ft_perror("mlx_new_image()", env));
+	env->addr = mlx_get_data_addr(env->img, &env->bpp, &env->sl, &env->en);
+	if (!ft_init_thread(env))
+		return (ft_perror("pthread_create()", env));
 	mlx_expose_hook(env->win, ft_expose_hook, env);
 	mlx_hook(env->win, KeyPress, KeyPressMask, ft_keypress_hook, env);
 	mlx_hook(env->win, KeyRelease, KeyReleaseMask, ft_keyrelease_hook, env);

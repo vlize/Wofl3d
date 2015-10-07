@@ -23,15 +23,16 @@
 # include <stdio.h>
 # include <math.h>
 # include <X11/X.h>
+# include <pthread.h>
 
 # define WIDTH 1280
 # define RESOLUTION 0.625
 # define VIEW_ANGLE 60
 # define SEMI_ANGLE 30
 # define BLOCK_SIZE 64
-# define SPD_MAX 30
-# define SPD_MIN 10
-# define ROT_SPD 10
+# define SPD_MAX 8
+# define SPD_MIN 4
+# define ROT_SPD 15
 # define JMP_SPD 2
 # define JMP_MAX 18
 # define FALL_SPD 3
@@ -45,7 +46,7 @@
 typedef struct		s_obj
 {
 	char			type;
-	char			nbr;
+	int				nbr;
 	double			base;
 	struct s_obj	*next;
 }					t_obj;
@@ -53,7 +54,8 @@ typedef struct		s_obj
 typedef struct		s_pln
 {
 	char			type;
-	char			nbr;
+	int				nbr;
+	uint			hex;
 	int				pts;
 	double			p[4][3];
 	struct s_pln	*next;
@@ -69,19 +71,13 @@ typedef struct		s_map
 {
 	int				xblock;
 	int				yblock;
-	double			xmin;
 	double			xmax;
-	double			ymin;
 	double			ymax;
 	double			zmin;
 	double			zmax;
-	double			xpos0;
-	double			ypos0;
-	double			zpos0;
+	double			p0[3];
 	double			zrot0;
-	double			xpos;
-	double			ypos;
-	double			zpos;
+	double			p[3];
 	double			zrot;
 	int				spd;
 	int				mspd;
@@ -113,26 +109,30 @@ typedef struct		s_env
 	void			*win;
 	void			*img;
 	void			*load;
-	int				wid;
-	int				hei;
-	int				x;
-	int				y;
-	int				b;
-	int				l;
-	int				en;
-	double			depth;
-	char			*s;
-	char			*name;
+	int				height;
+	int				wid_2;
+	int				hei_2;
 	int				fd;
 	int				gnl;
+	int				bpp;
+	int				sl;
+	int				en;
+	char			*s;
+	char			*name;
 	char			*line;
 	char			*addr;
 	t_key			*key;
 	t_map			*map;
 	double			rad_spd;
-	double			rot;
+	double			depth;
+	double			p[3];
+	double			mrot;
 	int				tall;
 	int				spd;
+	uint			*draw;
+	pthread_t		thread[2];
+	pthread_mutex_t	mutex[2];
+	int				fps;
 	uint			color;
 }					t_env;
 
@@ -163,6 +163,13 @@ int					ft_expose_hook(t_env *env);
 int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
+int					ft_init_thread(t_env *env);
+int					ft_reset(t_env *env);
+void				*ft_screen(void *arg);
+void				*ft_fps(void *arg);
 void				ft_position(t_env *env);
+void				ft_crash_check(t_env *env);
+uint				ft_put_color(char c, int i);
+void				ft_aff_map(t_env *env);
 
 #endif

@@ -20,7 +20,7 @@ static int	k_c(int *key)
 	return (0);
 }
 
-static int	ft_key_event3(t_env *env)
+static int	ft_key_event1(t_env *env)
 {
 	if (env->key->jump && !env->map->fall && (env->map->jump < JMP_MAX))
 		env->map->jump += JMP_SPD;
@@ -40,7 +40,7 @@ static int	ft_key_event3(t_env *env)
 	return (ft_expose_hook(env));
 }
 
-static int	ft_key_event2(t_env *env)
+static int	ft_key_event0(t_env *env)
 {
 	while (env->map->zrot >= PIX2)
 		env->map->zrot -= PIX2;
@@ -54,7 +54,7 @@ static int	ft_key_event2(t_env *env)
 		env->color = 0xFF0000;
 	else
 		env->color = 0xFF00;
-	return (ft_key_event3(env));
+	return (ft_key_event1(env));
 }
 
 int			ft_key_event(t_env *env)
@@ -73,9 +73,9 @@ int			ft_key_event(t_env *env)
 		env->map->mspd = 1;
 	if (k_c(env->key->back) && (!k_c(env->key->forth) || (env->map->mspd > 0)))
 		env->map->mspd = -1;
-	if (env->key->turn_l[0] || env->key->turn_l[1])
+	if (k_c(env->key->turn_l))
 		env->map->zrot += env->rad_spd;
-	if (env->key->turn_r[0] || env->key->turn_r[1])
+	if (k_c(env->key->turn_r))
 		env->map->zrot -= env->rad_spd;
-	return (ft_key_event2(env));
+	return (ft_key_event0(env));
 }

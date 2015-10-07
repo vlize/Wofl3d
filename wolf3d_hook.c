@@ -16,18 +16,12 @@
 
 int			ft_expose_hook(t_env *env)
 {
-	int		i;
-	char	*s;
-
 	ft_position(env);
-	i = env->y - 10 + (env->key->crouch * 10);
-	s = ft_ftoa(env->map->zpos, 0, 1);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	mlx_string_put(env->mlx, env->win, env->x, env->y, env->color, s);
-	mlx_string_put(env->mlx, env->win, env->x, i, env->color, s);
-	mlx_string_put(env->mlx, env->win, env->x, env->y, 0xFFFFFF, "_");
-	mlx_do_sync(env->mlx);
-	usleep(16000);
+	pthread_mutex_lock(&env->mutex[2]);
+	ft_aff_map(env);
+	env->fps += 1;
+	pthread_mutex_unlock(&env->mutex[2]);
 	return (0);
 }
 
@@ -84,6 +78,8 @@ int			ft_keypress_hook(int keycode, t_env *env)
 {
 	if (keycode == 53)
 		exit(ft_free_env(env));
+	if (keycode == 51)
+		return (ft_reset(env));
 	if (keycode == 13)
 		env->key->forth[0] = 1;
 	if (keycode == 1)

@@ -13,14 +13,14 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-static void	aff_tab_block(t_block *tmp)
+static void	aff_tab_block(t_pln *tmp)
 {
 	int		i;
 
 	while (tmp)
 	{
 		ft_putchar(tmp->type);
-		ft_putchar(tmp->nbr);
+		ft_putnbr(tmp->nbr);
 		i = -1;
 		while ((i += 1) < (tmp->pts))
 		{
@@ -55,7 +55,7 @@ void		aff_tab(t_map *map, int x, int y)
 				if (map->tab[x][y])
 				{
 					ft_putstr(" = ");
-					tmp = (map->tab[x][y])->pln;
+					tmp = map->tab[x][y]->pln;
 					aff_tab_block(tmp);
 				}
 				ft_putchar('\n');

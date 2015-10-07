@@ -13,42 +13,39 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-static void	ft_collision(t_env *env)
+static void	ft_map_limits(t_map *map)
 {
-	if (env->map->xpos > (WIDTH - 10))
-		env->map->xpos = WIDTH - 10;
-	else if (env->map->xpos < 0)
-		env->map->xpos = 0;
-	if (env->map->ypos > (env->hei - 20))
-		env->map->ypos = env->hei - 20;
-	else if (env->map->ypos < 5)
-		env->map->ypos = 5;
-	if (env->map->zpos < 0)
-	{
-		env->map->zpos = 0;
-		env->map->fall = 0;
-	}
-	env->x = env->map->xpos;
-	env->y = env->map->ypos;
+	if (map->p[0] < 0)
+		map->p[0] = 0;
+	else if (map->p[0] >= map->xmax)
+		map->p[0] = map->xmax - 1;
+	if (map->p[1] < 0)
+		map->p[1] = 0;
+	else if (map->p[1] >= map->ymax)
+		map->p[1] = map->ymax - 1;
 }
 
 void		ft_position(t_env *env)
 {
-	env->rot = env->map->zrot;
+	env->mrot = env->map->zrot;
 	env->map->spd = 0;
 	if (env->map->mspd || env->map->sspd)
 		env->map->spd = env->spd;
 	if (env->map->mspd > 0)
-		env->rot += PI_4 * env->map->sspd;
+		env->mrot += PI_4 * env->map->sspd;
 	else if (!env->map->mspd)
-		env->rot += PI_2 * env->map->sspd;
+		env->mrot += PI_2 * env->map->sspd;
 	else
-		env->rot += M_PI - (PI_4 * env->map->sspd);
-	env->map->xpos += (cos(env->rot) * env->map->spd);
-	env->map->ypos += (sin(env->rot) * env->map->spd);
+		env->mrot += M_PI - (PI_4 * env->map->sspd);
+	env->map->p[0] = env->p[0] + (cos(env->mrot) * env->map->spd);
+	env->map->p[1] = env->p[1] + (sin(env->mrot) * env->map->spd);
 	if (env->map->jump && !env->map->fall)
-		env->map->zpos += JMP_SPD;
+		env->map->p[2] = env->p[2] + JMP_SPD;
 	else if (env->map->fall)
-		env->map->zpos -= FALL_SPD;
-	return (ft_collision(env));
+		env->map->p[2] = env->p[2] - FALL_SPD;
+	ft_map_limits(env->map);
+	ft_crash_check(env);
+	env->p[0] = env->map->p[0];
+	env->p[1] = env->map->p[1];
+	env->p[2] = env->map->p[2];
 }

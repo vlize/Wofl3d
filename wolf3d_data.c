@@ -24,9 +24,9 @@ double	ft_put_operand(t_map *map, char *line, size_t *l)
 	else if ((line[*l] == 'y') && ((*l) += 1))
 		return (map->ytab * BLOCK_SIZE);
 	else if ((line[*l] == 'X') && ((*l) += 1))
-		return ((map->xtab + 1) * BLOCK_SIZE);
+		return ((map->xtab + 1) * BLOCK_SIZE - 1);
 	else if ((line[*l] == 'Y') && ((*l) += 1))
-		return ((map->ytab + 1) * BLOCK_SIZE);
+		return ((map->ytab + 1) * BLOCK_SIZE - 1);
 	tmp = 0;
 	while (ft_isdigit(line[*l]))
 	{
@@ -66,7 +66,8 @@ void	ft_put_pln(t_env *env, size_t *l, t_pln *pln)
 	if (!pln)
 		exit(ft_perror("malloc()", env));
 	pln->type = env->line[*l];
-	pln->nbr = env->line[(*l += 1)];
+	pln->nbr = env->line[(*l += 1)] - 48;
+	pln->hex = ft_put_color(pln->type, pln->nbr);
 	(*l)++;
 	while ((env->line[*l] != '\0') && (env->line[*l] != '\t'))
 	{
@@ -90,7 +91,7 @@ void	ft_put_obj(t_env *env, size_t *l, t_obj *obj)
 	if (!obj)
 		exit(ft_perror("malloc()", env));
 	obj->type = env->line[*l];
-	obj->nbr = env->line[(*l += 1)];
+	obj->nbr = 48 + env->line[(*l += 1)];
 	(*l)++;
 	if (ft_isdigit(obj->nbr) == 0 || (env->line[*l] != '|'))
 		exit(ft_put_error("ft_put_obj(): invalid map file.", env));
