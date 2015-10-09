@@ -19,13 +19,8 @@ void	*ft_fps(void *arg)
 	t_env	*env;
 
 	env = (t_env *)arg;
-//	write(1, "fps : ", 6);
-//	pthread_mutex_lock(&env->mutex[1]);
-//	ft_putendn(env->fps);
-//	env->fps = 0;
-//	pthread_mutex_unlock(&env->mutex[1]);
 	usleep(950000);
-	return (arg);//ft_fps(env));
+	return (arg);
 }
 
 void	*ft_screen(void *arg)

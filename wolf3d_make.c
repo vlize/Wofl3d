@@ -13,6 +13,19 @@
 #include "libft.h"
 #include "wolf3d.h"
 
+void	ft_make_coef(t_env *env)
+{
+	int	i;
+
+	i = 0;
+
+	while (i <= WIDTH_2)
+	{
+		env->coef[i] = DEPTH / sqrt((DEPTH * DEPTH) + (i * i));
+		i++;
+	}
+}
+
 int		ft_make_key(t_env *env)
 {
 	if (!(env->key = (t_key *)malloc(sizeof(t_key))))

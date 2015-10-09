@@ -26,9 +26,12 @@
 # include <pthread.h>
 
 # define WIDTH 1280
-# define RESOLUTION 0.625
-# define VIEW_ANGLE 60
-# define SEMI_ANGLE 30
+# define HEIGHT 800
+# define WIDTH_2 (WIDTH / 2)
+# define HEIGHT_2 (HEIGHT / 2)
+# define FOV 90
+# define FOV_2 45
+# define DEPTH 640
 # define BLOCK_SIZE 64
 # define SPD_MAX 8
 # define SPD_MIN 4
@@ -109,9 +112,6 @@ typedef struct		s_env
 	void			*win;
 	void			*img;
 	void			*load;
-	int				height;
-	int				wid_2;
-	int				hei_2;
 	int				fd;
 	int				gnl;
 	int				bpp;
@@ -123,20 +123,19 @@ typedef struct		s_env
 	char			*addr;
 	t_key			*key;
 	t_map			*map;
+	double			coef[WIDTH_2 + 1];
 	double			rad_spd;
-	double			depth;
 	double			p[3];
 	double			mrot;
 	int				tall;
 	int				spd;
 	uint			*draw;
-	pthread_t		thread[2];
-	pthread_mutex_t	mutex[2];
-	int				fps;
+	pthread_t		thread[4];
+	pthread_mutex_t	mutex[4];
 	uint			color;
 }					t_env;
 
-int					ft_init_loading(char **s, int *i, int height);
+int					ft_init_loading(char **s, int *i);
 void				ft_init_key(t_key *key);
 void				ft_init_env(t_env *env);
 void				ft_free_obj(t_obj *obj);
@@ -154,6 +153,7 @@ int					ft_put_data(t_map *map, char *s, size_t *l, double *data);
 double				ft_put_operand(t_map *map, char *line, size_t *l);
 void				ft_put_pln(t_env *env, size_t *l, t_pln *pln);
 void				ft_put_obj(t_env *env, size_t *l, t_obj *obj);
+void				ft_make_coef(t_env *env);
 t_pln				*ft_make_pln(t_block *block);
 t_obj				*ft_make_obj(t_block *block);
 int					ft_make_tab(t_map *map, int x, int y);
@@ -165,12 +165,13 @@ int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_init_thread(t_env *env);
 int					ft_reset(t_env *env);
+uint				ft_put_color(char c, int i);
 void				ft_map_limits(double *p, t_map *map);
-void				*ft_screen(void *arg);
-void				*ft_fps(void *arg);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
-uint				ft_put_color(char c, int i);
+void				ft_draw(t_env *env);
+void				*ft_screen(void *arg);
+void				*ft_fps(void *arg);
 void				ft_aff_map(t_env *env);
 
 #endif

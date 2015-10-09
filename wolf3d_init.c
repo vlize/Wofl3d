@@ -43,18 +43,16 @@ void	ft_init_env(t_env *env)
 	env->line = NULL;
 	env->draw = NULL;
 	env->fd = 0;
-	env->height = WIDTH * RESOLUTION;
-	env->wid_2 = WIDTH / 2;
-	env->hei_2 = env->height / 2;
-	env->depth = env->wid_2 / tan(SEMI_ANGLE);
 	env->rad_spd = ROT_SPD * RAD;
 	env->bpp = 4 * CHAR_BIT;
 	env->sl = 4 * WIDTH;
 	env->en = ft_endian();
 	env->thread[0] = 0;
 	env->thread[1] = 0;
-	env->fps = 0;
+	env->thread[2] = 0;
+	env->thread[3] = 0;
 	env->color = 0xFF00;
+	ft_make_coef(env);
 }
 
 int		ft_reset(t_env *env)
@@ -82,13 +80,13 @@ int		ft_reset(t_env *env)
 	return (ft_expose_hook(env));
 }
 
-int		ft_init_loading(char **s, int *i, int height)
+int		ft_init_loading(char **s, int *i)
 {
 	*s = "loading.xpm";
 	i[0] = 240;
 	i[1] = 24;
 	i[2] = (WIDTH - i[0]) / 2;
-	i[3] = (height - i[1]) / 2;
+	i[3] = (HEIGHT - i[1]) / 2;
 	return (1);
 }
 
@@ -97,6 +95,10 @@ int		ft_init_thread(t_env *env)
 	if (pthread_create(&env->thread[0], NULL, &ft_screen, env))
 		return (0);
 	if (pthread_create(&env->thread[1], NULL, &ft_fps, env))
+		return (0);
+	if (pthread_create(&env->thread[2], NULL, &ft_screen, env))
+		return (0);
+	if (pthread_create(&env->thread[3], NULL, &ft_fps, env))
 		return (0);
 	return (1);
 }

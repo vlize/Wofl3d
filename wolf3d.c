@@ -66,6 +66,8 @@ static int	ft_make_env(t_env *env)
 {
 	pthread_mutex_init(&env->mutex[0], NULL);
 	pthread_mutex_init(&env->mutex[1], NULL);
+	pthread_mutex_init(&env->mutex[2], NULL);
+	pthread_mutex_init(&env->mutex[3], NULL);
 	env->gnl = get_next_line(env->fd, &(env->line));
 	if (env->gnl == -1)
 		return (ft_perror("get_next_line()", env));
@@ -78,7 +80,7 @@ static int	ft_make_env(t_env *env)
 		return (ft_put_error("ft_make_env(): invalid map file.", env));
 	if (!(env->mlx = mlx_init()))
 		return (ft_perror("mlx_init()", env));
-	if (!(env->win = mlx_new_window(env->mlx, WIDTH, env->height, env->name)))
+	if (!(env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, env->name)))
 		return (ft_perror("mlx_new_window()", env));
 	env->p[0] = env->map->p0[0];
 	env->p[1] = env->map->p0[1];
@@ -115,14 +117,14 @@ int			main(int ac, char **av)
 		return (ft_perror("malloc()", NULL));
 	if (!ft_check_arg(ac, av, env) || !ft_make_env(env))
 		return (0);
-	if (!ft_make_tab(env->map, -1, -1) || !ft_init_loading(&s, i, env->height))
+	if (!ft_make_tab(env->map, -1, -1) || !ft_init_loading(&s, i))
 		return (ft_perror("malloc()", env));
 	if (!(env->load = mlx_xpm_file_to_image(env->mlx, s, &i[0], &i[1])))
 		return (ft_perror("mlx_xpm_file_to_image()", env));
 	mlx_put_image_to_window(env->mlx, env->win, env->load, i[2], i[3]);
 	if (ft_load_map(env, 0, &(env->map)->xtab, &(env->map)->ytab) == 0)
 		return (0);
-	if (!(env->img = mlx_new_image(env->mlx, WIDTH, env->height)))
+	if (!(env->img = mlx_new_image(env->mlx, WIDTH, HEIGHT)))
 		return (ft_perror("mlx_new_image()", env));
 	env->addr = mlx_get_data_addr(env->img, &env->bpp, &env->sl, &env->en);
 	if (!ft_init_thread(env))

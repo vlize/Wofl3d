@@ -20,7 +20,6 @@ int			ft_expose_hook(t_env *env)
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	pthread_mutex_lock(&env->mutex[2]);
 	ft_aff_map(env);
-	env->fps += 1;
 	pthread_mutex_unlock(&env->mutex[2]);
 	return (0);
 }
