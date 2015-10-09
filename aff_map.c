@@ -94,11 +94,11 @@ static void	ft_border(t_pln *pln, t_env *e)
 	double	k[4];
 
 	i[0] = 0;
-	while (i[0] < pln->pts)
-	{
+//	while (i[0] < pln->pts)
+//	{
 		i[1] = i[0] + 1;
-		if (i[1] == pln->pts)
-			i[1] = 0;
+//		if (i[1] == pln->pts)
+//			i[1] = 0;
 		k[2] = pln->p[i[1]][0] - pln->p[i[0]][0];
 		k[3] = pln->p[i[1]][1] - pln->p[i[0]][1];
 		if ((k[2] == 0) && (k[3] == 0))
@@ -111,8 +111,8 @@ static void	ft_border(t_pln *pln, t_env *e)
 			ft_trace_x(pln, k, i, e);
 		else
 			ft_trace_y(pln, k, i, e);
-		i[0]++;
-	}
+//		i[0]++;
+//	}
 }
 
 void		ft_aff_map(t_env *env)

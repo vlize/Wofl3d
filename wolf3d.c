@@ -27,6 +27,7 @@ static int	ft_check_pos0(t_map *map, char *line, size_t l)
 	l++;
 	if (ft_put_data(map, line, &l, &(map->zrot0)) != 1)
 		return (0);
+	ft_map_limits(map->p0, map);
 	map->zrot0 *= M_PI / 180;
 	map->zrot = map->zrot0;
 	map->spd = SPD_MAX;

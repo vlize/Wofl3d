@@ -13,18 +13,6 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-static void	ft_map_limits(t_map *map)
-{
-	if (map->p[0] < 0)
-		map->p[0] = 0;
-	else if (map->p[0] >= map->xmax)
-		map->p[0] = map->xmax - 1;
-	if (map->p[1] < 0)
-		map->p[1] = 0;
-	else if (map->p[1] >= map->ymax)
-		map->p[1] = map->ymax - 1;
-}
-
 void		ft_position(t_env *env)
 {
 	env->mrot = env->map->zrot;
@@ -43,7 +31,6 @@ void		ft_position(t_env *env)
 		env->map->p[2] = env->p[2] + JMP_SPD;
 	else if (env->map->fall)
 		env->map->p[2] = env->p[2] - FALL_SPD;
-	ft_map_limits(env->map);
 	ft_crash_check(env);
 	env->p[0] = env->map->p[0];
 	env->p[1] = env->map->p[1];

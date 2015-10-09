@@ -13,6 +13,18 @@
 #include "libft.h"
 #include "wolf3d.h"
 
+void	ft_map_limits(double *p, t_map *map)
+{
+	if (p[0] < 0)
+		p[0] = 0;
+	else if (p[0] >= map->xmax)
+		p[0] = map->xmax - 1;
+	if (p[1] < 0)
+		p[1] = 0;
+	else if (p[1] >= map->ymax)
+		p[1] = map->ymax - 1;
+}
+
 double	ft_put_operand(t_map *map, char *line, size_t *l)
 {
 	double	tmp;
@@ -24,9 +36,9 @@ double	ft_put_operand(t_map *map, char *line, size_t *l)
 	else if ((line[*l] == 'y') && ((*l) += 1))
 		return (map->ytab * BLOCK_SIZE);
 	else if ((line[*l] == 'X') && ((*l) += 1))
-		return ((map->xtab + 1) * BLOCK_SIZE - 1);
+		return ((map->xtab + 1) * BLOCK_SIZE);
 	else if ((line[*l] == 'Y') && ((*l) += 1))
-		return ((map->ytab + 1) * BLOCK_SIZE - 1);
+		return ((map->ytab + 1) * BLOCK_SIZE);
 	tmp = 0;
 	while (ft_isdigit(line[*l]))
 	{

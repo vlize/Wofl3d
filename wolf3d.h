@@ -165,6 +165,7 @@ int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_init_thread(t_env *env);
 int					ft_reset(t_env *env);
+void				ft_map_limits(double *p, t_map *map);
 void				*ft_screen(void *arg);
 void				*ft_fps(void *arg);
 void				ft_position(t_env *env);
