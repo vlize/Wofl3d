@@ -13,8 +13,6 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-
-
 int		ft_put_error(char *error, t_env *env)
 {
 	ft_putstr_fd("\x1b[31mwolf3d: ", 2);

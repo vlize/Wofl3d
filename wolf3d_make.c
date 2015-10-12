@@ -18,7 +18,6 @@ void	ft_make_coef(t_env *env)
 	int	i;
 
 	i = 0;
-
 	while (i <= WIDTH_2)
 	{
 		env->coef[i] = DEPTH / sqrt((DEPTH * DEPTH) + (i * i));

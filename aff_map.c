@@ -95,7 +95,7 @@ static void	ft_border(t_pln *pln, t_env *e)
 
 	i[0] = 0;
 //	while (i[0] < pln->pts)
-//	{
+	{
 		i[1] = i[0] + 1;
 //		if (i[1] == pln->pts)
 //			i[1] = 0;
@@ -112,7 +112,7 @@ static void	ft_border(t_pln *pln, t_env *e)
 		else
 			ft_trace_y(pln, k, i, e);
 //		i[0]++;
-//	}
+	}
 }
 
 void		ft_aff_map(t_env *env)

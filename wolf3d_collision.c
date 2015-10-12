@@ -49,7 +49,7 @@ static void		ft_positon_check(t_pln *pln, t_env *env)
 
 	n[0] = 0;
 //	while (n[0] < pln->pts)
-//	{
+	{
 		n[1] = n[0] + 1;
 //		if (n[1] == pln->pts)
 //			n[1] = 0;
@@ -60,7 +60,7 @@ static void		ft_positon_check(t_pln *pln, t_env *env)
 			env->map->p[1] = env->p[1] + (sin(env->mrot) * i[2]);
 		}
 //		n[0]++;
-//	}
+	}
 }
 
 static void		ft_block_check(int *i, t_env *env)
