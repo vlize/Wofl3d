@@ -134,5 +134,4 @@ void			ft_position(t_env *env)
 	env->p[0] = env->map->p[0];
 	env->p[1] = env->map->p[1];
 	env->p[2] = env->map->p[2];
-	return (ft_draw(env));
 }

@@ -64,10 +64,6 @@ static int	ft_check_map(t_map *map, char *line, double data, size_t l)
 
 static int	ft_make_env(t_env *env)
 {
-	pthread_mutex_init(&env->mutex[0], NULL);
-	pthread_mutex_init(&env->mutex[1], NULL);
-	pthread_mutex_init(&env->mutex[2], NULL);
-	pthread_mutex_init(&env->mutex[3], NULL);
 	env->gnl = get_next_line(env->fd, &(env->line));
 	if (env->gnl == -1)
 		return (ft_perror("get_next_line()", env));
@@ -85,6 +81,7 @@ static int	ft_make_env(t_env *env)
 	env->p[0] = env->map->p0[0];
 	env->p[1] = env->map->p0[1];
 	env->p[2] = env->map->p0[2];
+	ft_make_coef(env);
 	return (1);
 }
 

@@ -47,12 +47,6 @@ void	ft_init_env(t_env *env)
 	env->bpp = 4 * CHAR_BIT;
 	env->sl = 4 * WIDTH;
 	env->en = ft_endian();
-	env->thread[0] = 0;
-	env->thread[1] = 0;
-	env->thread[2] = 0;
-	env->thread[3] = 0;
-	env->color = 0xFF00;
-	ft_make_coef(env);
 }
 
 int		ft_reset(t_env *env)
@@ -92,13 +86,12 @@ int		ft_init_loading(char **s, int *i)
 
 int		ft_init_thread(t_env *env)
 {
-	if (pthread_create(&env->thread[0], NULL, &ft_screen, env))
-		return (0);
-	if (pthread_create(&env->thread[1], NULL, &ft_fps, env))
-		return (0);
-	if (pthread_create(&env->thread[2], NULL, &ft_screen, env))
-		return (0);
-	if (pthread_create(&env->thread[3], NULL, &ft_fps, env))
-		return (0);
+	env->thread[0] = 0;
+	env->thread[1] = 0;
+	env->thread[2] = 0;
+	pthread_mutex_init(&env->mutex[0], NULL);
+	pthread_mutex_init(&env->mutex[1], NULL);
+	pthread_mutex_init(&env->mutex[2], NULL);
+	pthread_mutex_init(&env->mutex[3], NULL);
 	return (1);
 }

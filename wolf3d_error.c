@@ -13,6 +13,8 @@
 #include "libft.h"
 #include "wolf3d.h"
 
+
+
 int		ft_put_error(char *error, t_env *env)
 {
 	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
@@ -25,4 +27,14 @@ int		ft_perror(char *error, t_env *env)
 	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
 	perror(error);
 	return (ft_free_env(env));
+}
+
+void	ft_make_thread(t_env *env)
+{
+	if (pthread_create(&env->thread[0], NULL, &ft_raycasting_lu, env))
+		exit(ft_perror("pthread_create()", env));
+	if (pthread_create(&env->thread[1], NULL, &ft_raycasting_ru, env))
+		exit(ft_perror("pthread_create()", env));
+	if (pthread_create(&env->thread[2], NULL, &ft_raycasting_ld, env))
+		exit(ft_perror("pthread_create()", env));
 }

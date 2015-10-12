@@ -13,8 +13,41 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-void	ft_draw(t_env *env)
+void	*ft_raycasting_lu(void *arg)
 {
-	if (env)
-		write(1, ".", 1);
+	t_env	*env;
+
+	env = (t_env *)arg;
+	pthread_mutex_lock(&env->mutex[0]);
+	pthread_mutex_unlock(&env->mutex[0]);
+	pthread_exit(env->value[0]);
+	return (env->value[0]);
+}
+
+void	*ft_raycasting_ru(void *arg)
+{
+	t_env	*env;
+
+	env = (t_env *)arg;
+	pthread_mutex_lock(&env->mutex[1]);
+	pthread_mutex_unlock(&env->mutex[1]);
+	pthread_exit(env->value[1]);
+	return (env->value[1]);
+}
+
+void	*ft_raycasting_ld(void *arg)
+{
+	t_env	*env;
+
+	env = (t_env *)arg;
+	pthread_mutex_lock(&env->mutex[2]);
+	pthread_mutex_unlock(&env->mutex[2]);
+	pthread_exit(env->value[2]);
+	return (env->value[2]);
+}
+
+void	ft_raycasting_rd(t_env *env)
+{
+	pthread_mutex_lock(&env->mutex[3]);
+	pthread_mutex_unlock(&env->mutex[3]);
 }

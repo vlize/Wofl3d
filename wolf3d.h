@@ -129,9 +129,10 @@ typedef struct		s_env
 	double			mrot;
 	int				tall;
 	int				spd;
+	void			*value[3];
+	pthread_t		thread[3];
+	pthread_mutex_t	mutex[3];
 	uint			*draw;
-	pthread_t		thread[4];
-	pthread_mutex_t	mutex[4];
 	uint			color;
 }					t_env;
 
@@ -150,6 +151,7 @@ int					ft_is_pln(int c);
 int					ft_is_obj(int c);
 int					ft_check_gnl(t_env *env, int y);
 int					ft_put_data(t_map *map, char *s, size_t *l, double *data);
+uint				ft_put_color(char c, int i);
 double				ft_put_operand(t_map *map, char *line, size_t *l);
 void				ft_put_pln(t_env *env, size_t *l, t_pln *pln);
 void				ft_put_obj(t_env *env, size_t *l, t_obj *obj);
@@ -163,15 +165,16 @@ int					ft_expose_hook(t_env *env);
 int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
-int					ft_init_thread(t_env *env);
 int					ft_reset(t_env *env);
-uint				ft_put_color(char c, int i);
+int					ft_init_thread(t_env *env);
+void				ft_make_thread(t_env *env);
 void				ft_map_limits(double *p, t_map *map);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
-void				ft_draw(t_env *env);
-void				*ft_screen(void *arg);
-void				*ft_fps(void *arg);
+void				*ft_raycasting_lu(void *arg);
+void				*ft_raycasting_ru(void *arg);
+void				*ft_raycasting_ld(void *arg);
+void				ft_raycasting_rd(t_env *env);
 void				ft_aff_map(t_env *env);
 
 #endif
