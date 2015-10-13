@@ -16,11 +16,13 @@
 void	*ft_raycasting0(void *arg)
 {
 	t_env	*env;
-	int		i[3];
+	int		i[7];
 	double	p1[6];
 	double	k[4];
 
 	env = (t_env *)arg;
+	i[5] = 1;
+	i[6] = 1;
 	i[0] = WIDTH_4 - 1;
 	while (i[0] >= 0)
 	{
@@ -43,11 +45,13 @@ void	*ft_raycasting0(void *arg)
 void	*ft_raycasting1(void *arg)
 {
 	t_env	*env;
-	int		i[3];
+	int		i[7];
 	double	p1[6];
 	double	k[4];
 
 	env = (t_env *)arg;
+	i[5] = 1;
+	i[6] = 1;
 	i[0] = WIDTH_2 - 1;
 	while (i[0] >= WIDTH_4)
 	{
@@ -70,11 +74,13 @@ void	*ft_raycasting1(void *arg)
 void	*ft_raycasting2(void *arg)
 {
 	t_env	*env;
-	int		i[3];
+	int		i[7];
 	double	p1[6];
 	double	k[4];
 
 	env = (t_env *)arg;
+	i[5] = 1;
+	i[6] = 1;
 	i[0] = WIDTH3_4 - 1;
 	while (i[0] >= WIDTH_2)
 	{
@@ -96,10 +102,12 @@ void	*ft_raycasting2(void *arg)
 
 void	ft_raycasting3(t_env *env)
 {
-	int		i[3];
+	int		i[7];
 	double	p1[6];
 	double	k[4];
 
+	i[5] = 1;
+	i[6] = 1;
 	i[0] = WIDTH - 1;
 	while (i[0] >= WIDTH3_4)
 	{
