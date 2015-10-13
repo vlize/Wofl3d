@@ -17,13 +17,12 @@
 int			ft_expose_hook(t_env *env)
 {
 	ft_position(env);
-	ft_raycasting_rd(env);
 	ft_make_thread(env);
+	ft_raycasting3(env);
 	pthread_join(env->thread[0], &env->value[0]);
 	pthread_join(env->thread[1], &env->value[1]);
 	pthread_join(env->thread[2], &env->value[2]);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	ft_aff_map(env);
 	return (0);
 }
 

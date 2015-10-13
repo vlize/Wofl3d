@@ -67,9 +67,11 @@ void	ft_free_thread(t_env *env)
 	pthread_mutex_unlock(&env->mutex[0]);
 	pthread_mutex_unlock(&env->mutex[1]);
 	pthread_mutex_unlock(&env->mutex[2]);
+	pthread_mutex_unlock(&env->mutex[3]);
 	pthread_mutex_destroy(&env->mutex[0]);
 	pthread_mutex_destroy(&env->mutex[1]);
 	pthread_mutex_destroy(&env->mutex[2]);
+	pthread_mutex_destroy(&env->mutex[3]);
 	pthread_cancel(env->thread[0]);
 	pthread_cancel(env->thread[1]);
 	pthread_cancel(env->thread[2]);

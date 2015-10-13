@@ -20,7 +20,14 @@ void	ft_make_coef(t_env *env)
 	i = 0;
 	while (i <= WIDTH_2)
 	{
-		env->coef[i] = DEPTH / sqrt((DEPTH * DEPTH) + (i * i));
+		env->coef[WIDTH_2 - i] = DEPTH / sqrt((DEPTH * DEPTH) + (i * i));
+		env->angle[WIDTH_2 - i] = atan2(i, DEPTH);
+		i++;
+	}
+	while (i < WIDTH)
+	{
+		env->coef[i] = env->coef[WIDTH - i];
+		env->angle[i] = -env->angle[WIDTH - i];
 		i++;
 	}
 }

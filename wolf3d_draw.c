@@ -13,41 +13,106 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-void	*ft_raycasting_lu(void *arg)
+void	*ft_raycasting0(void *arg)
 {
 	t_env	*env;
+	int		i[3];
+	double	p1[6];
+	double	k[4];
 
 	env = (t_env *)arg;
-	pthread_mutex_lock(&env->mutex[0]);
-	pthread_mutex_unlock(&env->mutex[0]);
+	i[0] = WIDTH_4 - 1;
+	while (i[0] >= 0)
+	{
+		p1[2] = (DEPTH / env->coef[i[0]]);
+		p1[0] = p1[2] * cos(env->map->zrot + env->angle[i[0]]) + env->p[0];
+		p1[1] = p1[2] * sin(env->map->zrot + env->angle[i[0]]) + env->p[1];
+		p1[2] = env->tall + env->p[2];
+		k[2] = env->p[0] - p1[0];
+		k[3] = env->p[1] - p1[1];
+		if (fabs(k[2]) >= fabs(k[3]))
+			ft_trace_x(i, p1, k, env);
+		else
+			ft_trace_y(i, p1, k, env);
+		i[0]--;
+	}
 	pthread_exit(env->value[0]);
 	return (env->value[0]);
 }
 
-void	*ft_raycasting_ru(void *arg)
+void	*ft_raycasting1(void *arg)
 {
 	t_env	*env;
+	int		i[3];
+	double	p1[6];
+	double	k[4];
 
 	env = (t_env *)arg;
-	pthread_mutex_lock(&env->mutex[1]);
-	pthread_mutex_unlock(&env->mutex[1]);
+	i[0] = WIDTH_2 - 1;
+	while (i[0] >= WIDTH_4)
+	{
+		p1[2] = (DEPTH / env->coef[i[0]]);
+		p1[0] = p1[2] * cos(env->map->zrot + env->angle[i[0]]) + env->p[0];
+		p1[1] = p1[2] * sin(env->map->zrot + env->angle[i[0]]) + env->p[1];
+		p1[2] = env->tall + env->p[2];
+		k[2] = env->p[0] - p1[0];
+		k[3] = env->p[1] - p1[1];
+		if (fabs(k[2]) >= fabs(k[3]))
+			ft_trace_x(i, p1, k, env);
+		else
+			ft_trace_y(i, p1, k, env);
+		i[0]--;
+	}
 	pthread_exit(env->value[1]);
 	return (env->value[1]);
 }
 
-void	*ft_raycasting_ld(void *arg)
+void	*ft_raycasting2(void *arg)
 {
 	t_env	*env;
+	int		i[3];
+	double	p1[6];
+	double	k[4];
 
 	env = (t_env *)arg;
-	pthread_mutex_lock(&env->mutex[2]);
-	pthread_mutex_unlock(&env->mutex[2]);
+	i[0] = WIDTH3_4 - 1;
+	while (i[0] >= WIDTH_2)
+	{
+		p1[2] = (DEPTH / env->coef[i[0]]);
+		p1[0] = p1[2] * cos(env->map->zrot + env->angle[i[0]]) + env->p[0];
+		p1[1] = p1[2] * sin(env->map->zrot + env->angle[i[0]]) + env->p[1];
+		p1[2] = env->tall + env->p[2];
+		k[2] = env->p[0] - p1[0];
+		k[3] = env->p[1] - p1[1];
+		if (fabs(k[2]) >= fabs(k[3]))
+			ft_trace_x(i, p1, k, env);
+		else
+			ft_trace_y(i, p1, k, env);
+		i[0]--;
+	}
 	pthread_exit(env->value[2]);
 	return (env->value[2]);
 }
 
-void	ft_raycasting_rd(t_env *env)
+void	ft_raycasting3(t_env *env)
 {
-	pthread_mutex_lock(&env->mutex[3]);
-	pthread_mutex_unlock(&env->mutex[3]);
+	int		i[3];
+	double	p1[6];
+	double	k[4];
+
+	i[0] = WIDTH - 1;
+	while (i[0] >= WIDTH3_4)
+	{
+		p1[2] = (DEPTH / env->coef[i[0]]);
+		p1[0] = p1[2] * cos(env->map->zrot + env->angle[i[0]]) + env->p[0];
+		p1[1] = p1[2] * sin(env->map->zrot + env->angle[i[0]]) + env->p[1];
+		p1[2] = env->tall + env->p[2];
+		k[2] = env->p[0] - p1[0];
+		k[3] = env->p[1] - p1[1];
+		if (fabs(k[2]) >= fabs(k[3]))
+			ft_trace_x(i, p1, k, env);
+		else
+			ft_trace_y(i, p1, k, env);
+		i[0]--;
+	}
 }

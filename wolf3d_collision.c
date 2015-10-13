@@ -134,4 +134,6 @@ void			ft_position(t_env *env)
 	env->p[0] = env->map->p[0];
 	env->p[1] = env->map->p[1];
 	env->p[2] = env->map->p[2];
+	env->i[0] = env->p[0] / BLOCK_SIZE;
+	env->i[1] = env->p[1] / BLOCK_SIZE;
 }

@@ -29,20 +29,24 @@
 # define HEIGHT 800
 # define WIDTH_2 (WIDTH / 2)
 # define HEIGHT_2 (HEIGHT / 2)
-# define FOV 90
-# define FOV_2 45
+# define WIDTH_4 (WIDTH / 4)
+# define HEIGHT_4 (HEIGHT / 4)
+# define WIDTH3_4 (WIDTH - WIDTH_2)
+# define HEIGHT3_4 (HEIGHT - HEIGHT_2)
 # define DEPTH 640
-# define BLOCK_SIZE 64
-# define SPD_MAX 8
-# define SPD_MIN 4
+# define FOV 90
+# define FOV_2 FOV / 2
+# define BLOCK_SIZE WIDTH / 10
+# define TALL_MAX BLOCK_SIZE / 2
+# define TALL_MIN BLOCK_SIZE / 4
+# define SPD_MAX BLOCK_SIZE / 8
+# define SPD_MIN SPD_MAX / 2
+# define JMP_MAX TALL_MIN * 1.125
+# define JMP_SPD JMP_MAX / 8
+# define FALL_SPD BLOCK_SIZE / 20
 # define ROT_SPD 15
-# define JMP_SPD 2
-# define JMP_MAX 18
-# define FALL_SPD 3
-# define TALL_MAX 32
-# define TALL_MIN 16
 # define RAD (M_PI / 180)
-# define PIX2 (M_PI * 2)
+# define PI2 (M_PI * 2)
 # define PI_2 (M_PI / 2)
 # define PI_4 (M_PI / 4)
 
@@ -123,15 +127,18 @@ typedef struct		s_env
 	char			*addr;
 	t_key			*key;
 	t_map			*map;
-	double			coef[WIDTH_2 + 1];
+	double			coef[WIDTH];
+	double			angle[WIDTH];
 	double			rad_spd;
-	double			p[3];
 	double			mrot;
+	double			p[3];
+	double			cam[3];
+	int				i[2];
 	int				tall;
 	int				spd;
 	void			*value[3];
 	pthread_t		thread[3];
-	pthread_mutex_t	mutex[3];
+	pthread_mutex_t	mutex[4];
 	uint			*draw;
 	uint			color;
 }					t_env;
@@ -171,10 +178,11 @@ void				ft_make_thread(t_env *env);
 void				ft_map_limits(double *p, t_map *map);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
-void				*ft_raycasting_lu(void *arg);
-void				*ft_raycasting_ru(void *arg);
-void				*ft_raycasting_ld(void *arg);
-void				ft_raycasting_rd(t_env *env);
-void				ft_aff_map(t_env *env);
+void				*ft_raycasting0(void *arg);
+void				*ft_raycasting1(void *arg);
+void				*ft_raycasting2(void *arg);
+void				ft_raycasting3(t_env *env);
+void				ft_trace_x(int *i, double *p1, double *k, t_env *env);
+void				ft_trace_y(int *i, double *p1, double *k, t_env *env);
 
 #endif

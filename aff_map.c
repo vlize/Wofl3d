@@ -14,12 +14,12 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-#define N 0.75
+static float g_n;
 
 static void	ft_player(double x0, double y0, t_env *env)
 {
-	int	x[2];
-	int	y[2];
+	int		x[2];
+	int		y[2];
 
 	x[1] = x0 + 1;
 	y[1] = y0 + 1;
@@ -29,7 +29,7 @@ static void	ft_player(double x0, double y0, t_env *env)
 		x[0] = x0 - 1;
 		while (x[0] <= x[1])
 		{
-			mlx_pixel_put(env->mlx, env->win, x[0] * N, y[0] * N, 0x00FF00);
+			mlx_pixel_put(env->mlx, env->win, x[0] * g_n, y[0] * g_n, 0x00FF00);
 			x[0]++;
 		}
 		y[0]++;
@@ -49,7 +49,7 @@ static void	ft_trace_x(t_pln *b, double *k, int *i, t_env *env)
 		while (x <= b->p[i[1]][0])
 		{
 			y = x * k[0] + k[1];
-			mlx_pixel_put(env->mlx, env->win, x * N, y * N, b->hex);
+			mlx_pixel_put(env->mlx, env->win, x * g_n, y * g_n, b->hex);
 			x++;
 		}
 		return ;
@@ -57,7 +57,7 @@ static void	ft_trace_x(t_pln *b, double *k, int *i, t_env *env)
 	while (x >= b->p[i[1]][0])
 	{
 		y = x * k[0] + k[1];
-		mlx_pixel_put(env->mlx, env->win, x * N, y * N, b->hex);
+		mlx_pixel_put(env->mlx, env->win, x * g_n, y * g_n, b->hex);
 		x--;
 	}
 }
@@ -75,7 +75,7 @@ static void	ft_trace_y(t_pln *b, double *k, int *i, t_env *env)
 		while (y <= b->p[i[1]][1])
 		{
 			x = y * k[0] + k[1];
-			mlx_pixel_put(env->mlx, env->win, x * N, y * N, b->hex);
+			mlx_pixel_put(env->mlx, env->win, x * g_n, y * g_n, b->hex);
 			y++;
 		}
 		return ;
@@ -83,7 +83,7 @@ static void	ft_trace_y(t_pln *b, double *k, int *i, t_env *env)
 	while (y >= b->p[i[1]][1])
 	{
 		x = y * k[0] + k[1];
-		mlx_pixel_put(env->mlx, env->win, x * N, y * N, b->hex);
+		mlx_pixel_put(env->mlx, env->win, x * g_n, y * g_n, b->hex);
 		y--;
 	}
 }
@@ -105,7 +105,7 @@ static void	ft_border(t_pln *pln, t_env *e)
 		{
 			i[2] = pln->p[i[0]][0];
 			i[3] = pln->p[i[0]][1];
-			mlx_pixel_put(e->mlx, e->win, i[2] * N, i[3] * N, pln->hex);
+			mlx_pixel_put(e->mlx, e->win, i[2] * g_n, i[3] * g_n, pln->hex);
 		}
 		else if (fabs(k[2]) >= fabs(k[3]))
 			ft_trace_x(pln, k, i, e);
@@ -121,6 +121,7 @@ void		ft_aff_map(t_env *env)
 	int		y;
 	t_pln	*pln;
 
+	g_n = HEIGHT / env->map->ymax;
 	x = 0;
 	while (x <= env->map->xtab)
 	{
