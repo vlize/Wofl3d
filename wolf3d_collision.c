@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-static double	*ft_collision(double *a, double *b, double *c, double *d)
+double			*ft_collision(double *a, double *b, double *c, double *d)
 {
 	static double	i[4];
 	double			k[3];
@@ -44,22 +44,13 @@ static double	*ft_collision(double *a, double *b, double *c, double *d)
 
 static void		ft_positon_check(t_pln *pln, t_env *env)
 {
-	int		n[2];
 	double	*i;
 
-	n[0] = 0;
-//	while (n[0] < pln->pts)
+	if ((i = ft_collision(env->p, env->map->p, pln->p[0], pln->p[1])))
 	{
-		n[1] = n[0] + 1;
-//		if (n[1] == pln->pts)
-//			n[1] = 0;
-		if ((i = ft_collision(env->p, env->map->p, pln->p[n[0]], pln->p[n[1]])))
-		{
-			i[2] = hypot(i[0] - env->p[0], i[1] - env->p[1]) - 1.5;
-			env->map->p[0] = env->p[0] + (cos(env->mrot) * i[2]);
-			env->map->p[1] = env->p[1] + (sin(env->mrot) * i[2]);
-		}
-//		n[0]++;
+		i[2] = hypot(i[0] - env->p[0], i[1] - env->p[1]) - 1.5;
+		env->map->p[0] = env->p[0] + (cos(env->mrot) * i[2]);
+		env->map->p[1] = env->p[1] + (sin(env->mrot) * i[2]);
 	}
 }
 

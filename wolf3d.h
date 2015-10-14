@@ -184,5 +184,6 @@ void				*ft_raycasting2(void *arg);
 void				ft_raycasting3(t_env *env);
 void				ft_trace_x(int *i, double *p1, double *k, t_env *env);
 void				ft_trace_y(int *i, double *p1, double *k, t_env *env);
+double				*ft_collision(double *a, double *b, double *c, double *d);
 
 #endif

@@ -124,3 +124,13 @@ void	ft_raycasting3(t_env *env)
 		i[0]--;
 	}
 }
+
+void	ft_make_thread(t_env *env)
+{
+	if (pthread_create(&env->thread[0], NULL, &ft_raycasting0, env))
+		exit(ft_perror("pthread_create()", env));
+	if (pthread_create(&env->thread[1], NULL, &ft_raycasting1, env))
+		exit(ft_perror("pthread_create()", env));
+	if (pthread_create(&env->thread[2], NULL, &ft_raycasting2, env))
+		exit(ft_perror("pthread_create()", env));
+}
