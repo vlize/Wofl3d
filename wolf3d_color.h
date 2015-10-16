@@ -35,4 +35,6 @@
 # define F8 0x000033
 # define F9 0x330000
 
+# define SKY0 0x003366
+
 #endif

@@ -99,8 +99,8 @@ void			ft_crash_check(t_env *env)
 	}
 	if ((env->map->p[2] < 0) && !(env->map->fall = 0))
 		env->map->p[2] = 0;
-	if ((env->map->p[2] >= BLOCK_SIZE) && (env->map->fall = 1))
-		env->map->p[2] = BLOCK_SIZE;
+	if (((env->map->p[2] + env->tall) >= BLOCK_SIZE) && (env->map->fall = 1))
+		env->map->p[2] = BLOCK_SIZE - env->tall;
 }
 
 void			ft_position(t_env *env)
@@ -110,11 +110,11 @@ void			ft_position(t_env *env)
 	if (env->map->mspd || env->map->sspd)
 		env->map->spd = env->spd;
 	if (env->map->mspd > 0)
-		env->mrot += PI_4 * env->map->sspd;
+		env->mrot += env->map->sspd * PI_4;
 	else if (!env->map->mspd)
-		env->mrot += PI_2 * env->map->sspd;
+		env->mrot += env->map->sspd * PI_2;
 	else
-		env->mrot += M_PI - (PI_4 * env->map->sspd);
+		env->mrot += M_PI - (env->map->sspd * PI_4);
 	env->map->p[0] = env->p[0] + (cos(env->mrot) * env->map->spd);
 	env->map->p[1] = env->p[1] + (sin(env->mrot) * env->map->spd);
 	if (env->map->jump && !env->map->fall)

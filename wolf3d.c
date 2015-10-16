@@ -22,13 +22,13 @@ static int	ft_check_pos0(t_map *map, char *line, size_t l)
 	if (ft_put_data(map, line, &l, &(map->p0[1])) != 1)
 		return (0);
 	l++;
-	if (ft_put_data(map, line, &l, &(map->p0[3])) != 1)
+	if (ft_put_data(map, line, &l, &(map->p0[2])) != 1)
 		return (0);
 	l++;
 	if (ft_put_data(map, line, &l, &(map->zrot0)) != 1)
 		return (0);
 	ft_map_limits(map->p0, map);
-	map->zrot0 *= M_PI / 180;
+	map->zrot0 *= RAD;
 	map->zrot = map->zrot0;
 	map->spd = SPD_MAX;
 	map->mspd = 0;
@@ -123,7 +123,7 @@ int			main(int ac, char **av)
 		return (0);
 	if (!(env->img = mlx_new_image(env->mlx, WIDTH, HEIGHT)))
 		return (ft_perror("mlx_new_image()", env));
-	env->addr = mlx_get_data_addr(env->img, &env->bpp, &env->sl, &env->en);
+	env->addr = mlx_get_data_addr(env->img, &env->bpp, &env->sl, &env->endian);
 	if (!ft_init_thread(env))
 		return (ft_perror("pthread_create()", env));
 	mlx_expose_hook(env->win, ft_expose_hook, env);

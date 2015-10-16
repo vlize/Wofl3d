@@ -26,29 +26,30 @@
 # include <pthread.h>
 
 # define WIDTH 1280
+# define WIDTH_2 640
+# define WIDTH_4 320
+# define WIDTH3_4 960
 # define HEIGHT 800
-# define WIDTH_2 (WIDTH / 2)
-# define HEIGHT_2 (HEIGHT / 2)
-# define WIDTH_4 (WIDTH / 4)
-# define HEIGHT_4 (HEIGHT / 4)
-# define WIDTH3_4 (WIDTH - WIDTH_2)
-# define HEIGHT3_4 (HEIGHT - HEIGHT_2)
+# define HEIGHT_2 400
+# define HEIGHT_4 200
+# define HEIGHT3_4 600
 # define DEPTH 640
 # define FOV 90
-# define FOV_2 FOV / 2
-# define BLOCK_SIZE WIDTH / 10
-# define TALL_MAX BLOCK_SIZE / 2
-# define TALL_MIN BLOCK_SIZE / 4
-# define SPD_MAX BLOCK_SIZE / 8
-# define SPD_MIN SPD_MAX / 2
-# define JMP_MAX TALL_MIN * 1.125
-# define JMP_SPD JMP_MAX / 8
-# define FALL_SPD BLOCK_SIZE / 20
-# define ROT_SPD 15
-# define RAD (M_PI / 180)
-# define PI2 (M_PI * 2)
-# define PI_2 (M_PI / 2)
-# define PI_4 (M_PI / 4)
+# define FOV_2 45
+# define BLOCK_SIZE 128
+# define TALL_MAX 64
+# define TALL_MIN 32
+# define SPD_MAX 16
+# define SPD_MIN 8
+# define JMP_MAX 36
+# define JMP_SPD 4.5
+# define FALL_SPD 6
+# define ROT_SPD 5
+# define RAD 0.0174532925199432
+# define PI2 6.283185307179587
+# define PI_2 1.570796326794897
+# define PI_4 0.7853981633974482
+# define INC_PIX 5120
 
 typedef struct		s_obj
 {
@@ -120,7 +121,7 @@ typedef struct		s_env
 	int				gnl;
 	int				bpp;
 	int				sl;
-	int				en;
+	int				endian;
 	char			*s;
 	char			*name;
 	char			*line;
@@ -139,7 +140,6 @@ typedef struct		s_env
 	void			*value[3];
 	pthread_t		thread[3];
 	pthread_mutex_t	mutex[4];
-	uint			*draw;
 	uint			color;
 }					t_env;
 
@@ -175,6 +175,7 @@ int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_reset(t_env *env);
 int					ft_init_thread(t_env *env);
 void				ft_make_thread(t_env *env);
+void				ft_window_limits(int *y, int *ymax);
 void				ft_map_limits(double *p, t_map *map);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
@@ -184,6 +185,7 @@ void				*ft_raycasting2(void *arg);
 void				ft_raycasting3(t_env *env);
 void				ft_trace_x(int *i, double *p1, double *k, t_env *env);
 void				ft_trace_y(int *i, double *p1, double *k, t_env *env);
+void				ft_set_pixel(int i, int imax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
 
 #endif

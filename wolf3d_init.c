@@ -41,12 +41,13 @@ void	ft_init_env(t_env *env)
 	env->load = NULL;
 	env->addr = NULL;
 	env->line = NULL;
-	env->draw = NULL;
 	env->fd = 0;
 	env->rad_spd = ROT_SPD * RAD;
 	env->bpp = 4 * CHAR_BIT;
 	env->sl = 4 * WIDTH;
-	env->en = ft_endian();
+	env->endian = ft_endian();
+	env->tall = TALL_MAX;
+	env->spd = SPD_MAX;
 }
 
 int		ft_reset(t_env *env)
@@ -71,6 +72,8 @@ int		ft_reset(t_env *env)
 	env->key->jump = 0;
 	env->map->fall = 0;
 	env->key->use = 0;
+	env->tall = TALL_MAX;
+	env->spd = SPD_MAX;
 	return (ft_expose_hook(env));
 }
 

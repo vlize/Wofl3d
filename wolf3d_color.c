@@ -74,3 +74,36 @@ uint		ft_put_color(char c, int i)
 		return (0x0000ff);
 	return (0xff0000);
 }
+
+static void	ft_set_color(uint *n, int color, int endian)
+{
+	n[0] = color;
+	if (endian == 1)
+	{
+		n[1] = (n[0] << 24) & 0xFF;
+		n[2] = (n[0] << 16) & 0xFF;
+		n[3] = (n[0] << 8) & 0xFF;
+	}
+	else
+	{
+		n[1] = n[0] & 0xFF;
+		n[2] = (n[0] >> 8) & 0xFF;
+		n[3] = (n[0] >> 16) & 0xFF;
+	}
+}
+
+void		ft_set_pixel(int pix, int pixmax, int color, t_env *env)
+{
+	uint	n[4];
+
+	ft_set_color(n, color, env->endian);
+	pix *= 4;
+	pixmax *= 4;
+	while (pix <= pixmax)
+	{
+		ft_memcpy((env->addr + pix), &n[1], 1);
+		ft_memcpy((env->addr + pix + 1), &n[2], 1);
+		ft_memcpy((env->addr + pix + 2), &n[3], 1);
+		pix += INC_PIX;
+	}
+}

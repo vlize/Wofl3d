@@ -13,18 +13,6 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-void	ft_map_limits(double *p, t_map *map)
-{
-	if (p[0] < 0)
-		p[0] = 0;
-	else if (p[0] >= map->xmax)
-		p[0] = map->xmax - 1;
-	if (p[1] < 0)
-		p[1] = 0;
-	else if (p[1] >= map->ymax)
-		p[1] = map->ymax - 1;
-}
-
 double	ft_put_operand(t_map *map, char *line, size_t *l)
 {
 	double	tmp;

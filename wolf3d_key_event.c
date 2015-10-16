@@ -42,9 +42,9 @@ static int	ft_key_event1(t_env *env)
 
 static int	ft_key_event0(t_env *env)
 {
-	while (env->map->zrot >= PI2)
+	while (env->map->zrot > M_PI)
 		env->map->zrot -= PI2;
-	while (env->map->zrot < 0)
+	while (env->map->zrot <= M_PI)
 		env->map->zrot += PI2;
 	if (env->key->strafe_l && (!env->key->strafe_r || (env->map->sspd < 0)))
 		env->map->sspd = -1;
@@ -70,12 +70,12 @@ int			ft_key_event(t_env *env)
 		env->spd = SPD_MIN;
 	}
 	if (k_c(env->key->forth) && (!k_c(env->key->back) || (env->map->mspd < 0)))
-		env->map->mspd = 1;
-	if (k_c(env->key->back) && (!k_c(env->key->forth) || (env->map->mspd > 0)))
 		env->map->mspd = -1;
+	if (k_c(env->key->back) && (!k_c(env->key->forth) || (env->map->mspd > 0)))
+		env->map->mspd = 1;
 	if (k_c(env->key->turn_l))
-		env->map->zrot += env->rad_spd;
-	if (k_c(env->key->turn_r))
 		env->map->zrot -= env->rad_spd;
+	if (k_c(env->key->turn_r))
+		env->map->zrot += env->rad_spd;
 	return (ft_key_event0(env));
 }
