@@ -86,15 +86,3 @@ int		ft_init_loading(char **s, int *i)
 	i[3] = (HEIGHT - i[1]) / 2;
 	return (1);
 }
-
-int		ft_init_thread(t_env *env)
-{
-	env->thread[0] = 0;
-	env->thread[1] = 0;
-	env->thread[2] = 0;
-	pthread_mutex_init(&env->mutex[0], NULL);
-	pthread_mutex_init(&env->mutex[1], NULL);
-	pthread_mutex_init(&env->mutex[2], NULL);
-	pthread_mutex_init(&env->mutex[3], NULL);
-	return (1);
-}

@@ -62,26 +62,10 @@ void	ft_free_tab(t_block ***tab, size_t x, size_t y)
 	}
 }
 
-void	ft_free_thread(t_env *env)
-{
-	pthread_mutex_unlock(&env->mutex[0]);
-	pthread_mutex_unlock(&env->mutex[1]);
-	pthread_mutex_unlock(&env->mutex[2]);
-	pthread_mutex_unlock(&env->mutex[3]);
-	pthread_mutex_destroy(&env->mutex[0]);
-	pthread_mutex_destroy(&env->mutex[1]);
-	pthread_mutex_destroy(&env->mutex[2]);
-	pthread_mutex_destroy(&env->mutex[3]);
-	pthread_cancel(env->thread[0]);
-	pthread_cancel(env->thread[1]);
-	pthread_cancel(env->thread[2]);
-}
-
 int		ft_free_env(t_env *env)
 {
 	if (!env)
 		return (0);
-	ft_free_thread(env);
 	if (env->mlx && env->load)
 		mlx_destroy_image(env->mlx, env->load);
 	if (env->mlx && env->img)

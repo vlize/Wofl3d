@@ -23,7 +23,6 @@
 # include <stdio.h>
 # include <math.h>
 # include <X11/X.h>
-# include <pthread.h>
 
 # define WIDTH 1280
 # define WIDTH_2 640
@@ -137,9 +136,6 @@ typedef struct		s_env
 	int				i[2];
 	int				tall;
 	int				spd;
-	void			*value[3];
-	pthread_t		thread[3];
-	pthread_mutex_t	mutex[4];
 	uint			color;
 }					t_env;
 
@@ -173,8 +169,6 @@ int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_reset(t_env *env);
-int					ft_init_thread(t_env *env);
-void				ft_make_thread(t_env *env);
 void				ft_window_limits(int *y, int *ymax);
 void				ft_map_limits(double *p, t_map *map);
 void				ft_position(t_env *env);
@@ -182,7 +176,7 @@ void				ft_crash_check(t_env *env);
 void				*ft_raycasting0(void *arg);
 void				*ft_raycasting1(void *arg);
 void				*ft_raycasting2(void *arg);
-void				ft_raycasting3(t_env *env);
+void				ft_raycasting_loop(int imax, int imin, t_env *env);
 void				ft_trace_x(int *i, double *p1, double *k, t_env *env);
 void				ft_trace_y(int *i, double *p1, double *k, t_env *env);
 void				ft_set_pixel(int i, int imax, int color, t_env *env);

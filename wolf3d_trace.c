@@ -72,7 +72,7 @@ static void	ft_init_ray(int *i, double *k, t_env *env)
 void		ft_trace_x(int *i, double *p1, double *k, t_env *env)
 {
 	k[0] = k[3] / k[2];
-	k[1] = p1[1] - (p1[0] * k[0]);
+	k[1] = env->p[1] - (env->p[0] * k[0]);
 	ft_init_ray(i, k, env);
 	i[3] = i[1];
 	if (i[5] > 0)
@@ -101,7 +101,7 @@ void		ft_trace_x(int *i, double *p1, double *k, t_env *env)
 void		ft_trace_y(int *i, double *p1, double *k, t_env *env)
 {
 	k[0] = k[2] / k[3];
-	k[1] = p1[0] - (p1[1] * k[0]);
+	k[1] = env->p[0] - (env->p[1] * k[0]);
 	ft_init_ray(i, k, env);
 	i[4] = i[2];
 	if (i[6] > 0)

@@ -17,11 +17,7 @@
 int			ft_expose_hook(t_env *env)
 {
 	ft_position(env);
-	ft_make_thread(env);
-	ft_raycasting3(env);
-	pthread_join(env->thread[0], &env->value[0]);
-	pthread_join(env->thread[1], &env->value[1]);
-	pthread_join(env->thread[2], &env->value[2]);
+	ft_raycasting_loop(WIDTH - 1, 0, env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return (0);
 }
