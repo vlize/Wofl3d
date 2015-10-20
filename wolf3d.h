@@ -127,6 +127,7 @@ typedef struct		s_env
 	char			*addr;
 	t_key			*key;
 	t_map			*map;
+	double			hypo[WIDTH];
 	double			coef[WIDTH];
 	double			angle[WIDTH];
 	double			rad_spd;
@@ -176,7 +177,7 @@ void				ft_crash_check(t_env *env);
 void				*ft_raycasting0(void *arg);
 void				*ft_raycasting1(void *arg);
 void				*ft_raycasting2(void *arg);
-void				ft_raycasting_loop(int imax, int imin, t_env *env);
+void				ft_raycasting_loop(t_env *env);
 void				ft_trace_x(int *i, double *p1, double *k, t_env *env);
 void				ft_trace_y(int *i, double *p1, double *k, t_env *env);
 void				ft_set_pixel(int i, int imax, int color, t_env *env);

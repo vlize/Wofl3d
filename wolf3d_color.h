@@ -36,5 +36,7 @@
 # define F9 0x330000
 
 # define SKY0 0xccffff
+# define SKY1 0xffccff
+# define SKY2 0xffffcc
 
 #endif

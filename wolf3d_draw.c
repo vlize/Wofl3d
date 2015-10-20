@@ -14,7 +14,7 @@
 #include "wolf3d.h"
 #include "wolf3d_color.h"
 
-void	ft_raycasting_loop(int imax, int imin, t_env *env)
+void	ft_raycasting_loop(t_env *env)
 {
 	double	p1[6];
 	double	k[4];
@@ -24,20 +24,19 @@ void	ft_raycasting_loop(int imax, int imin, t_env *env)
 	i[6] = 1;
 	i[7] = W8;
 	i[8] = W9;
-	i[0] = imax;
-	while (i[0] >= imin)
+	i[0] = 0;
+	while (i[0] < WIDTH)
 	{
-		k[0] = env->map->zrot + env->angle[i[0]];
-		p1[2] = (DEPTH / env->coef[i[0]]);
-		p1[0] = p1[2] * cos(k[0]) + env->p[0];
-		p1[1] = p1[2] * sin(k[0]) + env->p[1];
+		k[0] = env->map->zrot - env->angle[i[0]];
+		p1[0] = env->hypo[i[0]] * cos(k[0]) + env->p[0];
+		p1[1] = env->hypo[i[0]] * sin(k[0]) + env->p[1];
 		p1[2] = env->tall + env->p[2];
-		k[2] = env->p[0] - p1[0];
-		k[3] = env->p[1] - p1[1];
+		k[2] = p1[0] - env->p[0];
+		k[3] = p1[1] - env->p[1];
 		if (fabs(k[2]) >= fabs(k[3]))
 			ft_trace_x(i, p1, k, env);
 		else
 			ft_trace_y(i, p1, k, env);
-		i[0]--;
+		i[0]++;
 	}
 }

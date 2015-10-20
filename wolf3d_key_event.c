@@ -42,9 +42,9 @@ static int	ft_key_event1(t_env *env)
 
 static int	ft_key_event0(t_env *env)
 {
-	while (env->map->zrot > M_PI)
+	while (env->map->zrot >= M_PI)
 		env->map->zrot -= PI2;
-	while (env->map->zrot <= M_PI)
+	while (env->map->zrot < -M_PI)
 		env->map->zrot += PI2;
 	if (env->key->strafe_l && (!env->key->strafe_r || (env->map->sspd < 0)))
 		env->map->sspd = -1;
