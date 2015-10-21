@@ -180,7 +180,8 @@ void				*ft_raycasting2(void *arg);
 void				ft_raycasting_loop(t_env *env);
 void				ft_trace_x(int *i, double *p1, double *k, t_env *env);
 void				ft_trace_y(int *i, double *p1, double *k, t_env *env);
-void				ft_set_pixel(int i, int imax, int color, t_env *env);
+void				ft_put_to_image(int *i, double *p1, t_env *env);
+void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
 
 #endif

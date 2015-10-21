@@ -24,9 +24,9 @@ int			ft_expose_hook(t_env *env)
 
 static int	ft_keyrelease_hook0(int keycode, t_env *env)
 {
-	if (keycode == 126)
-		env->key->forth[1] = 0;
 	if (keycode == 125)
+		env->key->forth[1] = 0;
+	if (keycode == 126)
 		env->key->back[1] = 0;
 	if (keycode == 123)
 		env->key->turn_l[1] = 0;
@@ -37,17 +37,17 @@ static int	ft_keyrelease_hook0(int keycode, t_env *env)
 
 int			ft_keyrelease_hook(int keycode, t_env *env)
 {
-	if (keycode == 13)
-		env->key->forth[0] = 0;
 	if (keycode == 1)
+		env->key->forth[0] = 0;
+	if (keycode == 13)
 		env->key->back[0] = 0;
 	if (keycode == 12)
 		env->key->turn_l[0] = 0;
 	if (keycode == 14)
 		env->key->turn_r[0] = 0;
-	if (keycode == 2)
-		env->key->strafe_l = 0;
 	if (keycode == 0)
+		env->key->strafe_l = 0;
+	if (keycode == 2)
 		env->key->strafe_r = 0;
 	if (keycode == 36)
 		env->key->use = 0;
@@ -60,9 +60,9 @@ int			ft_keyrelease_hook(int keycode, t_env *env)
 
 static int	ft_keypress_hook0(int keycode, t_env *env)
 {
-	if (keycode == 126)
-		env->key->forth[1] = 1;
 	if (keycode == 125)
+		env->key->forth[1] = 1;
+	if (keycode == 126)
 		env->key->back[1] = 1;
 	if (keycode == 123)
 		env->key->turn_l[1] = 1;
@@ -77,17 +77,17 @@ int			ft_keypress_hook(int keycode, t_env *env)
 		exit(ft_free_env(env));
 	if (keycode == 51)
 		return (ft_reset(env));
-	if (keycode == 13)
-		env->key->forth[0] = 1;
 	if (keycode == 1)
+		env->key->forth[0] = 1;
+	if (keycode == 13)
 		env->key->back[0] = 1;
 	if (keycode == 12)
 		env->key->turn_l[0] = 1;
 	if (keycode == 14)
 		env->key->turn_r[0] = 1;
-	if (keycode == 2)
-		env->key->strafe_l = 1;
 	if (keycode == 0)
+		env->key->strafe_l = 1;
+	if (keycode == 2)
 		env->key->strafe_r = 1;
 	if (keycode == 36)
 		env->key->use = 1;
