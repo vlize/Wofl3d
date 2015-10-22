@@ -58,7 +58,7 @@ void		ft_put_to_image(int *i, double *p1, t_env *env)
 	y[0] = HEIGHT_2 + k[1] - (DEPTH * BLOCK_SIZE / k[0]);
 	y[1] = HEIGHT_2 + k[1];
 	ft_window_limits(&y[0], &y[1]);
-	ft_set_pixel((y[0] * WIDTH + i[0]), (y[1] * WIDTH + i[0]), i[9], env);
+	ft_set_pixel((y[0] * WIDTH + i[0]), (y[1] * WIDTH + i[0]), i[6], env);
 	y[0]--;
 	y[1]++;
 	y[2] = HEIGHT - 1;
@@ -67,17 +67,27 @@ void		ft_put_to_image(int *i, double *p1, t_env *env)
 	ft_set_pixel(i[0], (y[0] * WIDTH + i[0]), i[7], env);
 }
 
+static void	ft_init_i(int *i, t_env *env)
+{
+	i[1] = env->i[0];
+	i[2] = env->i[1];
+	i[3] = i[1];
+	i[4] = i[2];
+	i[5] = 1;
+}
+
 void		ft_raycasting(t_env *env)
 {
 	double	p1[6];
 	double	k[4];
-	int		i[10];
+	int		i[9];
 
 	i[7] = W8;
 	i[8] = W9;
 	i[0] = 0;
 	while (i[0] < WIDTH)
 	{
+		ft_init_i(i, env);
 		k[0] = env->map->zrot + env->angle[i[0]];
 		p1[0] = env->p[0] + (env->hypo[i[0]] * cos(k[0]));
 		p1[1] = env->p[1] + (env->hypo[i[0]] * sin(k[0]));
