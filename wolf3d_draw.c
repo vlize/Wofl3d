@@ -67,7 +67,7 @@ void		ft_put_to_image(int *i, double *p1, t_env *env)
 	ft_set_pixel(i[0], (y[0] * WIDTH + i[0]), i[7], env);
 }
 
-void		ft_raycasting_loop(t_env *env)
+void		ft_raycasting(t_env *env)
 {
 	double	p1[6];
 	double	k[4];
@@ -85,9 +85,9 @@ void		ft_raycasting_loop(t_env *env)
 		k[2] = p1[0] - env->p[0];
 		k[3] = p1[1] - env->p[1];
 		if (fabs(k[2]) >= fabs(k[3]))
-			ft_trace_x(i, p1, k, env);
+			ft_cast_x(i, p1, k, env);
 		else
-			ft_trace_y(i, p1, k, env);
+			ft_cast_y(i, p1, k, env);
 		i[0]++;
 	}
 }

@@ -17,7 +17,7 @@
 int			ft_expose_hook(t_env *env)
 {
 	ft_position(env);
-	ft_raycasting_loop(env);
+	ft_raycasting(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return (0);
 }
