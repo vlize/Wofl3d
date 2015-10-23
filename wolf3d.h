@@ -35,14 +35,14 @@
 # define DEPTH 640
 # define FOV 90
 # define FOV_2 45
-# define BLOCK_SIZE 128
-# define TALL_MAX 64
-# define TALL_MIN 32
-# define SPD_MAX 16
-# define SPD_MIN 8
-# define JMP_MAX 36
-# define JMP_SPD 4.5
-# define FALL_SPD 6
+# define BLOCK_SIZE 256
+# define TALL_MAX 128
+# define TALL_MIN 64
+# define SPD_MAX 32
+# define SPD_MIN 16
+# define JMP_MAX 72
+# define JMP_SPD 9
+# define FALL_SPD 12
 # define ROT_SPD 5
 # define RAD 0.0174532925199432
 # define PI2 6.283185307179587
@@ -175,10 +175,13 @@ void				ft_map_limits(double *p, t_map *map);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
 void				ft_raycasting(t_env *env);
-void				ft_cast_x(int *i, double *p1, double *k, t_env *env);
-void				ft_cast_y(int *i, double *p1, double *k, t_env *env);
+void				ft_cast_xp(int *i, double *p1, double *k, t_env *env);
+void				ft_cast_xn(int *i, double *p1, double *k, t_env *env);
+void				ft_cast_yp(int *i, double *p1, double *k, t_env *env);
+void				ft_cast_yn(int *i, double *p1, double *k, t_env *env);
 void				ft_put_to_image(int *i, double *p1, t_env *env);
 void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
+int					ft_ray_cast(int *i, double *p1, t_env *env);
 
 #endif
