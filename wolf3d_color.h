@@ -25,15 +25,15 @@
 # define W9 0x444444
 
 # define F0 0xffffff
-# define F1 0xeeeeee
-# define F2 0xeeffee
-# define F3 0xeeeeff
-# define F4 0xffeeee
+# define F1 0xcccccc
+# define F2 0xccffcc
+# define F3 0xccccff
+# define F4 0xffcccc
 # define F5 0x000000
 # define F6 0x333333
-# define F7 0x003300
-# define F8 0x000033
-# define F9 0x330000
+# define F7 0x006600
+# define F8 0x330066
+# define F9 0x550000
 
 # define SKY0 0xbbffff
 # define SKY1 0xffcccc

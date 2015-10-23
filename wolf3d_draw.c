@@ -36,6 +36,8 @@ void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 	uint	n[4];
 	int		j[2];
 
+	if (ymin > ymax)
+		return ;
 	ft_set_color(n, color, env->endian);
 	j[0] = ymin * 4;
 	j[1] = ymax * 4;
@@ -48,58 +50,43 @@ void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 	}
 }
 
-void		ft_put_to_image(int *i, double *p1, t_env *env)
-{
-	int		y[3];
-	double	k[2];
-
-	k[0] = hypot((env->p[0] - p1[3]), (env->p[1] - p1[4])) * env->coef[i[0]];
-	k[1] = ((env->p[2] + env->tall) * DEPTH) / k[0];
-	y[0] = HEIGHT_2 + k[1] - (DEPTH * BLOCK_SIZE / k[0]);
-	y[1] = HEIGHT_2 + k[1];
-	ft_window_limits(&y[0], &y[1]);
-	ft_set_pixel((y[0] * WIDTH + i[0]), (y[1] * WIDTH + i[0]), i[5], env);
-	y[0]--;
-	y[1]++;
-	y[2] = HEIGHT - 1;
-	ft_window_limits(&y[1], &y[0]);
-	ft_set_pixel((y[1] * WIDTH + i[0]), (y[2] * WIDTH + i[0]), i[7], env);
-	ft_set_pixel(i[0], (y[0] * WIDTH + i[0]), i[6], env);
-}
-
 static void	ft_check_equation(int *i, double *p1, double *k, t_env *env)
 {
-		if (fabs(k[2]) >= fabs(k[3]))
-		{
-			k[0] = k[3] / k[2];
-			k[1] = env->p[1] - (env->p[0] * k[0]);
-			if (k[2] >= 0)
-				ft_cast_xp(i, p1, k, env);
-			else
-				ft_cast_xn(i, p1, k, env);
-		}
+	p1[0] = env->p[0];
+	p1[1] = env->p[1];
+	if (fabs(k[2]) >= fabs(k[3]))
+	{
+		k[0] = k[3] / k[2];
+		k[1] = env->p[1] - (env->p[0] * k[0]);
+		if (k[2] >= 0)
+			ft_cast_xp(i, p1, k, env);
 		else
-		{
-			k[0] = k[2] / k[3];
-			k[1] = env->p[0] - (env->p[1] * k[0]);
-			if (k[3] >= 0)
-				ft_cast_yp(i, p1, k, env);
-			else
-				ft_cast_yn(i, p1, k, env);
-		}
+			ft_cast_xn(i, p1, k, env);
+	}
+	else
+	{
+		k[0] = k[2] / k[3];
+		k[1] = env->p[0] - (env->p[1] * k[0]);
+		if (k[3] >= 0)
+			ft_cast_yp(i, p1, k, env);
+		else
+			ft_cast_yn(i, p1, k, env);
+	}
 }
 
 void		ft_raycasting(t_env *env)
 {
 	double	p1[6];
 	double	k[4];
-	int		i[8];
+	int		i[10];
 
-	i[6] = W8;
-	i[7] = W9;
 	i[0] = 0;
 	while (i[0] < WIDTH)
 	{
+		i[6] = F5;
+		i[7] = F5;
+		i[8] = 0;
+		i[9] = HEIGHT - 1;
 		i[1] = env->i[0];
 		i[2] = env->i[1];
 		i[3] = i[1];

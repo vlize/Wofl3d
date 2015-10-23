@@ -179,9 +179,11 @@ void				ft_cast_xp(int *i, double *p1, double *k, t_env *env);
 void				ft_cast_xn(int *i, double *p1, double *k, t_env *env);
 void				ft_cast_yp(int *i, double *p1, double *k, t_env *env);
 void				ft_cast_yn(int *i, double *p1, double *k, t_env *env);
-void				ft_put_to_image(int *i, double *p1, t_env *env);
+void				ft_wall(int *i, double *p1, t_env *env);
+void				ft_floor_ceiling(int *i, double *p1, t_env *env);
 void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
+int					ft_limit_xy(int *i, t_env *env);
 int					ft_ray_cast(int *i, double *p1, t_env *env);
 
 #endif
