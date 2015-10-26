@@ -184,6 +184,7 @@ void				ft_floor_ceiling(int *i, double *p1, t_env *env);
 void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
 int					ft_limit_xy(int *i, t_env *env);
+int					ft_find_i(int i1, int i2);
 int					ft_ray_cast(int *i, double *p1, t_env *env);
 
 #endif

@@ -14,11 +14,19 @@
 #include "wolf3d.h"
 #include "wolf3d_color.h"
 
-static int	ft_find_i(int i1, int i2)
+static void	ft_first_block(double *p0, double *p1, double *k, int max)
 {
-	if (i1 > i2)
-		return (i1);
-	return (i2);
+	if (k[0])
+	{
+		p0[0] = (p1[0] - k[1]) / k[0];
+		if ((p0[0] <= -1.5) || p0[0] >= (max + 1.5))
+		{
+			p0[0] = p0[3];
+			p1[0] = p1[3];
+		}
+	}
+	else
+		p0[0] = p0[3];
 }
 
 void		ft_cast_xp(int *i, double *p1, double *k, t_env *env)
@@ -30,7 +38,7 @@ void		ft_cast_xp(int *i, double *p1, double *k, t_env *env)
 		p1[4] = p1[3] * k[0] + k[1];
 		i[4] = p1[4] / BLOCK_SIZE;
 		p1[1] = ft_find_i(i[2], i[4]) * BLOCK_SIZE;
-		p1[0] = (p1[1] - k[1]) / k[0];
+		ft_first_block(p1, &p1[1], k, WIDTH);
 		if (ft_ray_cast(i, &p1[3], env))
 			return (ft_wall(i, &p1[3], env));
 		else
@@ -57,7 +65,7 @@ void		ft_cast_xn(int *i, double *p1, double *k, t_env *env)
 		p1[4] = p1[3] * k[0] + k[1];
 		i[4] = p1[4] / BLOCK_SIZE;
 		p1[1] = ft_find_i(i[2], i[4]) * BLOCK_SIZE;
-		p1[0] = (p1[1] - k[1]) / k[0];
+		ft_first_block(p1, &p1[1], k, WIDTH);
 		if (ft_ray_cast(i, &p1[3], env))
 			return (ft_wall(i, &p1[3], env));
 		else
@@ -85,7 +93,7 @@ void		ft_cast_yp(int *i, double *p1, double *k, t_env *env)
 		p1[3] = p1[4] * k[0] + k[1];
 		i[3] = p1[3] / BLOCK_SIZE;
 		p1[0] = ft_find_i(i[1], i[3]) * BLOCK_SIZE;
-		p1[1] = (p1[0] - k[1]) / k[0];
+		ft_first_block(&p1[1], p1, k, HEIGHT);
 		if (ft_ray_cast(i, &p1[3], env))
 			return (ft_wall(i, &p1[3], env));
 		else
@@ -112,7 +120,7 @@ void		ft_cast_yn(int *i, double *p1, double *k, t_env *env)
 		p1[3] = p1[4] * k[0] + k[1];
 		i[3] = p1[3] / BLOCK_SIZE;
 		p1[0] = ft_find_i(i[1], i[3]) * BLOCK_SIZE;
-		p1[1] = (p1[0] - k[1]) / k[0];
+		ft_first_block(&p1[1], p1, k, HEIGHT);
 		if (ft_ray_cast(i, &p1[3], env))
 			return (ft_wall(i, &p1[3], env));
 		else

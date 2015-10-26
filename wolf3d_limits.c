@@ -40,3 +40,10 @@ int		ft_limit_xy(int *i, t_env *env)
 		return (0);
 	return (1);
 }
+
+int		ft_find_i(int i1, int i2)
+{
+	if (i1 > i2)
+		return (i1);
+	return (i2);
+}
