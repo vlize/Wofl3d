@@ -19,7 +19,7 @@ static void	ft_first_block(double *p0, double *p1, double *k, int max)
 	if (k[0])
 	{
 		p0[0] = (p1[0] - k[1]) / k[0];
-		if ((p0[0] <= -1.5) || p0[0] >= (max + 1.5))
+		if ((p0[0] < 0) || (p0[0] > max))
 		{
 			p0[0] = p0[3];
 			p1[0] = p1[3];

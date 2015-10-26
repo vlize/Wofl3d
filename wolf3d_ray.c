@@ -20,6 +20,8 @@ void	ft_wall(int *i, double *p1, t_env *env)
 	double	k[2];
 
 	k[0] = hypot((env->p[0] - p1[0]), (env->p[1] - p1[1])) * env->coef[i[0]];
+	if (!k[0])
+		return ;
 	k[1] = ((env->p[2] + env->tall) * DEPTH) / k[0];
 	y[0] = HEIGHT_2 + k[1] - (DEPTH * BLOCK_SIZE / k[0]);
 	y[1] = HEIGHT_2 + k[1];
@@ -38,6 +40,8 @@ void	ft_floor_ceiling(int *i, double *p1, t_env *env)
 	double	k[2];
 
 	k[0] = hypot((env->p[0] - p1[0]), (env->p[1] - p1[1])) * env->coef[i[0]];
+	if (!k[0])
+		return ;
 	k[1] = ((env->p[2] + env->tall) * DEPTH) / k[0];
 	y[0] = HEIGHT_2 + k[1] - (DEPTH * BLOCK_SIZE / k[0]);
 	y[1] = HEIGHT_2 + k[1];
@@ -49,6 +53,7 @@ void	ft_floor_ceiling(int *i, double *p1, t_env *env)
 	ft_set_pixel((i[8] * WIDTH + i[0]), (y[0] * WIDTH + i[0]), i[6], env);
 	i[9] = y[1] - 1;
 	i[8] = y[0] + 1;
+	ft_window_limits(&i[9], &i[8]);
 }
 
 int		ft_ray_cast(int *i, double *p1, t_env *env)
