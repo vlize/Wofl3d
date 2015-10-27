@@ -28,10 +28,10 @@
 # define WIDTH_2 640
 # define WIDTH_4 320
 # define WIDTH3_4 960
-# define HEIGHT 800
-# define HEIGHT_2 400
-# define HEIGHT_4 200
-# define HEIGHT3_4 600
+# define HEIGHT 720
+# define HEIGHT_2 360
+# define HEIGHT_4 180
+# define HEIGHT3_4 540
 # define DEPTH 640
 # define FOV 90
 # define FOV_2 45
@@ -170,7 +170,7 @@ int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_reset(t_env *env);
-void				ft_window_limits(int *y, int *ymax);
+void				ft_window_limits(intmax_t *y0, intmax_t *y1);
 void				ft_map_limits(double *p, t_map *map);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
@@ -184,7 +184,6 @@ void				ft_floor_ceiling(int *i, double *p1, t_env *env);
 void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
 int					ft_limit_xy(int *i, t_env *env);
-int					ft_find_i(int i1, int i2);
 int					ft_ray_cast(int *i, double *p1, t_env *env);
 
 #endif

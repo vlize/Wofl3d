@@ -36,12 +36,12 @@ void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 	uint	n[4];
 	int		j[2];
 
-	if (ymin > ymax)
+	if (ymin >= ymax)
 		return ;
 	ft_set_color(n, color, env->endian);
 	j[0] = ymin * 4;
 	j[1] = ymax * 4;
-	while (j[0] <= j[1])
+	while (j[0] < j[1])
 	{
 		ft_memcpy((env->addr + j[0]), &n[1], 1);
 		ft_memcpy((env->addr + j[0] + 1), &n[2], 1);
@@ -86,7 +86,7 @@ void		ft_raycasting(t_env *env)
 		i[6] = F5;
 		i[7] = F5;
 		i[8] = 0;
-		i[9] = HEIGHT - 1;
+		i[9] = HEIGHT;
 		i[1] = env->i[0];
 		i[2] = env->i[1];
 		i[3] = i[1];

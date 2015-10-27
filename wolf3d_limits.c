@@ -24,12 +24,12 @@ void	ft_map_limits(double *p, t_map *map)
 		p[1] = map->ymax - 1;
 }
 
-void	ft_window_limits(int *y, int *ymax)
+void	ft_window_limits(intmax_t *y0, intmax_t *y1)
 {
-	if ((*y) < 0)
-		(*y) = 0;
-	if ((*ymax) >= HEIGHT)
-		(*ymax) = HEIGHT - 1;
+	if (*y0 < 0)
+		*y0 = 0;
+	if (*y1 > HEIGHT)
+		*y1 = HEIGHT;
 }
 
 int		ft_limit_xy(int *i, t_env *env)
@@ -39,11 +39,4 @@ int		ft_limit_xy(int *i, t_env *env)
 	if ((i[2] < 0) || (i[2] >= env->map->yblock))
 		return (0);
 	return (1);
-}
-
-int		ft_find_i(int i1, int i2)
-{
-	if (i1 > i2)
-		return (i1);
-	return (i2);
 }
