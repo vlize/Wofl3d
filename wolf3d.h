@@ -61,6 +61,7 @@ typedef struct		s_obj
 typedef struct		s_pln
 {
 	char			type;
+	char			color;
 	int				nbr;
 	uint			hex;
 	int				pts;
@@ -137,7 +138,6 @@ typedef struct		s_env
 	int				i[2];
 	int				tall;
 	int				spd;
-	uint			color;
 }					t_env;
 
 int					ft_init_loading(char **s, int *i);
@@ -185,5 +185,7 @@ void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
 int					ft_limit_xy(int *i, t_env *env);
 int					ft_ray_cast(int *i, double *p1, t_env *env);
+int					ft_cast0_x(int *i, double *p1, double *k, t_env *env);
+int					ft_cast0_y(int *i, double *p1, double *k, t_env *env);
 
 #endif

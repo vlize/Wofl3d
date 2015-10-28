@@ -13,30 +13,42 @@
 #ifndef WOLF3D_COLOR_H
 # define WOLF3D_COLOR_H
 
-# define W0 0x00cc00
-# define W1 0x0099ff
-# define W2 0xff66ff
-# define W3 0xff9900
-# define W4 0x004400
-# define W5 0x003366
-# define W6 0x660066
-# define W7 0x663300
-# define W8 0xdddddd
-# define W9 0x444444
+# define RED0 0xff7f7f
+# define RED1 0xff0000
+# define RED2 0x7f0000
+# define ORANGE0 0xffaf00
+# define ORANGE1 0xff7f00
+# define ORANGE2 0xdf3f00
+# define YELLOW0 0xffff7f
+# define YELLOW1 0xffff00
+# define YELLOW2 0xffdf00
+# define CYAN 0x00ffff
 
-# define F0 0xffffff
-# define F1 0xcccccc
-# define F2 0xccffcc
-# define F3 0xccccff
-# define F4 0xffcccc
-# define F5 0x000000
-# define F6 0x333333
-# define F7 0x006600
-# define F8 0x330066
-# define F9 0x550000
+# define GREEN0 0x7fff7f
+# define GREEN1 0x00ff00
+# define GREEN2 0x007f00
+# define BLUE0 0x7fdfff
+# define BLUE1 0x003fff
+# define BLUE2 0x003f7f
+# define VIOLET0 0xaf7fff
+# define VIOLET1 0x7f00ff
+# define VIOLET2 0x3f007f
+# define MAGENTA 0xff00ff
 
-# define SKY0 0xbbffff
-# define SKY1 0xffcccc
-# define SKY2 0xffffbb
+# define WHITE 0xffffff
+# define GREY0 0xdfdfdf
+# define GREY1 0xafafaf
+# define GREY2 0x7f7f7f
+# define GREY3 0x5f5f5f
+# define GREY4 0x3f3f3f
+# define BLACK 0x000000
+# define MAROON0 0xbf7f00
+# define MAROON1 0x7f3f00
+# define MAROON2 0x5f2f00
+
+# define BEIGE 0xf5f5dc
+# define AZURE 0xcceeff
+# define DAWN 0xffccaa
+# define NIGHT 0x002f5f
 
 #endif

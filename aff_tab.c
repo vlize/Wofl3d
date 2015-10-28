@@ -20,7 +20,10 @@ static void	aff_tab_block(t_pln *tmp)
 	while (tmp)
 	{
 		ft_putchar(tmp->type);
+		ft_putchar(tmp->color);
 		ft_putnbr(tmp->nbr);
+		ft_putchar('|');
+		ft_putstr(ft_itox(tmp->hex, 1));
 		i = -1;
 		while ((i += 1) < (tmp->pts))
 		{

@@ -66,8 +66,9 @@ void	ft_put_pln(t_env *env, size_t *l, t_pln *pln)
 	if (!pln)
 		exit(ft_perror("malloc()", env));
 	pln->type = env->line[*l];
+	pln->color = env->line[(*l += 1)];
 	pln->nbr = env->line[(*l += 1)] - 48;
-	pln->hex = ft_put_color(pln->type, pln->nbr);
+	pln->hex = ft_put_color(pln->color, pln->nbr);
 	(*l)++;
 	while ((env->line[*l] != '\0') && (env->line[*l] != '\t'))
 	{

@@ -14,9 +14,8 @@
 #include "wolf3d.h"
 #include "wolf3d_color.h"
 
-static void	ft_set_color(uint *n, int color, int endian)
+static void	ft_set_color(uint *n, int endian)
 {
-	n[0] = color;
 	if (endian == 1)
 	{
 		n[1] = (n[0] << 24) & 0xFF;
@@ -38,7 +37,8 @@ void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 
 	if (ymin >= ymax)
 		return ;
-	ft_set_color(n, color, env->endian);
+	n[0] = color;
+	ft_set_color(n, env->endian);
 	j[0] = ymin * 4;
 	j[1] = ymax * 4;
 	while (j[0] < j[1])
@@ -83,8 +83,8 @@ void		ft_raycasting(t_env *env)
 	i[0] = 0;
 	while (i[0] < WIDTH)
 	{
-		i[6] = F5;
-		i[7] = F5;
+		i[6] = NIGHT;
+		i[7] = NIGHT;
 		i[8] = 0;
 		i[9] = HEIGHT;
 		i[1] = env->i[0];
@@ -94,7 +94,6 @@ void		ft_raycasting(t_env *env)
 		k[0] = env->map->zrot + env->angle[i[0]];
 		p1[0] = env->p[0] + (env->hypo[i[0]] * cos(k[0]));
 		p1[1] = env->p[1] + (env->hypo[i[0]] * sin(k[0]));
-		p1[2] = env->tall + env->p[2];
 		k[2] = p1[0] - env->p[0];
 		k[3] = p1[1] - env->p[1];
 		ft_check_equation(i, p1, k, env);

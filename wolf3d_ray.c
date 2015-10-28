@@ -53,31 +53,34 @@ void	ft_floor_ceiling(int *i, double *p1, t_env *env)
 	i[8] = y[0];
 }
 
-int		ft_ray_cast(int *i, double *p1, t_env *env)
+int		ft_cast0_x(int *i, double *p1, double *k, t_env *env)
 {
-	t_pln	*pln;
-	double	*j;
-	int		ret;
+	if (i[2] > i[4])
+		p1[5] = i[2] * BLOCK_SIZE;
+	else
+		p1[5] = i[4] * BLOCK_SIZE;
+	p1[4] = (p1[5] - k[1]) / k[0];
+	if (p1[4] == p1[2])
+		return (0);
+	if (ft_ray_cast(i, &p1[4], env))
+		return (1);
+	else
+		ft_floor_ceiling(i, &p1[4], env);
+	return (0);
+}
 
-	ret = 0;
-	pln = env->map->tab[i[1]][i[2]]->pln;
-	while (pln)
-	{
-		if ((pln->type == 'W') || (pln->type == 'w'))
-		{
-			if ((j = ft_collision(env->p, p1, pln->p[0], pln->p[1])))
-			{
-				p1[0] = j[0];
-				p1[1] = j[1];
-				i[5] = pln->hex;
-				ret = 1;
-			}
-		}
-		else if ((pln->type == 'F') || (pln->type == 'f'))
-			i[7] = pln->hex;
-		else if ((pln->type == 'C') || (pln->type == 'c'))
-			i[6] = pln->hex;
-		pln = pln->next;
-	}
-	return (ret);
+int		ft_cast0_y(int *i, double *p1, double *k, t_env *env)
+{
+	if (i[1] > i[3])
+		p1[4] = i[1] * BLOCK_SIZE;
+	else
+		p1[4] = i[3] * BLOCK_SIZE;
+	p1[5] = (p1[4] - k[1]) / k[0];
+	if (p1[5] == p1[3])
+		return (0);
+	if (ft_ray_cast(i, &p1[4], env))
+		return (1);
+	else
+		ft_floor_ceiling(i, &p1[4], env);
+	return (0);
 }

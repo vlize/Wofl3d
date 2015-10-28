@@ -50,10 +50,6 @@ static int	ft_key_event0(t_env *env)
 		env->map->sspd = -1;
 	if (env->key->strafe_r && (!env->key->strafe_l || (env->map->sspd > 0)))
 		env->map->sspd = 1;
-	if (env->key->use)
-		env->color = 0xFF0000;
-	else
-		env->color = 0xFF00;
 	return (ft_key_event1(env));
 }
 

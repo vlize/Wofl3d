@@ -1,272 +1,272 @@
-16;16;-b/4;b/4*5;b*3/2;b*3/2;0;45
+16;16;-b/4;b/4*5;b*3/2;b*3/2;0;0
 #
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
-W0|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
+W04|x;Y;0|X;Y;0|X;Y;b|x;Y;b
 #
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|X;Y;0|X;y;0|x;y;0|x;Y;0	W0|X;y;0|x;y;0|x;Y;0|X;Y;0	W2|x;y;0|x;Y;0|X;Y;0|X;y;0	W1|x;Y;0|X;Y;0|X;y;0|x;y;0
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W03|X;Y;0|X;y;0|x;y;0|x;Y;0	W01|X;y;0|x;y;0|x;Y;0|X;Y;0	W02|x;y;0|x;Y;0|X;Y;0|X;y;0	W04|x;Y;0|X;Y;0|X;y;0|x;y;0
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;Y;b|x;Y;b|x;Y;b	W7|x;b/2+y;0|b/2+x;Y;0|x;b/2+y;b/2	W6|b/2+x;Y;0|X;y;0|x;b/2+y;b/2	W5|X;y;0|x;b/2+y;0|x;b/2+y;b/2
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;Y;b|x;Y;b|x;Y;b	W08|x;b/2+y;0|b/2+x;Y;0|x;b/2+y;b/2	W07|b/2+x;Y;0|X;y;0|x;b/2+y;b/2	W09|X;y;0|x;b/2+y;0|x;b/2+y;b/2
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F2|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F24|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
-W2|X;Y;0|X;y;0|X;y;b|X;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C6|X;Y;b|X;y;b|x;y;b|x;Y;b
-F7|X;Y;0|X;y;0|x;y;0|x;Y;0	C1|X;Y;b|X;y;b|x;y;b|x;Y;b
-W3|x;y;0|x;Y;0|x;Y;b|x;y;b
+W03|X;Y;0|X;y;0|X;y;b|X;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C15|X;Y;b|X;y;b|x;y;b|x;Y;b
+F25|X;Y;0|X;y;0|x;y;0|x;Y;0	C22|X;Y;b|X;y;b|x;y;b|x;Y;b
+W02|x;y;0|x;Y;0|x;Y;b|x;y;b
 
 #
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
-W1|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
+W01|X;y;0|x;y;0|x;y;b|X;y;b
 #

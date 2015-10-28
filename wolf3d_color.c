@@ -14,63 +14,84 @@
 #include "wolf3d.h"
 #include "wolf3d_color.h"
 
-static uint	ft_wall_color(int i)
+static uint	ft_color_0(int i)
 {
 	if (i == 0)
-		return (W0);
-	if (i == 1)
-		return (W1);
-	if (i == 2)
-		return (W2);
-	if (i == 3)
-		return (W3);
-	if (i == 4)
-		return (W4);
-	if (i == 5)
-		return (W5);
-	if (i == 6)
-		return (W6);
-	if (i == 7)
-		return (W7);
-	if (i == 8)
-		return (W8);
-	if (i == 9)
-		return (W9);
-	return (0xff0000);
+		return (WHITE);
+	else if (i == 1)
+		return (GREY0);
+	else if (i == 2)
+		return (GREY1);
+	else if (i == 3)
+		return (GREY2);
+	else if (i == 4)
+		return (GREY3);
+	else if (i == 5)
+		return (GREY4);
+	else if (i == 6)
+		return (BLACK);
+	else if (i == 7)
+		return (MAROON0);
+	else if (i == 8)
+		return (MAROON1);
+	return (MAROON2);
 }
 
-static uint	ft_floor_color(int i)
+static uint	ft_color_1(int i)
 {
 	if (i == 0)
-		return (F0);
-	if (i == 1)
-		return (F1);
-	if (i == 2)
-		return (F2);
-	if (i == 3)
-		return (F3);
-	if (i == 4)
-		return (F4);
-	if (i == 5)
-		return (F5);
-	if (i == 6)
-		return (F6);
-	if (i == 7)
-		return (F7);
-	if (i == 8)
-		return (F8);
-	if (i == 9)
-		return (F9);
-	return (0xff0000);
+		return (ORANGE0);
+	else if (i == 1)
+		return (ORANGE1);
+	else if (i == 2)
+		return (ORANGE2);
+	else if (i == 3)
+		return (RED0);
+	else if (i == 4)
+		return (RED1);
+	else if (i == 5)
+		return (RED2);
+	else if (i == 6)
+		return (VIOLET0);
+	else if (i == 7)
+		return (VIOLET1);
+	else if (i == 8)
+		return (VIOLET2);
+	return (MAGENTA);
+}
+
+static uint	ft_color_2(int i)
+{
+	if (i == 0)
+		return (YELLOW0);
+	else if (i == 1)
+		return (YELLOW1);
+	else if (i == 2)
+		return (YELLOW2);
+	else if (i == 3)
+		return (GREEN0);
+	else if (i == 4)
+		return (GREEN1);
+	else if (i == 5)
+		return (GREEN2);
+	else if (i == 6)
+		return (BLUE0);
+	else if (i == 7)
+		return (BLUE1);
+	else if (i == 8)
+		return (BLUE2);
+	return (CYAN);
 }
 
 uint		ft_put_color(char c, int i)
 {
-	if ((c == 'W') || (c == 'w'))
-		return (ft_wall_color(i));
-	if ((c == 'F') || (c == 'f') || (c == 'C') || (c == 'c'))
-		return (ft_floor_color(i));
-	if ((c == 'O') || (c == 'o'))
-		return (0x0000ff);
-	return (0xff0000);
+	if (c == '0')
+		return (ft_color_0(i));
+	else if (c == '1')
+		return (ft_color_1(i));
+	else if (c == '2')
+		return (ft_color_2(i));
+	else if ((c == 'O') || (c == 'o'))
+		return (BEIGE);
+	return (NIGHT);
 }
