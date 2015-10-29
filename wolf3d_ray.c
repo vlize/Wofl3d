@@ -60,8 +60,6 @@ int		ft_cast0_x(int *i, double *p1, double *k, t_env *env)
 	else
 		p1[5] = i[4] * BLOCK_SIZE;
 	p1[4] = (p1[5] - k[1]) / k[0];
-	if (p1[4] == p1[2])
-		return (0);
 	if (ft_ray_cast(i, &p1[4], env))
 		return (1);
 	else
@@ -76,8 +74,6 @@ int		ft_cast0_y(int *i, double *p1, double *k, t_env *env)
 	else
 		p1[4] = i[3] * BLOCK_SIZE;
 	p1[5] = (p1[4] - k[1]) / k[0];
-	if (p1[5] == p1[3])
-		return (0);
 	if (ft_ray_cast(i, &p1[4], env))
 		return (1);
 	else
