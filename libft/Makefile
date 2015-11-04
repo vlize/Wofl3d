@@ -27,7 +27,8 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	ft_nbrlen.c ft_nbrulen.c ft_putwchar.c ft_putwchar_fd.c ft_putwstr.c \
 	ft_putwstr_fd.c ft_strwlen.c ft_iswprint.c ft_nbrxlen.c ft_putwnbr.c \
 	ft_putunbr.c ft_nbrolen.c ft_unicode.c ft_putchar_fd.c ft_lstdelone.c \
-	ft_isocta.c ft_unilen.c ft_nbrflen.c ft_putflt.c ft_sqrt.c get_next_line.c
+	ft_isocta.c ft_unilen.c ft_nbrflen.c ft_putflt.c ft_sqrt.c get_next_line.c \
+	ft_xtoi.c
 
 OBJ = $(SRC:.c=.o)
 

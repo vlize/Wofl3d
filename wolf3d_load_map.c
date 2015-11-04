@@ -62,3 +62,39 @@ int			ft_load_map(t_env *env, size_t l, int *x, int *y)
 		return (ft_perror("get_next_line()", env));
 	return (1);
 }
+
+static int	ft_init_skybox(char *s, int *i, int *n)
+{
+	if (!ft_isdigit(s[*i]))
+		return (0);
+	(*n) = ft_atoi(&s[*i]);
+	while (ft_isdigit(s[*i]))
+		(*i) += 1;
+	if ((s[*i] != ' ') && (s[*i] != '"'))
+		return (0);
+	(*i) += 1;
+	return (1);
+}
+
+int			ft_load_skybox(t_env *env)
+{
+	int	i;
+
+	i = 1;
+	if ((env->map->fd = open(env->map->tex, O_RDONLY)) < 0)
+		return (ft_perror("open()", env));
+	ft_search_line(env->map->fd, &env->gnl, &(env->line));
+	if (env->gnl < 0)
+		return (ft_perror("get_next_line()", env));
+	if ((env->gnl == 0) || !ft_isdigit(env->line[i]))
+		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
+	if (!ft_init_skybox(env->line, &i, &env->map->xsky))
+		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
+	if (!ft_init_skybox(env->line, &i, &env->map->ysky))
+		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
+	if (!ft_init_skybox(env->line, &i, env->map->csky))
+		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
+	if (!ft_init_skybox(env->line, &i, &env->map->csky[1]))
+		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
+	return (ft_load_tex(env->map, env));
+}

@@ -93,5 +93,5 @@ uint		ft_put_color(char c, int i)
 		return (ft_color_2(i));
 	else if ((c == 'O') || (c == 'o'))
 		return (BEIGE);
-	return (NIGHT);
+	return (-1);
 }

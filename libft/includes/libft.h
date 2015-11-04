@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdint.h>
 
 # define BUFF_SIZE 9999
 
@@ -116,6 +117,7 @@ void				ft_putflt(double flt, size_t precision);
 void				ft_unicode(int wc, int *n);
 int					ft_unilen(int wc);
 int					ft_endian(void);
+intmax_t			ft_xtoi(char *x);
 double				ft_sqrt(double x);
 
 #endif

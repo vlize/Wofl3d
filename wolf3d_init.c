@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "libft.h"
 #include "wolf3d.h"
 
@@ -77,12 +78,31 @@ int		ft_reset(t_env *env)
 	return (ft_expose_hook(env));
 }
 
-int		ft_init_loading(char **s, int *i)
+void	ft_init_map(t_map *map)
 {
-	*s = "loading.xpm";
+	map->fd = 0;
+	map->tab = NULL;
+	map->tex = NULL;
+	map->color = NULL;
+}
+
+int		ft_init_win(t_env *env)
+{
+	int	i[4];
+
+	ft_init_env(env);
+	if (!(env->mlx = mlx_init()))
+		return (ft_perror("mlx_init()", env));
+	if (!(env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Wolf3D")))
+		return (ft_perror("mlx_new_window()", env));
 	i[0] = 240;
 	i[1] = 24;
 	i[2] = (WIDTH - i[0]) / 2;
 	i[3] = (HEIGHT - i[1]) / 2;
+	env->load = mlx_xpm_file_to_image(env->mlx, "loading.xpm", &i[0], &i[1]);
+	if (!env->load)
+		return (ft_perror("mlx_xpm_file_to_image()", env));
+	mlx_put_image_to_window(env->mlx, env->win, env->load, i[2], i[3]);
+	mlx_do_sync(env->mlx);
 	return (1);
 }

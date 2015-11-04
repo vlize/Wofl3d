@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-void	ft_make_coef(t_env *env)
+int		ft_make_coef(t_env *env)
 {
 	int	i;
 
@@ -35,6 +35,7 @@ void	ft_make_coef(t_env *env)
 		env->angle[i] = 0 - env->angle[WIDTH - i];
 		i++;
 	}
+	return (1);
 }
 
 int		ft_make_key(t_env *env)

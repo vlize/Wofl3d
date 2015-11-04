@@ -71,30 +71,31 @@ static int	ft_make_env(t_env *env)
 		return (ft_put_error("ft_make_env(): invalid map file.", env));
 	if (!(env->map = (t_map *)malloc(sizeof(t_map))))
 		return (ft_perror("malloc()", env));
-	(env->map)->tab = NULL;
+	ft_init_map(env->map);
 	if (!ft_check_map(env->map, env->line, 0, 0))
 		return (ft_put_error("ft_make_env(): invalid map file.", env));
-	if (!(env->mlx = mlx_init()))
-		return (ft_perror("mlx_init()", env));
-	if (!(env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, env->name)))
-		return (ft_perror("mlx_new_window()", env));
+	if ((env->gnl = get_next_line(env->fd, &(env->line))) < 0)
+		return (ft_perror("get_next_line()", env));
+	if (env->gnl == 0)
+		return (ft_put_error("get_next_line(): invalid map file.", env));
+	if (!(env->map->tex = ft_strdup(env->line)))
+		return (ft_perror("ft_strdup()", env));
 	env->p[0] = env->map->p0[0];
 	env->p[1] = env->map->p0[1];
 	env->p[2] = env->map->p0[2];
-	ft_make_coef(env);
-	return (1);
+	return (ft_make_coef(env));
 }
 
 static int	ft_check_arg(int ac, char **av, t_env *env)
 {
 	size_t	l;
 
-	ft_init_env(env);
 	if (ac < 2)
 		return (ft_put_error("map name is missing.", env));
 	else if (ac > 2)
 		return (ft_put_error("too many arguments.", env));
-	if ((env->fd = open(av[1], O_RDONLY)) == -1)
+	env->name = av[1];
+	if ((env->fd = open(av[1], O_RDONLY)) < 0)
 		return (ft_perror("open()", env));
 	l = ft_strlen(av[1]);
 	while ((l != 0) && (av[1][l - 1] != '/'))
@@ -107,19 +108,16 @@ static int	ft_check_arg(int ac, char **av, t_env *env)
 int			main(int ac, char **av)
 {
 	t_env		*env;
-	char		*s;
-	int			i[4];
 
 	if (!(env = (t_env *)malloc(sizeof(t_env))))
 		return (ft_perror("malloc()", NULL));
-	if (!ft_check_arg(ac, av, env) || !ft_make_env(env))
+	if (!ft_init_win(env) || !ft_check_arg(ac, av, env) || !ft_make_env(env))
 		return (0);
-	if (!ft_make_tab(env->map, -1, -1) || !ft_init_loading(&s, i))
+	if (!ft_make_tab(env->map, -1, -1))
 		return (ft_perror("malloc()", env));
-	if (!(env->load = mlx_xpm_file_to_image(env->mlx, s, &i[0], &i[1])))
-		return (ft_perror("mlx_xpm_file_to_image()", env));
-	mlx_put_image_to_window(env->mlx, env->win, env->load, i[2], i[3]);
 	if (ft_load_map(env, 0, &(env->map)->xtab, &(env->map)->ytab) == 0)
+		return (0);
+	if (!ft_load_skybox(env))
 		return (0);
 	if (!(env->img = mlx_new_image(env->mlx, WIDTH, HEIGHT)))
 		return (ft_perror("mlx_new_image()", env));

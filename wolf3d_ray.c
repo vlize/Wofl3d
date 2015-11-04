@@ -30,7 +30,8 @@ void	ft_wall(int *i, double *p1, t_env *env)
 	ft_window_limits(&y[0], &y[1]);
 	ft_set_pixel((y[0] * WIDTH + i[0]), (y[1] * WIDTH + i[0]), i[5], env);
 	ft_set_pixel((y[1] * WIDTH + i[0]), (i[9] * WIDTH + i[0]), i[7], env);
-	ft_set_pixel((i[8] * WIDTH + i[0]), (y[0] * WIDTH + i[0]), i[6], env);
+	if (i[6] >= 0)
+		ft_set_pixel((i[8] * WIDTH + i[0]), (y[0] * WIDTH + i[0]), i[6], env);
 }
 
 void	ft_floor_ceiling(int *i, double *p1, t_env *env)
@@ -48,7 +49,8 @@ void	ft_floor_ceiling(int *i, double *p1, t_env *env)
 	y[1] = HEIGHT_2 + k[1];
 	ft_window_limits(&y[0], &y[1]);
 	ft_set_pixel((y[1] * WIDTH + i[0]), (i[9] * WIDTH + i[0]), i[7], env);
-	ft_set_pixel((i[8] * WIDTH + i[0]), (y[0] * WIDTH + i[0]), i[6], env);
+	if (i[6] >= 0)
+		ft_set_pixel((i[8] * WIDTH + i[0]), (y[0] * WIDTH + i[0]), i[6], env);
 	i[9] = y[1];
 	i[8] = y[0];
 }

@@ -14,13 +14,13 @@
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t			i;
-	unsigned char	*t1;
-	unsigned char	*t2;
+	size_t	i;
+	char	*t1;
+	char	*t2;
 
 	i = 0;
-	t1 = (unsigned char *)s1;
-	t2 = (unsigned char *)s2;
+	t1 = (char *)s1;
+	t2 = (char *)s2;
 	if (!s1 && !s2)
 		return (0);
 	if (!s1 && s2)

@@ -13,6 +13,13 @@
 #include "libft.h"
 #include "wolf3d.h"
 
+int		ft_perror(char *error, t_env *env)
+{
+	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
+	perror(error);
+	return (ft_free_env(env));
+}
+
 int		ft_put_error(char *error, t_env *env)
 {
 	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
@@ -20,9 +27,14 @@ int		ft_put_error(char *error, t_env *env)
 	return (ft_free_env(env));
 }
 
-int		ft_perror(char *error, t_env *env)
+t_color	*ft_perror0(char *s, t_env *env)
 {
-	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
-	perror(error);
-	return (ft_free_env(env));
+	ft_perror(s, env);
+	return (NULL);
+}
+
+t_color	*ft_put_error0(char *s, t_env *env)
+{
+	ft_put_error(s, env);
+	return (NULL);
 }

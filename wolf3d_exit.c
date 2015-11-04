@@ -62,6 +62,19 @@ void	ft_free_tab(t_block ***tab, size_t x, size_t y)
 	}
 }
 
+void	ft_free_map(t_map *map)
+{
+	if (map->fd > 2)
+		close(map->fd);
+	if (map->tab)
+		ft_free_tab(map->tab, map->xblock, map->yblock);
+	if (map->tex)
+		ft_free(map->tex);
+	if (map->color)
+		ft_free(map->color);
+	free(map);
+}
+
 int		ft_free_env(t_env *env)
 {
 	if (!env)
@@ -77,11 +90,7 @@ int		ft_free_env(t_env *env)
 	if (env->key)
 		ft_free(env->key);
 	if (env->map)
-	{
-		if (env->map->tab)
-			ft_free_tab(env->map->tab, env->map->xblock, env->map->yblock);
-		free(env->map);
-	}
+		ft_free(env->map);
 	if (env->fd > 2)
 		close(env->fd);
 	ft_free(env);

@@ -50,7 +50,11 @@ int		ft_is_obj(int c)
 int		ft_check_gnl(t_env *env, int y)
 {
 	if (y >= env->map->yblock)
+	{
+		while (env->gnl)
+			env->gnl = get_next_line(env->fd, &(env->line));
 		return (0);
+	}
 	env->gnl = get_next_line(env->fd, &(env->line));
 	return (env->gnl);
 }
