@@ -32,6 +32,14 @@ void	ft_window_limits(intmax_t *y0, intmax_t *y1)
 		*y1 = HEIGHT;
 }
 
+void	ft_angle_limits(double *angle)
+{
+	while (*angle < 0)
+		*angle += PI2;
+	while (*angle >= PI2)
+		*angle -= PI2;
+}
+
 int		ft_limit_xy(int *i, t_env *env)
 {
 	if ((i[1] < 0) || (i[1] >= env->map->xblock))

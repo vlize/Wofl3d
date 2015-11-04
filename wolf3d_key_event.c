@@ -20,15 +20,12 @@ static int	k_c(int *key)
 	return (0);
 }
 
-static int	ft_key_event1(t_env *env)
+static int	ft_key_event0(t_env *env)
 {
 	if (env->key->jump && !env->map->fall && (env->map->jump < JMP_MAX))
 		env->map->jump += JMP_SPD;
-	else
-	{
+	else if ((env->map->fall = 1))
 		env->map->jump = 0;
-		env->map->fall = 1;
-	}
 	if (!k_c(env->key->forth) && !k_c(env->key->back) && (env->map->mspd < 0))
 		env->map->mspd = 0;
 	if (!k_c(env->key->back) && !k_c(env->key->forth) && (env->map->mspd > 0))
@@ -40,31 +37,12 @@ static int	ft_key_event1(t_env *env)
 	return (ft_expose_hook(env));
 }
 
-static int	ft_key_event0(t_env *env)
-{
-	while (env->map->zrot >= PI2)
-		env->map->zrot -= PI2;
-	while (env->map->zrot < 0)
-		env->map->zrot += PI2;
-	if (env->key->strafe_l && (!env->key->strafe_r || (env->map->sspd < 0)))
-		env->map->sspd = -1;
-	if (env->key->strafe_r && (!env->key->strafe_l || (env->map->sspd > 0)))
-		env->map->sspd = 1;
-	return (ft_key_event1(env));
-}
-
 int			ft_key_event(t_env *env)
 {
-	if (!env->key->crouch)
-	{
-		env->tall = TALL_MAX;
+	if (!env->key->crouch && (env->tall = TALL_MAX))
 		env->spd = SPD_MAX;
-	}
-	else
-	{
-		env->tall = TALL_MIN;
+	else if ((env->tall = TALL_MIN))
 		env->spd = SPD_MIN;
-	}
 	if (k_c(env->key->forth) && (!k_c(env->key->back) || (env->map->mspd < 0)))
 		env->map->mspd = -1;
 	if (k_c(env->key->back) && (!k_c(env->key->forth) || (env->map->mspd > 0)))
@@ -73,5 +51,10 @@ int			ft_key_event(t_env *env)
 		env->map->zrot -= env->rad_spd;
 	if (k_c(env->key->turn_r))
 		env->map->zrot += env->rad_spd;
+	ft_angle_limits(&(env->map->zrot));
+	if (env->key->strafe_l && (!env->key->strafe_r || (env->map->sspd < 0)))
+		env->map->sspd = -1;
+	if (env->key->strafe_r && (!env->key->strafe_l || (env->map->sspd > 0)))
+		env->map->sspd = 1;
 	return (ft_key_event0(env));
 }

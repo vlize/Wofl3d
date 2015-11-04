@@ -188,6 +188,7 @@ int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_reset(t_env *env);
 void				ft_window_limits(intmax_t *y0, intmax_t *y1);
 void				ft_map_limits(double *p, t_map *map);
+void				ft_angle_limits(double *angle);
 void				ft_position(t_env *env);
 void				ft_crash_check(t_env *env);
 void				ft_raycasting(t_env *env);
@@ -208,5 +209,6 @@ int					ft_load_tex(t_map *map, t_env *env);
 t_color				*ft_perror0(char *s, t_env *env);
 t_color				*ft_put_error0(char *s, t_env *env);
 void				ft_search_line(int fd, int *gnl, char **line);
+void				ft_set_skybox(int x, int y, int ymax, t_env *env);
 
 #endif

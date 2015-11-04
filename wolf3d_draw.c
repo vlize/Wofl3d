@@ -30,6 +30,32 @@ static void	ft_set_color(uint *n, int endian)
 	}
 }
 
+void		ft_set_skybox(int x, int y, int ymax, t_env *env)
+{
+	uint	n[4];
+	int		j[4];
+	double	angle;
+
+	if (y >= ymax)
+		return ;
+	j[0] = (y * WIDTH + x) * 4;
+	j[1] = (ymax * WIDTH + x) * 4;
+	j[2] = y;
+	while (j[0] < j[1])
+	{
+		angle = env->map->zrot + env->angle[x];
+		ft_angle_limits(&angle);
+		j[3] = angle * WIDTH4 / PI2;
+		n[0] = env->map->sky[j[3]][j[2]];
+		ft_set_color(n, env->endian);
+		ft_memcpy((env->addr + j[0]), &n[1], 1);
+		ft_memcpy((env->addr + j[0] + 1), &n[2], 1);
+		ft_memcpy((env->addr + j[0] + 2), &n[3], 1);
+		j[0] += INC_PIX;
+		j[2]++;
+	}
+}
+
 void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 {
 	uint	n[4];
