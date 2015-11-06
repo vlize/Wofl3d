@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-double			*ft_collision(double *a, double *b, double *c, double *d)
+double		*ft_collision(double *a, double *b, double *c, double *d)
 {
 	static double	i[4];
 	double			k[3];
@@ -42,7 +42,7 @@ double			*ft_collision(double *a, double *b, double *c, double *d)
 	return (i);
 }
 
-static void		ft_positon_check(t_pln *pln, t_env *env)
+static void	ft_positon_check(t_pln *pln, t_env *env)
 {
 	double	*i;
 
@@ -54,7 +54,7 @@ static void		ft_positon_check(t_pln *pln, t_env *env)
 	}
 }
 
-static void		ft_block_check(int *i, t_env *env)
+static void	ft_block_check(int *i, t_env *env)
 {
 	ft_map_limits(env->p, env->map);
 	i[0] = env->p[0] / BLOCK_SIZE;
@@ -75,7 +75,7 @@ static void		ft_block_check(int *i, t_env *env)
 	}
 }
 
-void			ft_crash_check(t_env *env)
+void		ft_crash_check(t_env *env)
 {
 	int		i[5];
 	t_pln	*pln;
@@ -103,7 +103,7 @@ void			ft_crash_check(t_env *env)
 		env->map->p[2] = BLOCK_SIZE - env->tall;
 }
 
-void			ft_position(t_env *env)
+void		ft_position(t_env *env)
 {
 	env->mrot = env->map->zrot;
 	env->map->spd = 0;

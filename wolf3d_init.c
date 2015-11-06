@@ -99,7 +99,7 @@ int		ft_init_win(t_env *env)
 	i[1] = 24;
 	i[2] = (WIDTH - i[0]) / 2;
 	i[3] = (HEIGHT - i[1]) / 2;
-	env->load = mlx_xpm_file_to_image(env->mlx, "loading.xpm", &i[0], &i[1]);
+	env->load = mlx_xpm_file_to_image(env->mlx, "xpm/loading.xpm", i, &i[1]);
 	if (!env->load)
 		return (ft_perror("mlx_xpm_file_to_image()", env));
 	mlx_put_image_to_window(env->mlx, env->win, env->load, i[2], i[3]);

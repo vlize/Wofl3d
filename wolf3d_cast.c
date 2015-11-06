@@ -12,36 +12,6 @@
 
 #include "libft.h"
 #include "wolf3d.h"
-#include "wolf3d_color.h"
-
-int		ft_ray_cast(int *i, double *p1, t_env *env)
-{
-	t_pln	*pln;
-	double	*j;
-	int		ret;
-
-	ret = 0;
-	pln = env->map->tab[i[1]][i[2]]->pln;
-	while (pln)
-	{
-		if ((pln->type == 'W') || (pln->type == 'w'))
-		{
-			if ((j = ft_collision(env->p, p1, pln->p[0], pln->p[1])))
-			{
-				p1[0] = j[0];
-				p1[1] = j[1];
-				i[5] = pln->hex;
-				ret = 1;
-			}
-		}
-		else if ((pln->type == 'F') || (pln->type == 'f'))
-			i[7] = pln->hex;
-		else if ((pln->type == 'C') || (pln->type == 'c'))
-			i[6] = pln->hex;
-		pln = pln->next;
-	}
-	return (ret);
-}
 
 void	ft_cast_xp(int *i, double *p1, double *k, t_env *env)
 {
@@ -66,7 +36,6 @@ void	ft_cast_xp(int *i, double *p1, double *k, t_env *env)
 		i[1] = i[3];
 		i[3]++;
 	}
-	return (ft_set_pixel(i[0], ((HEIGHT - 1) * WIDTH + i[0]), AZURE, env));
 }
 
 void	ft_cast_xn(int *i, double *p1, double *k, t_env *env)
@@ -91,7 +60,6 @@ void	ft_cast_xn(int *i, double *p1, double *k, t_env *env)
 		i[3] = i[1];
 		i[1]--;
 	}
-	return (ft_set_pixel(i[0], ((HEIGHT - 1) * WIDTH + i[0]), AZURE, env));
 }
 
 void	ft_cast_yp(int *i, double *p1, double *k, t_env *env)
@@ -117,7 +85,6 @@ void	ft_cast_yp(int *i, double *p1, double *k, t_env *env)
 		i[2] = i[4];
 		i[4]++;
 	}
-	return (ft_set_pixel(i[0], ((HEIGHT - 1) * WIDTH + i[0]), DAWN, env));
 }
 
 void	ft_cast_yn(int *i, double *p1, double *k, t_env *env)
@@ -142,5 +109,4 @@ void	ft_cast_yn(int *i, double *p1, double *k, t_env *env)
 		i[4] = i[2];
 		i[2]--;
 	}
-	return (ft_set_pixel(i[0], ((HEIGHT - 1) * WIDTH + i[0]), DAWN, env));
 }
