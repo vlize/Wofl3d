@@ -80,7 +80,6 @@ int		ft_reset(t_env *env)
 
 void	ft_init_map(t_map *map)
 {
-	map->fd = 0;
 	map->tab = NULL;
 	map->tex = NULL;
 	map->color = NULL;

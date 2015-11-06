@@ -42,13 +42,15 @@ static int	search_next_line(char **line, char **lfd)
 	l = ft_strlen(*lfd) + 1;
 	if ((*lfd)[l] == '\0')
 	{
+		free(*lfd);
+		*lfd = NULL;
 		*line = NULL;
 		return (0);
 	}
 	tmp = text_end(&((*lfd)[l]));
 	if (!tmp)
 		return (-1);
-	ft_free(*lfd);
+	free(*lfd);
 	*lfd = tmp;
 	return (1);
 }
@@ -59,6 +61,8 @@ static int	start_line(char **line, char **lfd)
 
 	if ((*lfd)[0] == '\0')
 	{
+		free(*lfd);
+		*lfd = NULL;
 		*line = NULL;
 		return (0);
 	}
@@ -116,10 +120,7 @@ int			get_next_line(int const fd, char **line)
 	{
 		i = search_next_line(line, &(lfd[fd]));
 		if (i < 1)
-		{
-			ft_free(*line);
 			return (i);
-		}
 	}
 	if (i < 1)
 		return (i);

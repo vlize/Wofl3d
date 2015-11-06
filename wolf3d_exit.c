@@ -64,8 +64,6 @@ void	ft_free_tab(t_block ***tab, size_t x, size_t y)
 
 void	ft_free_map(t_map *map)
 {
-	if (map->fd > 2)
-		close(map->fd);
 	if (map->tab)
 		ft_free_tab(map->tab, map->xblock, map->yblock);
 	if (map->tex)

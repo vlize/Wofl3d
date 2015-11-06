@@ -38,7 +38,7 @@ static void	ft_load_empty(size_t *l, int *x, int xblock)
 
 int			ft_load_map(t_env *env, size_t l, int *x, int *y)
 {
-	while (ft_check_gnl(env, *y) == 1)
+	while (ft_check_gnl(env, *y, env->map->yblock) > 0)
 	{
 		l = 0;
 		if (env->line[0] == '\0')
@@ -60,6 +60,8 @@ int			ft_load_map(t_env *env, size_t l, int *x, int *y)
 	}
 	if (env->gnl == -1)
 		return (ft_perror("get_next_line()", env));
+	if ((env->fd = close(env->fd)))
+		return (ft_perror("close()", env));
 	return (1);
 }
 
@@ -81,9 +83,9 @@ int			ft_load_skybox(t_env *env)
 	int	i;
 
 	i = 1;
-	if ((env->map->fd = open(env->map->tex, O_RDONLY)) < 0)
+	if ((env->fd = open(env->map->tex, O_RDONLY)) < 0)
 		return (ft_perror("open()", env));
-	ft_search_line(env->map->fd, &env->gnl, &(env->line));
+	ft_search_line(env->fd, &env->gnl, &(env->line));
 	if (env->gnl < 0)
 		return (ft_perror("get_next_line()", env));
 	if ((env->gnl == 0) || !ft_isdigit(env->line[i]))
@@ -96,5 +98,5 @@ int			ft_load_skybox(t_env *env)
 		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
 	if (!ft_init_skybox(env->line, &i, &env->map->csky[1]))
 		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	return (ft_load_tex(env->map, env));
+	return (ft_load_sky(env->map, env));
 }

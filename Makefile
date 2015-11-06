@@ -15,7 +15,7 @@ NAME = wolf3d
 SRC =	wolf3d.c wolf3d_exit.c wolf3d_error.c wolf3d_data.c wolf3d_hook.c \
 		wolf3d_check.c wolf3d_init.c wolf3d_load_map.c wolf3d_key_event.c \
 		wolf3d_make.c wolf3d_draw.c wolf3d_collision.c wolf3d_color.c \
-		wolf3d_cast.c wolf3d_ray.c wolf3d_surface.c wolf3d_load_tex.c \
+		wolf3d_cast.c wolf3d_ray.c wolf3d_surface.c wolf3d_load_sky.c \
 		wolf3d_limits.c
 
 OBJ = $(SRC:.c=.o)

@@ -57,6 +57,17 @@ typedef struct		s_color
 	int				hex;
 }					t_color;
 
+typedef struct		s_tex
+{
+	char			*name;
+	int				xtex;
+	int				ytex;
+	int				ctex[2];
+	t_color			*color;
+	int				tex[BLOCK_SIZE][BLOCK_SIZE];
+	struct s_tex	*next;
+}					t_tex;
+
 typedef struct		s_obj
 {
 	char			type;
@@ -104,7 +115,6 @@ typedef struct		s_map
 	int				ytab;
 	t_block			***tab;
 	char			*tex;
-	int				fd;
 	int				xsky;
 	int				ysky;
 	int				csky[2];
@@ -169,7 +179,7 @@ int					ft_is_op(int c);
 int					ft_is_val(int c);
 int					ft_is_pln(int c);
 int					ft_is_obj(int c);
-int					ft_check_gnl(t_env *env, int y);
+int					ft_check_gnl(t_env *env, int y, int ymax);
 int					ft_put_data(t_map *map, char *s, size_t *l, double *data);
 uint				ft_put_color(char c, int i);
 double				ft_put_operand(t_map *map, char *line, size_t *l);
@@ -205,7 +215,7 @@ int					ft_ray_cast(int *i, double *p1, t_env *env);
 int					ft_cast0_x(int *i, double *p1, double *k, t_env *env);
 int					ft_cast0_y(int *i, double *p1, double *k, t_env *env);
 int					ft_load_skybox(t_env *env);
-int					ft_load_tex(t_map *map, t_env *env);
+int					ft_load_sky(t_map *map, t_env *env);
 t_color				*ft_perror0(char *s, t_env *env);
 t_color				*ft_put_error0(char *s, t_env *env);
 void				ft_search_line(int fd, int *gnl, char **line);
