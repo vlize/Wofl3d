@@ -55,6 +55,5 @@ int		ft_check_gnl(t_env *env, int y, int ymax)
 			env->gnl = get_next_line(env->fd, &(env->line));
 		return (env->gnl);
 	}
-	env->gnl = get_next_line(env->fd, &(env->line));
 	return (env->gnl);
 }

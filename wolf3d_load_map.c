@@ -38,14 +38,12 @@ static void	ft_load_empty(size_t *l, int *x, int xblock)
 
 int			ft_load_map(t_env *env, size_t l, int *x, int *y)
 {
+	env->gnl = get_next_line(env->fd, &(env->line));
 	while (ft_check_gnl(env, *y, env->map->yblock) > 0)
 	{
 		l = 0;
-		if (env->line[0] == '\0')
-		{
-			*x = 0;
+		if ((env->line[0] == '\0') && !(*x = 0))
 			(*y)++;
-		}
 		else if (env->line[0] == '#')
 			ft_load_empty(&l, x, (env->map)->xblock);
 		else if (ft_is_pln(env->line[l]) || ft_is_obj(env->line[l]))
@@ -57,6 +55,7 @@ int			ft_load_map(t_env *env, size_t l, int *x, int *y)
 		}
 		else
 			return (ft_put_error("ft_load_map(): invalid map file.", env));
+		env->gnl = get_next_line(env->fd, &(env->line));
 	}
 	if (env->gnl == -1)
 		return (ft_perror("get_next_line()", env));

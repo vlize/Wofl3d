@@ -36,6 +36,7 @@ void	ft_cast_xp(int *i, double *p1, double *k, t_env *env)
 		i[1] = i[3];
 		i[3]++;
 	}
+	ft_set_skybox(i[0], i[8], i[9], env);
 }
 
 void	ft_cast_xn(int *i, double *p1, double *k, t_env *env)
@@ -60,6 +61,7 @@ void	ft_cast_xn(int *i, double *p1, double *k, t_env *env)
 		i[3] = i[1];
 		i[1]--;
 	}
+	ft_set_skybox(i[0], i[8], i[9], env);
 }
 
 void	ft_cast_yp(int *i, double *p1, double *k, t_env *env)
@@ -85,6 +87,7 @@ void	ft_cast_yp(int *i, double *p1, double *k, t_env *env)
 		i[2] = i[4];
 		i[4]++;
 	}
+	ft_set_skybox(i[0], i[8], i[9], env);
 }
 
 void	ft_cast_yn(int *i, double *p1, double *k, t_env *env)
@@ -109,4 +112,5 @@ void	ft_cast_yn(int *i, double *p1, double *k, t_env *env)
 		i[4] = i[2];
 		i[2]--;
 	}
+	ft_set_skybox(i[0], i[8], i[9], env);
 }
