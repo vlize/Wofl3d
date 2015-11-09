@@ -36,6 +36,7 @@ void	ft_init_env(t_env *env)
 	env->mlx = NULL;
 	env->win = NULL;
 	env->img = NULL;
+	env->tex = NULL;
 	env->map = NULL;
 	env->key = NULL;
 	env->name = NULL;
@@ -78,13 +79,6 @@ int		ft_reset(t_env *env)
 	return (ft_expose_hook(env));
 }
 
-void	ft_init_map(t_map *map)
-{
-	map->tab = NULL;
-	map->tex = NULL;
-	map->color = NULL;
-}
-
 int		ft_init_win(t_env *env)
 {
 	int	i[4];
@@ -103,5 +97,18 @@ int		ft_init_win(t_env *env)
 		return (ft_perror("mlx_xpm_file_to_image()", env));
 	mlx_put_image_to_window(env->mlx, env->win, env->load, i[2], i[3]);
 	mlx_do_sync(env->mlx);
+	return (1);
+}
+
+int		ft_init_xpm(char *s, int *i, int *n)
+{
+	if (!ft_isdigit(s[*i]))
+		return (0);
+	(*n) = ft_atoi(&s[*i]);
+	while (ft_isdigit(s[*i]))
+		(*i) += 1;
+	if ((s[*i] != ' ') && (s[*i] != '"'))
+		return (0);
+	(*i) += 1;
 	return (1);
 }

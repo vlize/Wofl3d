@@ -47,13 +47,12 @@ int		ft_is_obj(int c)
 	return (0);
 }
 
-int		ft_check_gnl(t_env *env, int y, int ymax)
+int		ft_check_gnl(int fd, t_env *env, int y, int ymax)
 {
 	if (y >= ymax)
 	{
 		while (env->gnl > 0)
-			env->gnl = get_next_line(env->fd, &(env->line));
-		return (env->gnl);
+			env->gnl = get_next_line(fd, &(env->line));
 	}
 	return (env->gnl);
 }

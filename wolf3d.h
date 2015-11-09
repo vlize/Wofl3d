@@ -59,7 +59,8 @@ typedef struct		s_color
 
 typedef struct		s_tex
 {
-	char			*name;
+	char			type;
+	int				nbr;
 	int				xtex;
 	int				ytex;
 	int				ctex[2];
@@ -84,6 +85,7 @@ typedef struct		s_pln
 	int				hex;
 	int				pts;
 	double			p[4][3];
+	s_tex			*tex;
 	struct s_pln	*next;
 }					t_pln;
 
@@ -142,6 +144,7 @@ typedef struct		s_env
 	void			*img;
 	void			*load;
 	int				fd;
+	int				fd2;
 	int				gnl;
 	int				bpp;
 	int				sl;
@@ -152,6 +155,7 @@ typedef struct		s_env
 	char			*addr;
 	t_key			*key;
 	t_map			*map;
+	t_tex			*tex;
 	double			hypo[WIDTH];
 	double			coef[WIDTH];
 	double			angle[WIDTH];
@@ -164,9 +168,9 @@ typedef struct		s_env
 	int				spd;
 }					t_env;
 
+int					ft_init_xpm(char *s, int *i, int *n);
 int					ft_init_win(t_env *env);
 void				ft_init_env(t_env *env);
-void				ft_init_map(t_map *map);
 void				ft_init_key(t_key *key);
 void				ft_free_obj(t_obj *obj);
 void				ft_free_pln(t_pln *pln);
@@ -179,7 +183,7 @@ int					ft_is_op(int c);
 int					ft_is_val(int c);
 int					ft_is_pln(int c);
 int					ft_is_obj(int c);
-int					ft_check_gnl(t_env *env, int y, int ymax);
+int					ft_check_gnl(int fd, t_env *env, int y, int ymax);
 int					ft_put_data(t_map *map, char *s, size_t *l, double *data);
 uint				ft_put_color(char c, int i);
 double				ft_put_operand(t_map *map, char *line, size_t *l);
@@ -190,7 +194,6 @@ t_obj				*ft_make_obj(t_block *block);
 int					ft_make_coef(t_env *env);
 int					ft_make_tab(t_map *map, int x, int y);
 int					ft_make_key(t_env *env);
-int					ft_load_map(t_env *env, size_t l, int *x, int *y);
 int					ft_expose_hook(t_env *env);
 int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
@@ -214,10 +217,13 @@ int					ft_limit_xy(int *i, t_env *env);
 int					ft_ray_cast(int *i, double *p1, t_env *env);
 int					ft_cast0_x(int *i, double *p1, double *k, t_env *env);
 int					ft_cast0_y(int *i, double *p1, double *k, t_env *env);
-int					ft_load_skybox(t_env *env);
-int					ft_load_sky(t_map *map, t_env *env);
 t_color				*ft_perror0(char *s, t_env *env);
 t_color				*ft_put_error0(char *s, t_env *env);
+t_color				*ft_load_color(int *n, t_env *env);
+void				ft_load_map(t_env *env, size_t l, int *x, int *y);
+void				ft_load_skybox(t_env *env);
+void				ft_load_texture(char *s1, char *s2, t_env *env);
+void				ft_make_tex(t_env *env);
 void				ft_search_line(int fd, int *gnl, char **line);
 void				ft_set_skybox(int x, int y, int ymax, t_env *env);
 

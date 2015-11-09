@@ -14,6 +14,19 @@
 #include "libft.h"
 #include "wolf3d.h"
 
+void	ft_free_tex(t_tex *tex)
+{
+	t_tex	*tmp;
+
+	if (!tex)
+		return ;
+	tmp = tex->next;
+	if (tex->color)
+		ft_free(tex->color);
+	ft_free(tex);
+	return (ft_free_tex(tmp));
+}
+
 void	ft_free_obj(t_obj *obj)
 {
 	t_obj	*tmp;
@@ -62,21 +75,8 @@ void	ft_free_tab(t_block ***tab, size_t x, size_t y)
 	}
 }
 
-void	ft_free_map(t_map *map)
-{
-	if (map->tab)
-		ft_free_tab(map->tab, map->xblock, map->yblock);
-	if (map->tex)
-		ft_free(map->tex);
-	if (map->color)
-		ft_free(map->color);
-	free(map);
-}
-
 int		ft_free_env(t_env *env)
 {
-	if (!env)
-		return (0);
 	if (env->mlx && env->load)
 		mlx_destroy_image(env->mlx, env->load);
 	if (env->mlx && env->img)
@@ -87,10 +87,17 @@ int		ft_free_env(t_env *env)
 		ft_free(env->name);
 	if (env->key)
 		ft_free(env->key);
+	if (env->map && env->map->tab)
+		ft_free_tab(env->map->tab, env->map->xblock, env->map->yblock);
+	if (env->map && env->map->tex)
+		ft_free(env->map->tex);
+	if (env->map && env->map->color)
+		ft_free(env->map->color);
 	if (env->map)
-		ft_free(env->map);
+		free(env->map);
 	if (env->fd > 2)
 		close(env->fd);
+	ft_free_tex(env->tex);
 	ft_free(env);
 	return (0);
 }

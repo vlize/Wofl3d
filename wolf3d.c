@@ -41,6 +41,9 @@ static int	ft_check_pos0(t_map *map, char *line, size_t l)
 
 static int	ft_check_map(t_map *map, char *line, double data, size_t l)
 {
+	map->tab = NULL;
+	map->tex = NULL;
+	map->color = NULL;
 	map->xtab = 0;
 	map->ytab = 0;
 	if (ft_put_data(map, line, &l, &data) != 1)
@@ -71,7 +74,6 @@ static int	ft_make_env(t_env *env)
 		return (ft_put_error("ft_make_env(): invalid map file.", env));
 	if (!(env->map = (t_map *)malloc(sizeof(t_map))))
 		return (ft_perror("malloc()", env));
-	ft_init_map(env->map);
 	if (!ft_check_map(env->map, env->line, 0, 0))
 		return (ft_put_error("ft_make_env(): invalid map file.", env));
 	if ((env->gnl = get_next_line(env->fd, &(env->line))) < 0)
@@ -115,10 +117,9 @@ int			main(int ac, char **av)
 		return (0);
 	if (!ft_make_tab(env->map, -1, -1))
 		return (ft_perror("malloc()", env));
-	if (ft_load_map(env, 0, &(env->map)->xtab, &(env->map)->ytab) == 0)
-		return (0);
-	if (!ft_load_skybox(env))
-		return (0);
+	ft_make_tex(env);
+	ft_load_map(env, 0, &(env->map)->xtab, &(env->map)->ytab);
+	ft_load_skybox(env);
 	if (!(env->img = mlx_new_image(env->mlx, WIDTH, HEIGHT)))
 		return (ft_perror("mlx_new_image()", env));
 	env->addr = mlx_get_data_addr(env->img, &env->bpp, &env->sl, &env->endian);

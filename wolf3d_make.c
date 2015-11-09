@@ -80,6 +80,7 @@ t_pln	*ft_make_pln(t_block *block)
 		if (!(block->pln = (t_pln *)malloc(sizeof(t_pln))))
 			return (NULL);
 		(block->pln)->pts = 0;
+		(block->pln)->tex = NULL;
 		(block->pln)->next = NULL;
 		return (block->pln);
 	}
@@ -89,6 +90,7 @@ t_pln	*ft_make_pln(t_block *block)
 	if (!(tmp->next = (t_pln *)malloc(sizeof(t_pln))))
 		return (NULL);
 	(tmp->next)->pts = 0;
+	(tmp->pln)->tex = NULL;
 	(tmp->next)->next = NULL;
 	return (tmp->next);
 }

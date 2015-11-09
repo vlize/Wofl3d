@@ -17,14 +17,18 @@ int		ft_perror(char *error, t_env *env)
 {
 	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
 	perror(error);
-	return (ft_free_env(env));
+	if (env)
+		return (ft_free_env(env));
+	return (0);
 }
 
 int		ft_put_error(char *error, t_env *env)
 {
 	ft_putstr_fd("\x1b[31mwolf3d: ", 2);
 	ft_putendl_fd(error, 2);
-	return (ft_free_env(env));
+	if (env)
+		return (ft_free_env(env));
+	return (0);
 }
 
 t_color	*ft_perror0(char *s, t_env *env)

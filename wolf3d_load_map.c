@@ -36,10 +36,10 @@ static void	ft_load_empty(size_t *l, int *x, int xblock)
 	(*l)++;
 }
 
-int			ft_load_map(t_env *env, size_t l, int *x, int *y)
+void		ft_load_map(t_env *env, size_t l, int *x, int *y)
 {
 	env->gnl = get_next_line(env->fd, &(env->line));
-	while (ft_check_gnl(env, *y, env->map->yblock) > 0)
+	while (ft_check_gnl(env->fd, env, *y, env->map->yblock) > 0)
 	{
 		l = 0;
 		if ((env->line[0] == '\0') && !(*x = 0))
@@ -49,53 +49,49 @@ int			ft_load_map(t_env *env, size_t l, int *x, int *y)
 		else if (ft_is_pln(env->line[l]) || ft_is_obj(env->line[l]))
 		{
 			if (ft_load_line(env, &l, *x, *y) == 0)
-				return (ft_put_error("ft_load_line(): invalid map file.", env));
+				exit(ft_put_error("ft_load_line(): invalid map file.", env));
 			if ((*x + 1) < (env->map)->xblock)
 				(*x)++;
 		}
 		else
-			return (ft_put_error("ft_load_map(): invalid map file.", env));
+			exit(ft_put_error("ft_load_map(): invalid map file.", env));
 		env->gnl = get_next_line(env->fd, &(env->line));
 	}
 	if (env->gnl == -1)
-		return (ft_perror("get_next_line()", env));
+		exit(ft_perror("get_next_line()", env));
 	if ((env->fd = close(env->fd)))
-		return (ft_perror("close()", env));
-	return (1);
+		exit(ft_perror("close()", env));
 }
 
-static int	ft_init_skybox(char *s, int *i, int *n)
+void		ft_search_line(int fd, int *gnl, char **line)
 {
-	if (!ft_isdigit(s[*i]))
-		return (0);
-	(*n) = ft_atoi(&s[*i]);
-	while (ft_isdigit(s[*i]))
-		(*i) += 1;
-	if ((s[*i] != ' ') && (s[*i] != '"'))
-		return (0);
-	(*i) += 1;
-	return (1);
+	(*gnl) = get_next_line(fd, line);
+	while (((*gnl) > 0) && ((*line)[0] != '"'))
+		(*gnl) = get_next_line(fd, line);
 }
 
-int			ft_load_skybox(t_env *env)
+t_color		*ft_load_color(int *n, t_env *env)
 {
-	int	i;
+	t_color	*color;
+	int		i[2];
 
-	i = 1;
-	if ((env->fd = open(env->map->tex, O_RDONLY)) < 0)
-		return (ft_perror("open()", env));
-	ft_search_line(env->fd, &env->gnl, &(env->line));
-	if (env->gnl < 0)
-		return (ft_perror("get_next_line()", env));
-	if ((env->gnl == 0) || !ft_isdigit(env->line[i]))
-		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	if (!ft_init_skybox(env->line, &i, &env->map->xsky))
-		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	if (!ft_init_skybox(env->line, &i, &env->map->ysky))
-		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	if (!ft_init_skybox(env->line, &i, env->map->csky))
-		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	if (!ft_init_skybox(env->line, &i, &env->map->csky[1]))
-		return (ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	return (ft_load_sky(env->map, env));
+	if (!(color = (t_color *)malloc(sizeof(t_color) * n[0])))
+		return (ft_perror0("malloc()", env));
+	ft_search_line(env->fd, &(env->gnl), &(env->line));
+	i[0] = -1;
+	while ((i[0] += 1) < n[0])
+	{
+		if (env->gnl < 0)
+			return (ft_perror0("get_next_line()", env));
+		if ((env->gnl == 0) || (env->line[0] != '"'))
+			return (ft_put_error0("ft_load_color(): invalid XPM file.", env));
+		i[1] = -1;
+		while ((i[1] += 1) < n[1])
+			color[i[0]].c[i[1]] = env->line[i[1] + 1];
+		if (ft_strncmp(&(env->line[i[1] + 1]), " c #", 4))
+			return (ft_put_error0("ft_load_color(): invalid XPM file.", env));
+		color[i[0]].hex = ft_xtoi(&(env->line[i[1] + 5]));
+		env->gnl = get_next_line(env->fd, &(env->line));
+	}
+	return (color);
 }

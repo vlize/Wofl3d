@@ -59,6 +59,12 @@ int		ft_put_data(t_map *map, char *line, size_t *l, double *data)
 	return (0);
 }
 
+void	ft_check_tex(t_pln *pln)
+{
+	if ((pln->type < 'a') || (pln->type > 'z'));
+		return ;
+}
+
 void	ft_put_pln(t_env *env, size_t *l, t_pln *pln)
 {
 	int		i;
