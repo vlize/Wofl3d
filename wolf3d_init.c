@@ -36,6 +36,7 @@ void	ft_init_env(t_env *env)
 	env->mlx = NULL;
 	env->win = NULL;
 	env->img = NULL;
+	env->tmp = NULL;
 	env->tex = NULL;
 	env->map = NULL;
 	env->key = NULL;

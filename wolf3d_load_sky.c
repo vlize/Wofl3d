@@ -42,7 +42,7 @@ static void	ft_load_sky(t_map *map, t_env *env)
 {
 	int		i[2];
 
-	if (!(map->color = ft_load_color(map->csky, env)))
+	if (!(map->color = ft_load_color(env->fd, map->csky, env)))
 		exit(0);
 	ft_search_line(env->fd, &(env->gnl), &(env->line));
 	i[1] = -1;
@@ -84,5 +84,5 @@ void		ft_load_skybox(t_env *env)
 		exit(ft_put_error("ft_load_skybox(): invalid XPM file.", env));
 	if (!ft_init_xpm(env->line, &i, &env->map->csky[1]))
 		exit(ft_put_error("ft_load_skybox(): invalid XPM file.", env));
-	return(ft_load_sky(env->map, env));
+	return (ft_load_sky(env->map, env));
 }

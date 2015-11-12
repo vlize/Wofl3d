@@ -70,14 +70,14 @@ void		ft_search_line(int fd, int *gnl, char **line)
 		(*gnl) = get_next_line(fd, line);
 }
 
-t_color		*ft_load_color(int *n, t_env *env)
+t_color		*ft_load_color(int fd, int *n, t_env *env)
 {
 	t_color	*color;
 	int		i[2];
 
 	if (!(color = (t_color *)malloc(sizeof(t_color) * n[0])))
 		return (ft_perror0("malloc()", env));
-	ft_search_line(env->fd, &(env->gnl), &(env->line));
+	ft_search_line(fd, &(env->gnl), &(env->line));
 	i[0] = -1;
 	while ((i[0] += 1) < n[0])
 	{
@@ -91,7 +91,7 @@ t_color		*ft_load_color(int *n, t_env *env)
 		if (ft_strncmp(&(env->line[i[1] + 1]), " c #", 4))
 			return (ft_put_error0("ft_load_color(): invalid XPM file.", env));
 		color[i[0]].hex = ft_xtoi(&(env->line[i[1] + 5]));
-		env->gnl = get_next_line(env->fd, &(env->line));
+		env->gnl = get_next_line(fd, &(env->line));
 	}
 	return (color);
 }

@@ -19,30 +19,39 @@ static int	ft_ray_cast0(int *i, double *p1, t_env *env, t_pln *pln)
 
 	if ((j = ft_collision(env->p, p1, pln->p[0], pln->p[1])))
 	{
-		if (pln->hex >= 0)
+		if ((pln->hex >= 0) || (pln->type == 'w'))
 		{
 			p1[0] = j[0];
 			p1[1] = j[1];
-			i[5] = pln->hex;
+			if (pln->type == 'w')
+			{
+				j[0] = hypot((pln->p[0][0] - p1[0]), (pln->p[0][1] - p1[1]));
+				j[2] = pln->p[0][0] - pln->p[1][0];
+				j[3] = pln->p[0][1] - pln->p[1][1];
+				j[1] = hypot(j[2], j[3]);
+				i[5] = (j[0] * BLOCK_SIZE / j[1]);
+			}
+			else
+				i[5] = pln->hex;
 			return (1);
 		}
 	}
 	return (0);
 }
 
-int			ft_ray_cast(int *i, double *p1, t_env *env)
+t_pln		*ft_ray_cast(int *i, double *p1, t_env *env)
 {
 	t_pln	*pln;
-	int		ret;
+	t_pln	*ret;
 
-	ret = 0;
+	ret = NULL;
 	pln = env->map->tab[i[1]][i[2]]->pln;
 	while (pln)
 	{
 		if ((pln->type == 'W') || (pln->type == 'w'))
 		{
 			if (ft_ray_cast0(i, p1, env, pln))
-				ret = 1;
+				ret = pln;
 		}
 		else if ((pln->type == 'F') || (pln->type == 'f'))
 			i[7] = pln->hex;
@@ -53,30 +62,53 @@ int			ft_ray_cast(int *i, double *p1, t_env *env)
 	return (ret);
 }
 
-int			ft_cast0_x(int *i, double *p1, double *k, t_env *env)
+static void	ft_check_equation(int *i, double *p1, double *k, t_env *env)
 {
-	if (i[2] > i[4])
-		p1[5] = i[2] * BLOCK_SIZE;
+	p1[0] = env->p[0];
+	p1[1] = env->p[1];
+	if (fabs(k[2]) >= fabs(k[3]))
+	{
+		k[0] = k[3] / k[2];
+		k[1] = env->p[1] - (env->p[0] * k[0]);
+		if (k[2] >= 0)
+			ft_cast_xp(i, p1, k, env);
+		else
+			ft_cast_xn(i, p1, k, env);
+	}
 	else
-		p1[5] = i[4] * BLOCK_SIZE;
-	p1[4] = (p1[5] - k[1]) / k[0];
-	if (ft_ray_cast(i, &p1[4], env))
-		return (1);
-	else
-		ft_floor_ceiling(i, &p1[4], env);
-	return (0);
+	{
+		k[0] = k[2] / k[3];
+		k[1] = env->p[0] - (env->p[1] * k[0]);
+		if (k[3] >= 0)
+			ft_cast_yp(i, p1, k, env);
+		else
+			ft_cast_yn(i, p1, k, env);
+	}
 }
 
-int			ft_cast0_y(int *i, double *p1, double *k, t_env *env)
+void		ft_raycasting(t_env *env)
 {
-	if (i[1] > i[3])
-		p1[4] = i[1] * BLOCK_SIZE;
-	else
-		p1[4] = i[3] * BLOCK_SIZE;
-	p1[5] = (p1[4] - k[1]) / k[0];
-	if (ft_ray_cast(i, &p1[4], env))
-		return (1);
-	else
-		ft_floor_ceiling(i, &p1[4], env);
-	return (0);
+	double	p1[6];
+	double	k[4];
+	int		i[10];
+
+	i[0] = 0;
+	while (i[0] < WIDTH)
+	{
+		i[6] = 0;
+		i[7] = 0;
+		i[8] = 0;
+		i[9] = HEIGHT;
+		i[1] = env->i[0];
+		i[2] = env->i[1];
+		i[3] = i[1];
+		i[4] = i[2];
+		k[0] = env->map->zrot + env->angle[i[0]];
+		p1[0] = env->p[0] + (env->hypo[i[0]] * cos(k[0]));
+		p1[1] = env->p[1] + (env->hypo[i[0]] * sin(k[0]));
+		k[2] = p1[0] - env->p[0];
+		k[3] = p1[1] - env->p[1];
+		ft_check_equation(i, p1, k, env);
+		i[0]++;
+	}
 }

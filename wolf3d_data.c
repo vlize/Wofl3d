@@ -59,10 +59,23 @@ int		ft_put_data(t_map *map, char *line, size_t *l, double *data)
 	return (0);
 }
 
-void	ft_check_tex(t_pln *pln)
+void	ft_check_tex(t_pln *pln, t_env *env)
 {
-	if ((pln->type < 'a') || (pln->type > 'z'));
+	t_tex	*tmp;
+
+	if ((pln->type < 'a') || (pln->type > 'z'))
 		return ;
+	tmp = env->tex->next;
+	while (tmp)
+	{
+		if ((tmp->type == pln->color) && (tmp->nbr == pln->nbr))
+		{
+			pln->tex = tmp;
+			return ;
+		}
+		tmp = tmp->next;
+	}
+	pln->tex = env->tex;
 }
 
 void	ft_put_pln(t_env *env, size_t *l, t_pln *pln)
@@ -91,6 +104,7 @@ void	ft_put_pln(t_env *env, size_t *l, t_pln *pln)
 	}
 	if (pln->pts < 3)
 		exit(ft_put_error("ft_put_pln(): invalid map file.", env));
+	return (ft_check_tex(pln, env));
 }
 
 void	ft_put_obj(t_env *env, size_t *l, t_obj *obj)

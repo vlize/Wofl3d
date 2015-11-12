@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wolf3d_surface.c                                   :+:      :+:    :+:   */
+/*   wolf3d_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlize <vlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 09:19:18 by vlize             #+#    #+#             */
-/*   Updated: 2015/11/06 09:19:19 by vlize            ###   ########.fr       */
+/*   Created: 2015/11/10 09:02:20 by vlize             #+#    #+#             */
+/*   Updated: 2015/11/10 09:02:21 by vlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "wolf3d.h"
 
-void	ft_wall(int *i, double *p1, t_env *env)
+void	ft_wall(int *i, double *p1, t_pln *pln, t_env *env)
 {
-	intmax_t	y[2];
+	intmax_t	y[4];
 	double		k[2];
 
 	k[0] = env->p[0] - p1[0];
@@ -26,8 +26,13 @@ void	ft_wall(int *i, double *p1, t_env *env)
 	k[1] = ((env->p[2] + env->tall) * DEPTH) / k[0];
 	y[0] = HEIGHT_2 + k[1] - (DEPTH * BLOCK_SIZE / k[0]);
 	y[1] = HEIGHT_2 + k[1];
+	y[2] = y[0];
+	y[3] = y[1] - y[0];
 	ft_window_limits(&y[0], &y[1]);
-	ft_set_pixel((y[0] * WIDTH + i[0]), (y[1] * WIDTH + i[0]), i[5], env);
+	if (pln->type == 'w')
+		ft_set_texture(i, y, pln, env);
+	else
+		ft_set_pixel((y[0] * WIDTH + i[0]), (y[1] * WIDTH + i[0]), i[5], env);
 	ft_set_pixel((y[1] * WIDTH + i[0]), (i[9] * WIDTH + i[0]), i[7], env);
 	if (i[6] >= 0)
 		ft_set_pixel((i[8] * WIDTH + i[0]), (y[0] * WIDTH + i[0]), i[6], env);
@@ -56,4 +61,36 @@ void	ft_floor_ceiling(int *i, double *p1, t_env *env)
 		ft_set_skybox(i[0], i[8], y[0], env);
 	i[9] = y[1];
 	i[8] = y[0];
+}
+
+t_pln	*ft_cast0_x(int *i, double *p1, double *k, t_env *env)
+{
+	t_pln	*ret;
+
+	if (i[2] > i[4])
+		p1[5] = i[2] * BLOCK_SIZE;
+	else
+		p1[5] = i[4] * BLOCK_SIZE;
+	p1[4] = (p1[5] - k[1]) / k[0];
+	if ((ret = ft_ray_cast(i, &p1[4], env)))
+		return (ret);
+	else
+		ft_floor_ceiling(i, &p1[4], env);
+	return (NULL);
+}
+
+t_pln	*ft_cast0_y(int *i, double *p1, double *k, t_env *env)
+{
+	t_pln	*ret;
+
+	if (i[1] > i[3])
+		p1[4] = i[1] * BLOCK_SIZE;
+	else
+		p1[4] = i[3] * BLOCK_SIZE;
+	p1[5] = (p1[4] - k[1]) / k[0];
+	if ((ret = ft_ray_cast(i, &p1[4], env)))
+		return (ret);
+	else
+		ft_floor_ceiling(i, &p1[4], env);
+	return (NULL);
 }

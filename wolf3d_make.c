@@ -90,7 +90,7 @@ t_pln	*ft_make_pln(t_block *block)
 	if (!(tmp->next = (t_pln *)malloc(sizeof(t_pln))))
 		return (NULL);
 	(tmp->next)->pts = 0;
-	(tmp->pln)->tex = NULL;
+	(tmp->next)->tex = NULL;
 	(tmp->next)->next = NULL;
 	return (tmp->next);
 }

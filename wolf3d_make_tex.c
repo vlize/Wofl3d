@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "libft.h"
 #include "wolf3d.h"
 
@@ -23,6 +24,7 @@ static void	ft_make_tex0(t_env *env)
 	ft_load_texture("xpm/liquid0.xpm", "l0", env);
 	ft_load_texture("xpm/grass0.xpm", "g0", env);
 	ft_load_texture("xpm/grass1.xpm", "g1", env);
+	ft_load_texture("xpm/grass1.xpm", "g2", env);
 	ft_load_texture("xpm/rock0.xpm", "r0", env);
 	ft_load_texture("xpm/rock1.xpm", "r1", env);
 	ft_load_texture("xpm/rock2.xpm", "r2", env);
@@ -32,6 +34,9 @@ static void	ft_make_tex0(t_env *env)
 	ft_load_texture("xpm/wood0.xpm", "w0", env);
 	ft_load_texture("xpm/wood1.xpm", "w1", env);
 	ft_load_texture("xpm/wood2.xpm", "w2", env);
+	ft_load_texture("xpm/tree0.xpm", "t0", env);
+	ft_load_texture("xpm/tree1.xpm", "t1", env);
+	ft_load_texture("xpm/tree2.xpm", "t2", env);
 }
 
 void		ft_make_tex(t_env *env)

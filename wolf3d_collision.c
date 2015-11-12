@@ -35,9 +35,7 @@ double		*ft_collision(double *a, double *b, double *c, double *d)
 		i[0] = c[0];
 	if (!i[3])
 		i[1] = c[1];
-	if (((i[0] > c[0]) && (i[0] > d[0])) || ((i[0] < c[0]) && (i[0] < d[0])))
-		return (NULL);
-	if (((i[1] > c[1]) && (i[1] > d[1])) || ((i[1] < c[1]) && (i[1] < d[1])))
+	if (!ft_check_border(i, c, d))
 		return (NULL);
 	return (i);
 }
@@ -89,7 +87,7 @@ void		ft_crash_check(t_env *env)
 			pln = env->map->tab[i[0]][i[4]]->pln;
 			while (pln)
 			{
-				if (pln->type == 'W')
+				if ((pln->type == 'W') || (pln->type == 'w'))
 					ft_positon_check(pln, env);
 				pln = pln->next;
 			}

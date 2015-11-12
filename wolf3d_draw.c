@@ -12,9 +12,8 @@
 
 #include "libft.h"
 #include "wolf3d.h"
-#include "wolf3d_color.h"
 
-static void	ft_set_color(uint *n, int endian)
+static void	ft_set_color(uint *n, int endian, char *s)
 {
 	if (endian == 1)
 	{
@@ -27,6 +26,35 @@ static void	ft_set_color(uint *n, int endian)
 		n[1] = n[0] & 0xFF;
 		n[2] = (n[0] >> 8) & 0xFF;
 		n[3] = (n[0] >> 16) & 0xFF;
+	}
+	ft_memcpy(s, &n[1], 1);
+	ft_memcpy(&s[1], &n[2], 1);
+	ft_memcpy(&s[2], &n[3], 1);
+}
+
+void		ft_set_texture(int *i, intmax_t *y, t_pln *pln, t_env *env)
+{
+	uint	n[4];
+	int		j[3];
+	double	k[2];
+
+	if (y[0] >= y[1])
+		return ;
+	j[0] = (y[0] * WIDTH + i[0]) * 4;
+	j[1] = (y[1] * WIDTH + i[0]) * 4;
+	k[0] = (double)BLOCK_SIZE / y[3];
+	k[1] = 0;
+	if (y[2] < 0)
+		k[1] = (0 - y[2]) * k[0];
+	while (j[0] < j[1])
+	{
+		j[2] = k[1];
+		if (j[2] >= BLOCK_SIZE)
+			j[2] = BLOCK_SIZE - 1;
+		n[0] = pln->tex->tex[i[5]][j[2]];
+		ft_set_color(n, env->endian, &env->addr[j[0]]);
+		j[0] += INC_PIX;
+		k[1] += k[0];
 	}
 }
 
@@ -41,16 +69,13 @@ void		ft_set_skybox(int x, int y, int ymax, t_env *env)
 	j[0] = (y * WIDTH + x) * 4;
 	j[1] = (ymax * WIDTH + x) * 4;
 	j[2] = y;
+	angle = env->map->zrot + env->angle[x];
+	ft_angle_limits(&angle);
 	while (j[0] < j[1])
 	{
-		angle = env->map->zrot + env->angle[x];
-		ft_angle_limits(&angle);
 		j[3] = angle * WIDTH4 / PI2;
 		n[0] = env->map->sky[j[3]][j[2]];
-		ft_set_color(n, env->endian);
-		ft_memcpy((env->addr + j[0]), &n[1], 1);
-		ft_memcpy((env->addr + j[0] + 1), &n[2], 1);
-		ft_memcpy((env->addr + j[0] + 2), &n[3], 1);
+		ft_set_color(n, env->endian, &env->addr[j[0]]);
 		j[0] += INC_PIX;
 		j[2]++;
 	}
@@ -64,65 +89,11 @@ void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 	if (ymin >= ymax)
 		return ;
 	n[0] = color;
-	ft_set_color(n, env->endian);
 	j[0] = ymin * 4;
 	j[1] = ymax * 4;
 	while (j[0] < j[1])
 	{
-		ft_memcpy((env->addr + j[0]), &n[1], 1);
-		ft_memcpy((env->addr + j[0] + 1), &n[2], 1);
-		ft_memcpy((env->addr + j[0] + 2), &n[3], 1);
+		ft_set_color(n, env->endian, &env->addr[j[0]]);
 		j[0] += INC_PIX;
-	}
-}
-
-static void	ft_check_equation(int *i, double *p1, double *k, t_env *env)
-{
-	p1[0] = env->p[0];
-	p1[1] = env->p[1];
-	if (fabs(k[2]) >= fabs(k[3]))
-	{
-		k[0] = k[3] / k[2];
-		k[1] = env->p[1] - (env->p[0] * k[0]);
-		if (k[2] >= 0)
-			ft_cast_xp(i, p1, k, env);
-		else
-			ft_cast_xn(i, p1, k, env);
-	}
-	else
-	{
-		k[0] = k[2] / k[3];
-		k[1] = env->p[0] - (env->p[1] * k[0]);
-		if (k[3] >= 0)
-			ft_cast_yp(i, p1, k, env);
-		else
-			ft_cast_yn(i, p1, k, env);
-	}
-}
-
-void		ft_raycasting(t_env *env)
-{
-	double	p1[6];
-	double	k[4];
-	int		i[10];
-
-	i[0] = 0;
-	while (i[0] < WIDTH)
-	{
-		i[6] = NIGHT;
-		i[7] = NIGHT;
-		i[8] = 0;
-		i[9] = HEIGHT;
-		i[1] = env->i[0];
-		i[2] = env->i[1];
-		i[3] = i[1];
-		i[4] = i[2];
-		k[0] = env->map->zrot + env->angle[i[0]];
-		p1[0] = env->p[0] + (env->hypo[i[0]] * cos(k[0]));
-		p1[1] = env->p[1] + (env->hypo[i[0]] * sin(k[0]));
-		k[2] = p1[0] - env->p[0];
-		k[3] = p1[1] - env->p[1];
-		ft_check_equation(i, p1, k, env);
-		i[0]++;
 	}
 }

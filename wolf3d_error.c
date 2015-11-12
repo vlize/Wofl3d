@@ -42,3 +42,16 @@ t_color	*ft_put_error0(char *s, t_env *env)
 	ft_put_error(s, env);
 	return (NULL);
 }
+
+int		ft_check_border(double *i, double *c, double *d)
+{
+	if ((i[0] > c[0] + 0.0001) && (i[0] > d[0] + 0.0001))
+		return (0);
+	if ((i[0] < c[0] - 0.0001) && (i[0] < d[0] - 0.0001))
+		return (0);
+	if ((i[1] > c[1] + 0.0001) && (i[1] > d[1] + 0.0001))
+		return (0);
+	if ((i[1] < c[1] - 0.0001) && (i[1] < d[1] - 0.0001))
+		return (0);
+	return (1);
+}
