@@ -19,9 +19,9 @@
 # define ORANGE0 0xffaf00
 # define ORANGE1 0xff7f00
 # define ORANGE2 0xdf3f00
-# define YELLOW0 0xffff7f
+# define YELLOW0 0xffff77
 # define YELLOW1 0xffff00
-# define YELLOW2 0xffdf00
+# define YELLOW2 0xffcc00
 # define CYAN 0x00ffff
 
 # define GREEN0 0x7fff7f

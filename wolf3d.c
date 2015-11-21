@@ -123,8 +123,8 @@ int			main(int ac, char **av)
 	if (!(env->img = mlx_new_image(env->mlx, WIDTH, HEIGHT)))
 		return (ft_perror("mlx_new_image()", env));
 	env->addr = mlx_get_data_addr(env->img, &env->bpp, &env->sl, &env->endian);
-	mlx_expose_hook(env->win, ft_expose_hook, env);
 	mlx_hook(env->win, KeyPress, KeyPressMask, ft_keypress_hook, env);
 	mlx_hook(env->win, KeyRelease, KeyReleaseMask, ft_keyrelease_hook, env);
+	mlx_loop_hook(env->mlx, ft_expose_hook, env);
 	return (mlx_loop(env->mlx));
 }

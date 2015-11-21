@@ -48,3 +48,18 @@ int		ft_limit_xy(int *i, t_env *env)
 		return (0);
 	return (1);
 }
+
+double	*ft_ray_limits(double *p1, double *p0, double *p)
+{
+	if (!((p1[0] > p0[0]) && (p1[0] > p[0])))
+	{
+		if (!((p1[0] < p0[0]) && (p1[0] < p[0])))
+			return (p0);
+	}
+	if (!((p1[1] > p0[1]) && (p1[1] > p[1])))
+	{
+		if (!((p1[1] < p0[1]) && (p1[1] < p[1])))
+			return (p0);
+	}
+	return (p1);
+}

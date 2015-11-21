@@ -39,11 +39,11 @@
 # define BLOCK_SIZE 256
 # define TALL_MAX 128
 # define TALL_MIN 64
-# define SPD_MAX 32
-# define SPD_MIN 16
+# define SPD_MAX 12
+# define SPD_MIN 6
 # define JMP_MAX 72
-# define JMP_SPD 9
-# define FALL_SPD 12
+# define JMP_SPD 6
+# define FALL_SPD 8
 # define ROT_SPD 5
 # define RAD 0.0174532925199432
 # define PI2 6.283185307179587
@@ -157,8 +157,16 @@ typedef struct		s_env
 	t_map			*map;
 	t_tex			*tex;
 	t_tex			*tmp;
-	double			hypo[WIDTH];
+	t_pln			*ret[3];
+	double			k[4];
+	double			pf[3];
+	double			pc[3];
+	double			cos0;
+	double			sin0;
+	double			coef0;
+	double			angle0;
 	double			coef[WIDTH];
+	double			hypo[WIDTH];
 	double			angle[WIDTH];
 	double			rad_spd;
 	double			mrot;
@@ -196,12 +204,13 @@ t_obj				*ft_make_obj(t_block *block);
 int					ft_make_coef(t_env *env);
 int					ft_make_tab(t_map *map, int x, int y);
 int					ft_make_key(t_env *env);
+void				ft_key_event(t_env *env);
 int					ft_expose_hook(t_env *env);
-int					ft_key_event(t_env *env);
 int					ft_keypress_hook(int keycode, t_env *env);
 int					ft_keyrelease_hook(int keycode, t_env *env);
 int					ft_reset(t_env *env);
 int					ft_limit_xy(int *i, t_env *env);
+double				*ft_ray_limits(double *p1, double *p0, double *p);
 void				ft_window_limits(intmax_t *y0, intmax_t *y1);
 void				ft_map_limits(double *p, t_map *map);
 void				ft_angle_limits(double *angle);
@@ -212,12 +221,12 @@ void				ft_cast_xp(int *i, double *p1, double *k, t_env *env);
 void				ft_cast_xn(int *i, double *p1, double *k, t_env *env);
 void				ft_cast_yp(int *i, double *p1, double *k, t_env *env);
 void				ft_cast_yn(int *i, double *p1, double *k, t_env *env);
-void				ft_wall(int *i, double *p1, t_pln *pln, t_env *env);
+void				ft_wall(int *i, double *p1, t_env *env);
 void				ft_floor_ceiling(int *i, double *p1, t_env *env);
 double				*ft_collision(double *a, double *b, double *c, double *d);
 t_pln				*ft_ray_cast(int *i, double *p1, t_env *env);
-t_pln				*ft_cast0_x(int *i, double *p1, double *k, t_env *env);
-t_pln				*ft_cast0_y(int *i, double *p1, double *k, t_env *env);
+int					ft_cast0_x(int *i, double *p1, double *k, t_env *env);
+int					ft_cast0_y(int *i, double *p1, double *k, t_env *env);
 t_color				*ft_perror0(char *s, t_env *env);
 t_color				*ft_put_error0(char *s, t_env *env);
 t_color				*ft_load_color(int fd, int *n, t_env *env);
@@ -226,8 +235,11 @@ void				ft_load_skybox(t_env *env);
 void				ft_load_texture(char *s1, char *s2, t_env *env);
 void				ft_make_tex(t_env *env);
 void				ft_search_line(int fd, int *gnl, char **line);
+void				ft_set_color(uint *n, int endian, char *s);
 void				ft_set_pixel(int ymin, int ymax, int color, t_env *env);
 void				ft_set_skybox(int x, int y, int ymax, t_env *env);
-void				ft_set_texture(int *i, intmax_t *y, t_pln *pln, t_env *env);
+void				ft_set_texture(int *i, intmax_t *y, t_env *env);
+void				ft_set_tex_f(int *i, intmax_t *y, double *p1, t_env *env);
+void				ft_set_tex_c(int *i, intmax_t *y, double *p1, t_env *env);
 
 #endif

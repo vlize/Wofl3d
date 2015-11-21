@@ -24,7 +24,7 @@ static void	ft_make_tex0(t_env *env)
 	ft_load_texture("xpm/liquid0.xpm", "l0", env);
 	ft_load_texture("xpm/grass0.xpm", "g0", env);
 	ft_load_texture("xpm/grass1.xpm", "g1", env);
-	ft_load_texture("xpm/grass1.xpm", "g2", env);
+	ft_load_texture("xpm/grass2.xpm", "g2", env);
 	ft_load_texture("xpm/rock0.xpm", "r0", env);
 	ft_load_texture("xpm/rock1.xpm", "r1", env);
 	ft_load_texture("xpm/rock2.xpm", "r2", env);

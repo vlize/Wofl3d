@@ -16,8 +16,10 @@
 
 int			ft_expose_hook(t_env *env)
 {
+	ft_key_event(env);
 	ft_position(env);
 	ft_raycasting(env);
+	usleep(1000);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return (0);
 }
@@ -32,7 +34,7 @@ static int	ft_keyrelease_hook0(int keycode, t_env *env)
 		env->key->turn_l[1] = 0;
 	if (keycode == 124)
 		env->key->turn_r[1] = 0;
-	return (ft_key_event(env));
+	return (0);
 }
 
 int			ft_keyrelease_hook(int keycode, t_env *env)
@@ -68,7 +70,7 @@ static int	ft_keypress_hook0(int keycode, t_env *env)
 		env->key->turn_l[1] = 1;
 	if (keycode == 124)
 		env->key->turn_r[1] = 1;
-	return (ft_key_event(env));
+	return (0);
 }
 
 int			ft_keypress_hook(int keycode, t_env *env)

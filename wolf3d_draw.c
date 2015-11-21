@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "wolf3d.h"
 
-static void	ft_set_color(uint *n, int endian, char *s)
+void	ft_set_color(uint *n, int endian, char *s)
 {
 	if (endian == 1)
 	{
@@ -32,7 +32,7 @@ static void	ft_set_color(uint *n, int endian, char *s)
 	ft_memcpy(&s[2], &n[3], 1);
 }
 
-void		ft_set_texture(int *i, intmax_t *y, t_pln *pln, t_env *env)
+void	ft_set_texture(int *i, intmax_t *y, t_env *env)
 {
 	uint	n[4];
 	int		j[3];
@@ -51,14 +51,14 @@ void		ft_set_texture(int *i, intmax_t *y, t_pln *pln, t_env *env)
 		j[2] = k[1];
 		if (j[2] >= BLOCK_SIZE)
 			j[2] = BLOCK_SIZE - 1;
-		n[0] = pln->tex->tex[i[5]][j[2]];
+		n[0] = env->ret[0]->tex->tex[i[5]][j[2]];
 		ft_set_color(n, env->endian, &env->addr[j[0]]);
 		j[0] += INC_PIX;
 		k[1] += k[0];
 	}
 }
 
-void		ft_set_skybox(int x, int y, int ymax, t_env *env)
+void	ft_set_skybox(int x, int y, int ymax, t_env *env)
 {
 	uint	n[4];
 	int		j[4];
@@ -69,7 +69,7 @@ void		ft_set_skybox(int x, int y, int ymax, t_env *env)
 	j[0] = (y * WIDTH + x) * 4;
 	j[1] = (ymax * WIDTH + x) * 4;
 	j[2] = y;
-	angle = env->map->zrot + env->angle[x];
+	angle = env->angle0;
 	ft_angle_limits(&angle);
 	while (j[0] < j[1])
 	{
@@ -81,7 +81,7 @@ void		ft_set_skybox(int x, int y, int ymax, t_env *env)
 	}
 }
 
-void		ft_set_pixel(int ymin, int ymax, int color, t_env *env)
+void	ft_set_pixel(int ymin, int ymax, int color, t_env *env)
 {
 	uint	n[4];
 	int		j[2];

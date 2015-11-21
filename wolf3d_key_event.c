@@ -20,7 +20,7 @@ static int	k_c(int *key)
 	return (0);
 }
 
-static int	ft_key_event0(t_env *env)
+static void	ft_key_event0(t_env *env)
 {
 	if (env->key->jump && !env->map->fall && (env->map->jump < JMP_MAX))
 		env->map->jump += JMP_SPD;
@@ -34,10 +34,9 @@ static int	ft_key_event0(t_env *env)
 		env->map->sspd = 0;
 	if (!env->key->strafe_r && !env->key->strafe_l && (env->map->sspd > 0))
 		env->map->sspd = 0;
-	return (ft_expose_hook(env));
 }
 
-int			ft_key_event(t_env *env)
+void		ft_key_event(t_env *env)
 {
 	if (!env->key->crouch && (env->tall = TALL_MAX))
 		env->spd = SPD_MAX;
