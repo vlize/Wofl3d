@@ -77,7 +77,7 @@ int		ft_reset(t_env *env)
 	env->key->use = 0;
 	env->tall = TALL_MAX;
 	env->spd = SPD_MAX;
-	return (ft_expose_hook(env));
+	return (0);
 }
 
 int		ft_init_win(t_env *env)

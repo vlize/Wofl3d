@@ -14,7 +14,6 @@
 # define WOLF3D_H
 
 # include <sys/types.h>
-# include <sys/uio.h>
 # include <limits.h>
 # include <unistd.h>
 # include <string.h>
@@ -26,13 +25,9 @@
 
 # define WIDTH 1280
 # define WIDTH_2 640
-# define WIDTH_4 320
-# define WIDTH3_4 960
 # define WIDTH4 5120
 # define HEIGHT 720
 # define HEIGHT_2 360
-# define HEIGHT_4 180
-# define HEIGHT3_4 540
 # define DEPTH 640
 # define FOV 90
 # define FOV_2 45
@@ -47,8 +42,6 @@
 # define ROT_SPD 5
 # define RAD 0.0174532925199432
 # define PI2 6.283185307179587
-# define PI_2 1.570796326794897
-# define PI_4 0.7853981633974482
 # define INC_PIX WIDTH4
 
 typedef struct		s_color

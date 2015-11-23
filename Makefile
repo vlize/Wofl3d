@@ -22,7 +22,7 @@ OBJ = $(SRC:.c=.o)
 
 LIB =	-L ./libft/ -lft \
 		-framework OpenGL -framework AppKit \
-		-lmlx -lm -lpthread -D_REENTRANT
+		-lmlx -lm
 
 INC =	-I . -I libft/includes/ \
 		-I /System/Library/Frameworks/Tk.framework/Headers/ \

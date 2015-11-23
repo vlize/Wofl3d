@@ -108,11 +108,11 @@ void		ft_position(t_env *env)
 	if (env->map->mspd || env->map->sspd)
 		env->map->spd = env->spd;
 	if (env->map->mspd > 0)
-		env->mrot += env->map->sspd * PI_4;
+		env->mrot += env->map->sspd * M_PI_4;
 	else if (!env->map->mspd)
-		env->mrot += env->map->sspd * PI_2;
+		env->mrot += env->map->sspd * M_PI_2;
 	else
-		env->mrot += M_PI - (env->map->sspd * PI_4);
+		env->mrot += M_PI - (env->map->sspd * M_PI_4);
 	env->map->p[0] = env->p[0] + (cos(env->mrot) * env->map->spd);
 	env->map->p[1] = env->p[1] + (sin(env->mrot) * env->map->spd);
 	if (env->map->jump && !env->map->fall)
